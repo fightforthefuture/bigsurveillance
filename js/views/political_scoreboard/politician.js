@@ -2,7 +2,7 @@ var PoliticianView = function(data) {
     var div = $c('div');
 
     var img = $c('div');
-    img.style.backgroundImage ='url(../congress/'+data.politician.image+')';
+    img.style.backgroundImage ='url(congress/'+data.politician.image+')';
     img.style.backgroundSize = '100% auto';
     img.className = 'img ';
 
