@@ -1,0 +1,26 @@
+{
+  "name": "bigsurveillance",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "postinstall": "",
+    "test": "node ./test/tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fightforthefuture/mothership-js.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-less": "~0.11.4",
+    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-contrib-watch": "~0.6.1"
+  }
+}
