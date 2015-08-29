@@ -5,14 +5,14 @@ which is the best framework ever.
 ## Developing locally
 
 * `npm install` to install packages,
-* `grunt` to run grunt (automatically minifies JS and LESS)
+* `grunt` to run grunt (automatically minifies JS and LESS on save)
 * Host the project at `bigsurveillance.dev` to get TypeKit to work
 
 ## Code structure
 
 **JavaScript:**
 
-* `js/main.js` contains the main page logic. It uses AJAX to getthe user's
+* `js/main.js` contains the main page logic. It uses XHR to grab the user's
   location from [fftf-geocoder](https://fftf-geocoder.herokuapp.com) and also
   the Political Scoreboard spreadsheet from Google Docs. Once both of these are
   loaded, it spawns the Political Scoreboard Controller
