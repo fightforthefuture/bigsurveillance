@@ -71,7 +71,7 @@ xhr.onreadystatechange = function() {
         }
 
         // convert to a filter collection (which allows us to filter on state)
-        politicians = new PoliticiansFilter(politicians);
+        politicians = new PoliticiansStateFilter(politicians);
 
         checkIfFinishedWithXHRs();
     } 

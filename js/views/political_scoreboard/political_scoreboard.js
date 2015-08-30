@@ -21,29 +21,56 @@ var PoliticalScoreboardView = function(data) {
 
     div.appendChild(select);
 
-    var span = $c('span');
-    span.textContent = 'Sort by:';
-    div.appendChild(span);
-
-    var a = $c('a');
-    a.className = 'sort name sel';
-    a.href = '#';
-    a.textContent = 'Name';
-    div.appendChild(a);
-
-    var span = $c('span');
-    span.textContent = '|';
-    div.appendChild(span);
-
-    var a = $c('a');
-    a.className = 'sort grade';
-    a.href = '#';
-    a.textContent = 'Grade';
-    div.appendChild(a);
-
     var politicians = $c('div');
     politicians.className = 'politicians';
     div.appendChild(politicians);
+
+    var good = $c('div');
+    good.className = 'good panel';
+
+    var h3 = $c('h3');
+    h3.textContent = 'Team Internet';
+    good.appendChild(h3);
+
+    var em = $c('em');
+    em.textContent = 'These politicians are standing up for the free Internet and oppose mass surveillance.';
+    good.appendChild(em);
+
+    var filtered = $c('div');
+    filtered.className = 'filtered';
+    good.appendChild(filtered);
+
+    div.appendChild(good);
+
+    var bad = $c('div');
+    bad.className = 'bad panel';
+
+    var h3 = $c('h3');
+    h3.textContent = 'Team Control';
+    bad.appendChild(h3);
+
+    var em = $c('em');
+    em.textContent = 'These politicians are working to expand the surveillance state and control the Internet.';
+    bad.appendChild(em);
+
+    var filtered = $c('div');
+    filtered.className = 'filtered';
+    bad.appendChild(filtered);
+
+    div.appendChild(bad);
+
+    var meh = $c('div');
+    meh.className = 'meh panel';
+
+    var h3 = $c('h3');
+    h3.textContent = 'Unclear';
+    meh.appendChild(h3);
+
+    var filtered = $c('div');
+    filtered.className = 'filtered';
+    meh.appendChild(filtered);
+
+    div.appendChild(meh);
 
     return div;
 };

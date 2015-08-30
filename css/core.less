@@ -26,19 +26,19 @@ table { border-collapse: collapse; border-spacing: 0; }
 body {
     padding: 0px 15px;
     background: #060607 url(../images/dome.jpg) center top no-repeat;
-    background-size: 100% auto;
-    padding-top: 5rem;
+    /*background-size: 100% auto;*/
+    padding-top: 5.85rem;
     font-family: "open-sans";
 }
 
 h1 {
     font-family: "bebas-neue";
     color: white;
-    font-size: 6rem;
+    font-size: 6.6rem;
     text-align: center;
-    letter-spacing: .1rem;
-    line-height: 5rem;
-    margin-bottom: 25px;
+    letter-spacing: .05rem;
+    line-height: 5.42rem;
+    margin-bottom: 1.9rem;
 
     em {
         display: block;
@@ -46,24 +46,31 @@ h1 {
 }
 h2 {
     font-family: "bebas-neue";
-    color: white;
-    font-size: 4rem;
+    color: #dfdff4;
+    font-size: 5rem;
     text-align: center;
     letter-spacing: .1rem;
     margin-bottom: 25px;
+}
+h3 {
+    font-family: "bebas-neue";
+    display: block;
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: .5rem;
 }
 
 p {
     text-align: center;
     max-width: 700px;
-    margin: 0px auto 25px auto;
+    margin: 0px auto 1.9rem auto;
     color: #bcc7e4;
     font-size: 1.3em;
     line-height: 1.5em;
 
     &.cta {
-        font-size: 1.2rem;
-        line-height: 1.5rem;
+        font-size: 1.06rem;
+        line-height: 1.45rem;
         color: white;
     }
 }
@@ -72,36 +79,43 @@ p {
 }
 
 .action {
-    max-width: 700px;
-    padding: 20px 15px;
-    margin: 35px auto;
+    max-width: 652px;
+    padding: 1.5rem .9rem 1rem .9rem;
+    margin: 2.55rem auto;
     background: rgba(68, 68, 87, .75);
     color: white;
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-align: center;
     border-radius: 10px;
 
     .petition {
         form {
-            margin: 15px 0px;
-            border-radius: 7px;
-            padding: 7px;
-            background: white;
+            margin: 1.05rem 0px;
+            padding: 0px;
             border: 3px solid #3f3f50;
+            border-radius: 7px;
+            background: white;
 
             input {
                 border: 0px none transparent;
-                height: 50px;
-                font-size: 1.5rem;
+                height: 3.4rem;
+                font-size: 1.4rem;
+                background: white;
 
                 &[name=email] {
                     border-right: 1px solid #cfcfcf;
-                    width: 40%;
+                    -webkit-border-top-left-radius: 7px;
+                    -webkit-border-bottom-left-radius: 7px;
+                    -moz-border-radius-topleft: 7px;
+                    -moz-border-radius-bottomleft: 7px;
+                    border-top-left-radius: 7px;
+                    border-bottom-left-radius: 7px;
+                    width: 41.5%;
                     padding-left: 15px;
                 }
                 &[name=zip] {
-                    width: 30%;
+                    width: 20%;
                     padding-left: 15px;
                     border-right: 7px solid white;
                 }
@@ -111,16 +125,23 @@ p {
                 }
             }
             button {
-                width: 30%;
+                width: 38.5%;
                 background: #ff4d4d;
-                font-size: 1.5rem;
-                height: 50px;
+                font-size: 1.4rem;
+                line-height: 1.6rem;
+                height: 3.4rem;
+                vertical-align: top;
                 text-transform: uppercase;
                 text-align: center;
-                letter-spacing: .1rem;
-                border: 0px none transparent;
+                letter-spacing: .05rem;
                 color: white;
-                border-radius: 7px;
+                border-top-width: .4rem;
+                border-right-width: .5rem;
+                border-bottom-width: .35em;
+                border-left-width: .5rem;
+                border-style: solid;
+                border-color: white;
+                border-radius: 14px;
                 overflow: hidden;
                 white-space: nowrap;
                 cursor: pointer;
@@ -148,7 +169,7 @@ p {
 .scoreboard {
     background: #1e1e27;
     border-top: 6px solid #262632;
-    padding: 30px 0px 30px 0px;
+    padding: 2rem 0px 0px 0px;
     border-radius: 5px;
     max-width: 768px;
     margin: 60px auto;
@@ -178,17 +199,64 @@ p {
         }
     }
 
-    .politicians {
-        margin: 23px 0px 0px 0px;
+    .panel {
+        display: inline-block;
+        vertical-align: top;
+        padding: 1.5rem 0 0 0;
+        border-top: 2px solid #15151a;
+        
+        text-align: left;
+
+        em {
+            display: block;
+            text-align: center;
+            padding: 0rem 1rem 1.5rem 1rem;
+            border-bottom: 2px solid #15151a;
+            font-size: .9rem;
+            line-height: 1.2rem;
+            color: #737396;
+        }
+
+        &.good {
+            width: 50%;
+            background: #2b2b3b;
+            margin-top: 1rem;
+
+            h3 {
+                color: #52bdfc;
+            }
+        }
+        &.bad {
+            width: 50%;
+            background: #18181f;
+            margin-top: 1rem;
+
+            h3 {
+                color: #ff353c;
+            }
+        }
+        &.meh {
+            width: 100%;
+            background: #202032;
+            h3 {
+                color: #6e41d3;
+                padding-bottom: 1.5rem;
+                margin-bottom: 0px;
+            }
+        }
+    }
+
+    .filtered {
 
         .politician {
             display: inline-block;
             position: relative;
             background-color: gray;
+            text-align: center;
 
             .img {
-                width: 150px;
-                height: 181px;
+                width: 128px;
+                height: 156px;
                 cursor: pointer;
                 background-position: center center;
                 background-repeat: no-repeat;
@@ -259,7 +327,7 @@ p {
                     color: white;
                     text-decoration: none;
                     font-size: 1.1rem;
-                    width: 110px;
+                    width: 100px;
                     
                     display: inline-block;
                     padding: 5px;

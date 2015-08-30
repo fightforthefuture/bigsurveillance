@@ -31,7 +31,7 @@ var PoliticianView = function(data) {
         a.className = 'tweet_link';
         a.href = '#';
         var img = $c('img');
-        img.src = '../images/tw_white.png';
+        img.src = 'images/tw_white.png';
         a.appendChild(img);
         var span = $c('span');
         span.textContent = 'Tweet';

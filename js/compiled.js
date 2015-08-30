@@ -1,29 +1,59 @@
-var PoliticalScoreboardController = Composer.ListController.extend({
+var PoliticalScoreboardController = Composer.Controller.extend({
     elements: {
-        'div.politicians': 'el_list',
-        'select': 'select',
-        'a.sort.grade': 'grade_link',
-        'a.sort.name': 'name_link',
+        '.good .filtered': 'good_list',
+        '.bad .filtered': 'bad_list',
+        '.meh .filtered': 'meh_list',
+        '.panel.meh': 'meh_panel',
+        'select': 'select'
     },
 
     events: {
-        'change select': 'filter',
-        'click a.name': 'sort_name',
-        'click a.grade': 'sort_grade',
+        'change select': 'filter'
     },
 
     collection: null,
+    good: null,
+    bad: null,
+    meh: null,
 
     init: function() {
         this.render();
 
-        
-        this.track(this.collection, function(model, options) {
-            return new PoliticianController({
-                inject: this.el_list,
-                model: model
-            });
-        }.bind(this), {bind_reset: true})
+        this.good = new Composer.FilterCollection(this.collection, {
+            filter: function(model) {
+                return model.get('score') >= 6;
+            }
+        });
+        this.init_list(this.good, this.good_list);
+
+        this.bad = new Composer.FilterCollection(this.collection, {
+            filter: function(model) {
+                return model.get('score') < 0;
+            }
+        });
+        this.init_list(this.bad, this.bad_list);
+
+        this.meh = new Composer.FilterCollection(this.collection, {
+            filter: function(model) {
+                return model.get('score') >= 0 && model.get('score') <= 5;
+            }
+        });
+        this.init_list(this.meh, this.meh_list);
+    },
+
+    init_list: function(filterCollection, inject) {
+        new Composer.ListController({
+            collection: filterCollection,
+            inject: inject,
+            init: function() {
+                this.track(this.collection, function(model, options) {
+                    return new PoliticianController({
+                        inject: this.el,
+                        model: model
+                    });
+                }.bind(this), {bind_reset: true})
+            }
+        });
     },
 
     render: function() {
@@ -36,43 +66,12 @@ var PoliticalScoreboardController = Composer.ListController.extend({
 
         this.collection.state = state;
         this.collection.refresh();
-    },
 
-    sort_name: function(e) {
-        e.preventDefault();
-
-        this.grade_link.className = this.grade_link.className.replace('sel','');
-
-        if (this.name_link.className.indexOf('sel') == -1)
-            this.name_link.className = this.name_link.className + ' sel';
-
-        this.collection.sortfn = function(a, b) {
-            if (a.get('last_name') < b.get('last_name'))
-                return -1;
-            if (a.get('last_name') > b.get('last_name'))
-                return 1;
-            return 0;
-        };
-        this.collection.sort();
-    },
-
-    sort_grade: function(e) {
-        e.preventDefault();
-
-        this.name_link.className = this.name_link.className.replace('sel','');
-        
-        if (this.grade_link.className.indexOf('sel') == -1)
-            this.grade_link.className = this.grade_link.className + ' sel';
-
-        this.collection.sortfn = function(a, b) {
-            if (a.get('score') < b.get('score'))
-                return -1;
-            if (a.get('score') > b.get('score'))
-                return 1;
-            return 0;
-        };
-        this.collection.sort();
-    },
+        if (this.meh.models().length == 0)
+            this.meh_panel.style.display = 'none';
+        else
+            this.meh_panel.style.display = 'inline-block';
+    }
 });var PoliticianController = Composer.Controller.extend({
 
     events: {
@@ -522,16 +521,14 @@ var Politicians = Composer.Collection.extend({
     },
 });
 
-var PoliticiansFilter = Composer.FilterCollection.extend({
+var PoliticiansStateFilter = Composer.FilterCollection.extend({
 
     state: 'MA',
 
     filter: function(model) {
         return model.get('state_short') == this.state;
     }
-});
-
-var PoliticalScoreboardView = function(data) {
+});var PoliticalScoreboardView = function(data) {
     var div = $c('div');
 
     var label = $c('label');
@@ -554,29 +551,56 @@ var PoliticalScoreboardView = function(data) {
 
     div.appendChild(select);
 
-    var span = $c('span');
-    span.textContent = 'Sort by:';
-    div.appendChild(span);
-
-    var a = $c('a');
-    a.className = 'sort name sel';
-    a.href = '#';
-    a.textContent = 'Name';
-    div.appendChild(a);
-
-    var span = $c('span');
-    span.textContent = '|';
-    div.appendChild(span);
-
-    var a = $c('a');
-    a.className = 'sort grade';
-    a.href = '#';
-    a.textContent = 'Grade';
-    div.appendChild(a);
-
     var politicians = $c('div');
     politicians.className = 'politicians';
     div.appendChild(politicians);
+
+    var good = $c('div');
+    good.className = 'good panel';
+
+    var h3 = $c('h3');
+    h3.textContent = 'Team Internet';
+    good.appendChild(h3);
+
+    var em = $c('em');
+    em.textContent = 'These politicians are standing up for the free Internet and oppose mass surveillance.';
+    good.appendChild(em);
+
+    var filtered = $c('div');
+    filtered.className = 'filtered';
+    good.appendChild(filtered);
+
+    div.appendChild(good);
+
+    var bad = $c('div');
+    bad.className = 'bad panel';
+
+    var h3 = $c('h3');
+    h3.textContent = 'Team Control';
+    bad.appendChild(h3);
+
+    var em = $c('em');
+    em.textContent = 'These politicians are working to expand the surveillance state and control the Internet.';
+    bad.appendChild(em);
+
+    var filtered = $c('div');
+    filtered.className = 'filtered';
+    bad.appendChild(filtered);
+
+    div.appendChild(bad);
+
+    var meh = $c('div');
+    meh.className = 'meh panel';
+
+    var h3 = $c('h3');
+    h3.textContent = 'Unclear';
+    meh.appendChild(h3);
+
+    var filtered = $c('div');
+    filtered.className = 'filtered';
+    meh.appendChild(filtered);
+
+    div.appendChild(meh);
 
     return div;
 };var PoliticianView = function(data) {
@@ -612,7 +636,7 @@ var PoliticalScoreboardView = function(data) {
         a.className = 'tweet_link';
         a.href = '#';
         var img = $c('img');
-        img.src = '../images/tw_white.png';
+        img.src = 'images/tw_white.png';
         a.appendChild(img);
         var span = $c('span');
         span.textContent = 'Tweet';
@@ -717,7 +741,7 @@ xhr.onreadystatechange = function() {
         }
 
         // convert to a filter collection (which allows us to filter on state)
-        politicians = new PoliticiansFilter(politicians);
+        politicians = new PoliticiansStateFilter(politicians);
 
         checkIfFinishedWithXHRs();
     } 

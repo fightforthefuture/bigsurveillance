@@ -393,7 +393,7 @@ var Politicians = Composer.Collection.extend({
     },
 });
 
-var PoliticiansFilter = Composer.FilterCollection.extend({
+var PoliticiansStateFilter = Composer.FilterCollection.extend({
 
     state: 'MA',
 
@@ -401,4 +401,3 @@ var PoliticiansFilter = Composer.FilterCollection.extend({
         return model.get('state_short') == this.state;
     }
 });
-
