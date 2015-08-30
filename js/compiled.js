@@ -643,7 +643,15 @@ var PoliticalScoreboardView = function(data) {
 
     for (var i = 0; i < data.positions.length; i++) {
       var p = $c('p');
-      p.textContent = data.positions[i].info
+
+      if (data.positions[i].score > 0){
+        p.className="freedom"
+      }
+      else{
+        p.className="authority"
+      }
+
+      p.textContent = data.positions[i].info;
       div.appendChild(p);
 
     }
