@@ -637,10 +637,16 @@ var PoliticalScoreboardView = function(data) {
     a.textContent = '×';
     a.href = '#';
     div.appendChild(a);
+    var title = $c('h2');
+    title.textContent = "How They Voted...";
+    div.appendChild(title);
 
-    var p = $c('p');
-    p.textContent = data.positions;
-    div.appendChild(p);
+    for (var i = 0; i < data.positions.length; i++) {
+      var p = $c('p');
+      p.textContent = data.positions[i].info
+      div.appendChild(p);
+
+    }
 
     return div;
 };

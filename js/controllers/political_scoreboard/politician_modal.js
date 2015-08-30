@@ -10,7 +10,7 @@ var PoliticianModalController = BaseShareModalController.extend({
         var overlay = this.base_render();
 
         overlay.firstChild.appendChild(PoliticianModalView({
-            positions: JSON.stringify(this.model.get('score_criteria'))
+            positions: this.model.get('score_criteria')
         }));
 
         this.html(overlay);
