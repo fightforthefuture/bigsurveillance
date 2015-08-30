@@ -121,12 +121,13 @@ var PoliticalScoreboardController = Composer.Controller.extend({
         var overlay = this.base_render();
 
         overlay.firstChild.appendChild(PoliticianModalView({
-            positions: JSON.stringify(this.model.get('score_criteria'))
+            positions: this.model.get('score_criteria')
         }));
 
         this.html(overlay);
     }
-});/**
+});
+/**
     Politician Model
 **/
 var Politician = Composer.Model.extend({
@@ -667,15 +668,7 @@ var PoliticiansStateFilter = Composer.FilterCollection.extend({
 
     for (var i = 0; i < data.positions.length; i++) {
       var p = $c('p');
-
-      if (data.positions[i].score > 0){
-        p.className="freedom"
-      }
-      else{
-        p.className="authority"
-      }
-
-      p.textContent = data.positions[i].info;
+      p.textContent = data.positions[i].info
       div.appendChild(p);
 
     }
