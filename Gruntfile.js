@@ -1,5 +1,9 @@
 module.exports = function(grunt) {
   grunt.initConfig({
+    connect: {
+      uses_defaults: {}
+    },
+
     concat: {
         js : {
             src : [
@@ -71,6 +75,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-
-  grunt.registerTask('default', ['watch']);
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.registerTask('default', ['connect','watch']);
 };
