@@ -16,7 +16,7 @@ html, body {
 }
 
 body {
-    background: #060607 url('../images/dome.jpg') center top no-repeat;
+    background: @background-color url('../images/dome.jpg') center top no-repeat;
     font-size: 1.6rem;
     font-family: @body-font;
     padding: 4rem 15px 0;
@@ -39,7 +39,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    color: white;
+    color: @white;
     font-size: 26vw;
     line-height: 0.8;
     text-align: center;
@@ -56,7 +56,7 @@ h1 {
     }
 }
 h2 {
-    color: #dfdff4;
+    color: @secondary-headline-color;
     font-size: 17vw;
     letter-spacing: 0.16rem;
     margin-bottom: 25px;
@@ -74,14 +74,14 @@ p {
     text-align: center;
     max-width: 700px;
     margin: 0 auto 3.04rem auto;
-    color: #bcc7e4;
+    color: @body-copy-color;
     font-size: 1.3em;
     line-height: 1.5em;
 
     &.cta {
         font-size: 1.669rem;
         line-height: 2.32rem;
-        color: white;
+        color: @white;
     }
 }
 .modal p {
@@ -92,10 +92,10 @@ p {
     max-width: 652px;
     padding: 2.4rem 1.44rem 1.6rem 1.44rem;
     margin: 4.08rem auto;
-    background: rgba(68, 68, 87, .75);
+    background: fade(@action-box-backgrounds, 40%);
     border-radius: 10px;
     p {
-        color: white;
+        color: @white;
         font-weight: 600;
         font-size: 1.76rem;
         text-align: center;
@@ -108,8 +108,8 @@ p {
         padding: 0;
 
         @media screen and (min-width: @small-phone) {
-            background: white;
-            border: 3px solid #3f3f50;
+            background: @white;
+            border: 3px solid @action-box-borders;
             border-radius: 7px;
         }
     }
@@ -119,7 +119,7 @@ p {
         display: block;
         height: 5.44rem;
         font-size: 2.24rem;
-        background: white;
+        background: @white;
         margin: 0 auto 1rem;
         max-width: 100%;
 
@@ -134,7 +134,7 @@ p {
             @media screen and (min-width: @small-phone) {
                 border-top-right-radius: 0;
                 border-bottom-right-radius: 0;
-                border-right: 0.1rem solid #cfcfcf;
+                border-right: 0.1rem solid darken(@white, 19%);
                 padding-right: 0;
                 width: 41.5%;
             }
@@ -165,7 +165,7 @@ p {
         text-transform: uppercase;
         text-align: center;
         letter-spacing: 0.08rem;
-        color: white;
+        color: @white;
         border-radius: 14px;
         overflow: hidden;
         white-space: nowrap;
@@ -177,7 +177,7 @@ p {
         }
 
         @media screen and (min-width: @small-phone) {
-            border-color: white;
+            border-color: @white;
             border-style: solid;
             border-width: 0.64rem 0.8rem 0.35em 0.8rem;
             width: 38.5%;
@@ -197,7 +197,7 @@ p {
         margin-bottom: 0;
         color: rgba(255, 255, 255, .7);
         a {
-            color: white;
+            color: @white;
         }
     }
 }
@@ -221,13 +221,13 @@ p {
 }
 
 .scoreboard {
-    background: #1e1e27;
+    background: fade(@action-box-backgrounds, 40%);
     border-top: 6px solid #262632;
     padding: 3.2rem 0 0 0;
     border-radius: 5px;
     max-width: 768px;
     margin: 60px auto;
-    color: white;
+    color: @white;
     text-align: center;
 
     select {
@@ -242,13 +242,13 @@ p {
 }
 
 a.sort {
+    color: @white;
+    color: fade(@white, 70%);
     font-size: 2.08rem;
-    color: white;
     margin: 0 10px;
-    color: rgba(255, 255, 255, .7);
 
     &.sel {
-        color: white;
+        color: @white;
         font-weight: bold;
     }
 }
@@ -257,7 +257,7 @@ a.sort {
     display: inline-block;
     vertical-align: top;
     padding: 2.4rem 0 0 0;
-    border-top: 2px solid #15151a;
+    border-top: 2px solid @panel-border-color;
 
     text-align: left;
 
@@ -265,7 +265,7 @@ a.sort {
         display: block;
         text-align: center;
         padding: 0 1.6rem 2.4rem 1.6rem;
-        border-bottom: 2px solid #15151a;
+        border-bottom: 2px solid @panel-border-color;
         font-size: 1.44rem;
         line-height: 1.92rem;
         color: #737396;
@@ -332,8 +332,8 @@ a.sort {
         text-align: center;
         font-size: 3.52rem;
         font-weight: 600;
-        color: white;
-        text-shadow: 0 1px 3px black;
+        color: @white;
+        text-shadow: 0 1px 3px @background-color;
         font-family: @handwriting-font;
     }
 
@@ -347,7 +347,7 @@ a.sort {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        text-shadow: 0 1px 3px black;
+        text-shadow: 0 1px 3px @background-color;
     }
 
     .rollover {
@@ -356,7 +356,7 @@ a.sort {
         top: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, .7);
+        background: fade(@background-color, 70%);
         padding-top: 35px;
         opacity: 0;
         transition: opacity .2s linear;
