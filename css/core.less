@@ -19,8 +19,15 @@ body {
     background: #060607 url('../images/dome.jpg') center top no-repeat;
     font-size: 1.6rem;
     font-family: @body-font;
-    padding: 9.36rem 15px 0;
+    padding: 4rem 15px 0;
     position: relative;
+
+    @media screen and (min-width: @small-phone) {
+        padding-top: 6.5rem;
+    }
+    @media screen and (min-width: @large-phone) {
+        padding-top: 9.36rem;
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -30,11 +37,16 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     color: white;
-        font-size: 10.56rem;
+    font-size: 26vw;
+    line-height: 0.73;
     text-align: center;
     letter-spacing: 0.08rem;
-    line-height: 8.672rem;
     margin-bottom: 3.04rem;
+
+    @media screen and (min-width: @small-phone) {
+        font-size: 10.56rem;
+        line-height: 0.82;
+    }
 
     em {
         display: block;
@@ -42,14 +54,15 @@ h1 {
 }
 h2 {
     color: #dfdff4;
-    font-size: 8rem;
-    text-align: center;
+    font-size: 17vw;
     letter-spacing: 0.16rem;
     margin-bottom: 25px;
+    @media screen and (min-width: @small-phone) {
+        font-size: 8rem;
+    }
 }
 h3 {
     display: block;
-    text-align: center;
     font-size: 3.52rem;
     margin-bottom: 0.8rem;
 }
@@ -88,27 +101,47 @@ p {
     form {
         margin: 1.68rem 0;
         padding: 0;
-        border: 3px solid #3f3f50;
-        border-radius: 7px;
-        background: white;
+
+        @media screen and (min-width: @small-phone) {
+            background: white;
+            border: 3px solid #3f3f50;
+            border-radius: 7px;
+        }
     }
     input {
         border: 0 none transparent;
+        border-radius: 0.7rem;
+        display: block;
         height: 5.44rem;
         font-size: 2.24rem;
         background: white;
+        margin: 0 auto 1rem;
+        max-width: 100%;
+
+        @media screen and (min-width: @small-phone) {
+            display: inline;
+            margin-bottom: 0;
+        }
 
         &[name="email"] {
-            border-right: 1px solid #cfcfcf;
-            border-top-left-radius: 7px;
-            border-bottom-left-radius: 7px;
-            width: 41.5%;
-            padding-left: 15px;
+            padding: 0 1.5rem;
+
+            @media screen and (min-width: @small-phone) {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+                border-right: 0.1rem solid #cfcfcf;
+                padding-right: 0;
+                width: 41.5%;
+            }
         }
         &[name="zip"] {
+            padding: 0 1.5rem;
+            @media screen and (min-width: @small-phone) {
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
             width: 20%;
-            padding-left: 15px;
-            border-right: 7px solid white;
+
+            }
         }
 
         &.error {
@@ -116,8 +149,8 @@ p {
         }
     }
     button {
-        width: 38.5%;
-        background: #ff4d4d;
+        background-color: #ff4d4d;
+        border: none;
         font-size: 2.24rem;
         line-height: 2.56rem;
         height: 5.44rem;
@@ -126,16 +159,23 @@ p {
         text-align: center;
         letter-spacing: 0.08rem;
         color: white;
-        border-width: 0.64rem 0.8rem 0.35em 0.8rem;
-        border-style: solid;
-        border-color: white;
         border-radius: 14px;
         overflow: hidden;
         white-space: nowrap;
         cursor: pointer;
 
+        transition: background-color 400ms ease;
+
+        @media screen and (min-width: @small-phone) {
+            border-color: white;
+            border-style: solid;
+            border-width: 0.64rem 0.8rem 0.35em 0.8rem;
+            width: 38.5%;
+
+        }
+
         &:hover {
-            background: #ee3d3d;
+            background-color: #ee3d3d;
         }
     }
 
