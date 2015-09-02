@@ -5,7 +5,7 @@ which is the best framework ever.
 ## Developing locally
 
 * `npm install` to install packages,
-* `grunt` to run grunt (automatically minifies JS and LESS on save)
+* `npm start` to run grunt (automatically minifies JS and LESS on save)
 * Host the project at `bigsurveillance.dev` to get TypeKit to work
 
 ## Code structure

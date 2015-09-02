@@ -2,11 +2,13 @@ module.exports = function(grunt) {
   require('jit-grunt')(grunt, {});
 
   grunt.initConfig({
-    connect: {
-      options: {
-        port: 8000
-      }
-    },
+      connect: {
+          server: {
+              options: {
+                  port: 8000
+              }
+          }
+      },
 
     concat: {
         js : {
@@ -16,7 +18,7 @@ module.exports = function(grunt) {
                 'js/views/**/*.js',
                 'js/main.js',
             ],
-            dest : 'js/compiled.js'
+            dest: 'js/core.js'
         },
         options: {
           separator: '',
@@ -25,32 +27,60 @@ module.exports = function(grunt) {
     uglify : {
         js: {
             files: {
-                'js/compiled.min.js' : [ 'js/compiled.js' ]
+                'js/core.min.js': ['js/core.js']
             }
         }
     },
-    
-    less: {
-      development: {
-        options: {
-          compress: true,
-          yuicompress: true,
-          optimization: 2
-        },
-        files: {
-          "css/core.min.css": "css/core.less"
-        }
-      }
-    },
-    
+
+      less: {
+          files: {
+              "css/core.min.css": "css/core.less"
+          },
+          production: {
+              options: {
+                  sourcemap: false
+              }
+
+          },
+          development: {
+              options: {
+                  sourceMap: true
+              }
+          }
+      },
+
+      postcss: {
+          src: 'css/core.min.css',
+          options: {
+                  processors: [
+                      require('autoprefixer-core')({browsers: 'last 2 versions'})
+                  ]
+          },
+          development: {
+              options: {
+                  map: true
+              }
+          },
+          production: {
+              options: {
+                  map: false,
+                  processors: [
+                      require('autoprefixer-core')({browsers: 'last 2 versions'}),
+                      require('cssnano')()
+                  ]
+              }
+          }
+      },
+
     watch: {
-      
+
       styles: {
         files: [
-          'css/*.less',
+            'css/**/*.less',
         ],
         tasks: [
-          'less'
+            'less:development',
+            'postcss:development'
         ],
         options: {
           nospawn: true,
@@ -75,5 +105,15 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('default', ['connect','watch']);
+    grunt.registerTask('build', [
+        'less:production',
+        'postcss:production',
+        'concat',
+        'uglify'
+    ]);
+    grunt.registerTask('default', [
+        'build',
+        'connect:server',
+        'watch'
+    ]);
 };
