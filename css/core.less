@@ -28,6 +28,9 @@ body {
     @media screen and (min-width: @large-phone) {
         padding-top: 9.36rem;
     }
+    @media screen and (min-width: @medium-laptop) {
+        background-size: 100% auto;
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -38,7 +41,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     color: white;
     font-size: 26vw;
-    line-height: 0.73;
+    line-height: 0.8;
     text-align: center;
     letter-spacing: 0.08rem;
     margin-bottom: 3.04rem;
@@ -90,11 +93,13 @@ p {
     padding: 2.4rem 1.44rem 1.6rem 1.44rem;
     margin: 4.08rem auto;
     background: rgba(68, 68, 87, .75);
-    color: white;
-    font-weight: 600;
-    font-size: 1.76rem;
-    text-align: center;
     border-radius: 10px;
+    p {
+        color: white;
+        font-weight: 600;
+        font-size: 1.76rem;
+        text-align: center;
+    }
 }
 
 .petition {
@@ -151,8 +156,10 @@ p {
     button {
         background-color: #ff4d4d;
         border: none;
+        display: block;
         font-size: 2.24rem;
         line-height: 2.56rem;
+        margin: 0 auto;
         height: 5.44rem;
         vertical-align: top;
         text-transform: uppercase;
@@ -163,8 +170,11 @@ p {
         overflow: hidden;
         white-space: nowrap;
         cursor: pointer;
-
         transition: background-color 400ms ease;
+
+        @media screen and (min-width: @small-phone) {
+            display: inline;
+        }
 
         @media screen and (min-width: @small-phone) {
             border-color: white;
