@@ -1,7 +1,11 @@
 module.exports = function(grunt) {
+  require('jit-grunt')(grunt, {});
+
   grunt.initConfig({
     connect: {
-      uses_defaults: {}
+      options: {
+        port: 8000
+      }
     },
 
     concat: {
@@ -71,10 +75,5 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.registerTask('default', ['connect','watch']);
 };
