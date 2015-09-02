@@ -27,43 +27,28 @@ module.exports = function(grunt) {
     uglify : {
         js: {
             files: {
-                'js/core.min.js': ['js/core.js']
+                'js/core.js': ['js/core.js']
             }
         }
     },
 
       less: {
-          files: {
-              "css/core.min.css": "css/core.less"
-          },
-          production: {
+          compile: {
+              files: {
+                  'css/core.css': 'css/core.less'
+              },
               options: {
-                  sourcemap: false
+                  sourcemap: true
               }
 
-          },
-          development: {
-              options: {
-                  sourceMap: true
-              }
           }
       },
 
       postcss: {
-          src: 'css/core.min.css',
-          options: {
-                  processors: [
-                      require('autoprefixer-core')({browsers: 'last 2 versions'})
-                  ]
-          },
-          development: {
+          modify: {
+              src: 'css/core.css',
               options: {
-                  map: true
-              }
-          },
-          production: {
-              options: {
-                  map: false,
+                  map: true,
                   processors: [
                       require('autoprefixer-core')({browsers: 'last 2 versions'}),
                       require('cssnano')()
@@ -79,8 +64,8 @@ module.exports = function(grunt) {
             'css/**/*.less',
         ],
         tasks: [
-            'less:development',
-            'postcss:development'
+            'less',
+            'postcss'
         ],
         options: {
           nospawn: true,
@@ -106,8 +91,8 @@ module.exports = function(grunt) {
   });
 
     grunt.registerTask('build', [
-        'less:production',
-        'postcss:production',
+        'less',
+        'postcss',
         'concat',
         'uglify'
     ]);
