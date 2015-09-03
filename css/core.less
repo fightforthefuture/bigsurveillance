@@ -91,17 +91,21 @@ p {
 .action {
     background: fade(@action-box-backgrounds, 40%);
     border-radius: 10px;
-    color: @white;
-    font-weight: 600;
-    font-size: 1.76rem;
     padding: 2.4rem 1.44rem 1.6rem 1.44rem;
     max-width: 652px;
     margin: 4.08rem auto;
-    text-align: center;
+
+    p {
+        color: @white;
+        font-weight: 600;
+        font-size: 1.76rem;
+        text-align: center;
+    }
 }
 
 .petition {
     form {
+        display: flex;
         margin: 1.68rem 0;
         padding: 0;
 
@@ -123,7 +127,7 @@ p {
 
         @media screen and (min-width: @small-phone) {
             display: inline;
-            margin-bottom: 0;
+            margin: 0;
         }
 
         &[name="email"] {
@@ -137,10 +141,8 @@ p {
         }
         &[name="zip"] {
             @media screen and (min-width: @small-phone) {
-                border-bottom-right-radius: 0;
-                border-top-right-radius: 0;
+                border-radius: 0;
                 width: 20%;
-
             }
         }
 
@@ -173,8 +175,8 @@ p {
             border-style: solid;
             border-width: 0.64rem 0.8rem 0.35em 0.8rem;
             display: inline;
-            float: right;
-            margin-top: 0.2rem;
+            margin: 0.2rem 0 0;
+            width: 39%;
         }
 
         &:hover {
