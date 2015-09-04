@@ -17,8 +17,6 @@ compiles those too.)
   location from [fftf-geocoder](https://fftf-geocoder.herokuapp.com) and also
   the Political Scoreboard spreadsheet from Google Docs. Once both of these are
   loaded, it spawns the Political Scoreboard Controller
-* `js/core.js` is automatically compiled by Grunt (and minified in production).
-Don't edit directly.
 * `js/controllers`: contains all Composer controllers
 * `js/models`: contains all Composer models and collections
 * `js/views`: contains all Composer views. Right now we're just using raw
@@ -28,4 +26,8 @@ Don't edit directly.
 ### CSS / LESS:
 
 * `css/core.less`: The LESS source for the project
-* `css/core.css`: Minified CSS compiled by Grunt. Don't edit this directly.
+
+### Compiled files:
+
+* `css/core.css` and `js/core.js` are compiled and minified by the server. Don't
+commit them to the repo.
