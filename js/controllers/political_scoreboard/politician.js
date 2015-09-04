@@ -1,38 +1,37 @@
 var PoliticianController = Composer.Controller.extend({
 
     events: {
-        'click a.tweet_link': 'tweet',
-        'click a.info_link': 'info',
+        'click button.tweet_link': 'tweet',
+        'click button.info_link': 'info',
         'click h4': 'tweet',
-        'click .img': 'tweet'
+        'click .headshot': 'tweet'
     },
 
     model: null,
 
-    init: function() {
+    init: function () {
         this.render();
     },
 
-    render: function() {
+    render: function () {
 
         var div = PoliticianView({
             politician: this.model.toJSON()
         });
-               
+
         this.html(div);
         this.el.className = 'politician';
     },
 
-    tweet: function(e) {
+    tweet: function (e) {
         e.preventDefault();
-        var txt = encodeURIComponent('.@'+this.model.get('twitter')+', lol');
-        window.open('https://twitter.com/intent/tweet?text='+txt);
+        var txt = encodeURIComponent('.@' + this.model.get('twitter') + ', lol');
+        window.open('https://twitter.com/intent/tweet?text=' + txt);
     },
 
-    info: function(e) {
+    info: function (e) {
         e.preventDefault();
 
-        new PoliticianModalController({ model: this.model });
+        new PoliticianModalController({model: this.model});
     }
-
 });

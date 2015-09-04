@@ -1,22 +1,27 @@
-var PoliticianModalView = function(data) {
-    var div = $c('div');
-    div.className = 'modal politician_modal';
+var PoliticianModalView = function (data) {
+    var
+        modal = $c('div'),
+        close = $c('button'),
+        title = $c('h2'),
+        voteList = $c('ul');
 
-    var a = $c('a');
-    a.className = 'close';
-    a.textContent = '×';
-    a.href = '#';
-    div.appendChild(a);
-    var title = $c('h2');
-    title.textContent = "How They Voted...";
-    div.appendChild(title);
+    modal.classList.add('modal', 'politician_modal');
+    close.classList.add('close');
+    close.textContent = '⨉';
+    title.textContent = 'How They Voted…';
+
+    modal.appendChild(close);
+    modal.appendChild(title);
+
 
     for (var i = 0; i < data.positions.length; i++) {
-      var p = $c('p');
-      p.textContent = data.positions[i].info
-      div.appendChild(p);
-
+        var
+            position = $c('li');
+        position.textContent = data.positions[i].info;
+        voteList.appendChild(position);
     }
 
-    return div;
+    modal.appendChild(voteList);
+
+    return modal;
 };

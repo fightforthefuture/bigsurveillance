@@ -1,48 +1,47 @@
 var PoliticianView = function(data) {
-    var div = $c('div');
+    var
+        div = $c('div'),
+        headshot = $c('div'),
+        tweetLink = $c('button'),
+        twitterLogo = $c('img'),
+        tweetText = $c('span'),
+        infoLink = $c('button'),
+        name = $c('h4'),
+        grade = $c('h3'),
+        rollover = $c('div');
 
-    var img = $c('div');
-    img.style.backgroundImage ='url(congress/'+data.politician.image+')';
-    img.style.backgroundSize = '100% auto';
-    img.className = 'img ';
+    headshot.style.backgroundImage = 'url(congress/' + data.politician.image + ')';
+    headshot.classList.add('headshot');
 
-    if (data.politician.score >= 6)
-        img.className += 'good';
-    else if (data.politician.score >= 0)
-        img.className += 'neutral';
-    else
-        img.className += 'bad';
+    if (data.politician.score >= 6) {
+        headshot.classList.add('good');
+    } else if (data.politician.score >= 0) {
+        headshot.classList.add('neutral');
+    } else {
+        headshot.classList.add('bad');
+    }
 
-    div.appendChild(img);
+    div.appendChild(headshot);
 
-    var h4 = $c('h4');
-    h4.textContent = data.politician.last_name;
-    div.appendChild(h4);
+    name.textContent = data.politician.last_name;
+    div.appendChild(name);
 
-    var h3 = $c('h3');
-    h3.textContent = data.politician.grade;
-    div.appendChild(h3);
+    grade.textContent = data.politician.grade;
+    div.appendChild(grade);
 
-    var rollover = $c('div');
-    rollover.className = 'rollover';
+    rollover.classList.add('rollover');
 
     if (data.politician.twitter) {
-        var a = $c('a');
-        a.className = 'tweet_link';
-        a.href = '#';
-        var img = $c('img');
-        img.src = 'images/tw_white.png';
-        a.appendChild(img);
-        var span = $c('span');
-        span.textContent = 'Tweet';
-        a.appendChild(span);
-        rollover.appendChild(a);
+        tweetLink.classList.add('tweet_link');
+        twitterLogo.src = 'images/tw_white.png';
+        tweetLink.appendChild(twitterLogo);
+        tweetText.textContent = 'Tweet';
+        tweetLink.appendChild(tweetText);
+        rollover.appendChild(tweetLink);
     }
-    var a = $c('a');
-    a.className = 'info_link';
-    a.textContent = 'Grade Info';
-    a.href = '#';
-    rollover.appendChild(a);
+    infoLink.classList.add('info_link');
+    infoLink.textContent = 'Grade Info';
+    rollover.appendChild(infoLink);
 
     div.appendChild(rollover);
 
