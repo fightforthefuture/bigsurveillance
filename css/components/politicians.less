@@ -1,0 +1,185 @@
+.scoreboard {
+    background: fade(@action-box-backgrounds, 40%);
+    border-top: 6px solid #262632;
+    padding: 3.2rem 0 0 0;
+    border-radius: 5px;
+    max-width: 768px;
+    margin: 60px auto;
+    color: @white;
+    text-align: center;
+
+    select {
+        font-size: 2.08rem;
+        margin: 0 25px 0 5px;
+    }
+    .spinner {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+    }
+}
+
+.sort {
+    color: fade(@white, 70%);
+    font-size: 2.08rem;
+    margin: 0 10px;
+
+    &.sel {
+        color: @white;
+        font-weight: bold;
+    }
+}
+
+.panel {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 1.6rem;
+    padding: 2.4rem 0 0 0;
+    border-top: 2px solid @panel-border-color;
+
+    text-align: left;
+    @media screen and (min-width: @large-phone) {
+        width: 50%;
+    }
+
+    em {
+        display: block;
+        text-align: center;
+        padding: 0 1.6rem 2.4rem 1.6rem;
+        border-bottom: 2px solid @panel-border-color;
+        font-size: 1.44rem;
+        line-height: 1.92rem;
+        color: #737396;
+    }
+
+    &.good {
+        background: #2b2b3b;
+
+        h3 {
+            color: #52bdfc;
+        }
+    }
+    &.bad {
+        background: #18181f;
+
+        h3 {
+            color: #ff353c;
+        }
+    }
+    &.meh {
+        background: #202032;
+        @media screen and (min-width: @large-phone) {
+            width: 100%;
+        }
+        h3 {
+            color: #6e41d3;
+            padding-bottom: 2.4rem;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.politician {
+    display: inline-block;
+    position: relative;
+    background-color: gray;
+    text-align: center;
+
+    .headshot {
+        width: 128px;
+        height: 156px;
+        cursor: pointer;
+        background: center center no-repeat;
+        background-blend-mode: multiply;
+        background-size: 100% auto;
+
+        &.good {
+            background-color: rgba(44, 188, 155, 0.5);
+        }
+        &.neutral {
+            background-color: rgba(32, 0, 128, 0.5);
+        }
+        &.bad {
+            background-color: #ff8082;
+
+        }
+    }
+
+    h3 {
+        position: absolute;
+        bottom: 29px;
+        width: 100%;
+        text-align: center;
+        font-size: 3.52rem;
+        font-weight: 600;
+        color: @white;
+        text-shadow: 0 1px 3px @background-color;
+        font-family: @handwriting-font;
+    }
+
+    h4 {
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-transform: uppercase;
+        letter-spacing: 0.16rem;
+        font-size: 2.08rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-shadow: 0 1px 3px @background-color;
+    }
+
+    .rollover {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: fade(@background-color, 70%);
+        padding-top: 35px;
+        opacity: 0;
+        transition: opacity .2s linear;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        button {
+            border: none;
+            color: @white;
+            cursor: pointer;
+            background: #4DBCA1;
+            font-family: @body-font;
+            font-size: 1.76rem;
+            font-weight: 600;
+            padding: 5px;
+            width: 85%;
+
+            &.tweet_link {
+                background: #1ABCC2;
+                margin-bottom: 15px;
+
+                img {
+                    width: 24px;
+                    height: 24px;
+                    margin-right: 5px;
+                    vertical-align: middle;
+                }
+                span {
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+}
+
+.filtered {
+    > div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+        align-content: flex-start;
+    }
+}
