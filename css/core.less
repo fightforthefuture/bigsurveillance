@@ -84,8 +84,41 @@ p {
         color: @white;
     }
 }
-.modal p {
-    color: black;
+
+.modal {
+    p, li {
+        color: @black;
+    }
+    ul {
+        list-style: disc outside;
+        padding-left: 2rem;
+    }
+    li {
+        font-size: 1.6rem;
+        line-height: 1.5;
+        margin-bottom: 1.6rem;
+        text-align: left;
+        @media screen and (min-width: @large-phone) {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
+    .close {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        top: 0;
+        color: black;
+        opacity: .4;
+        font-size: 30px;
+        text-decoration: none;
+
+        &:hover {
+            opacity: .6;
+        }
+    }
 }
 
 .action {
@@ -304,12 +337,13 @@ a.sort {
     background-color: gray;
     text-align: center;
 
-    .img {
+    .headshot {
         width: 128px;
         height: 156px;
         cursor: pointer;
         background: center center no-repeat;
         background-blend-mode: multiply;
+        background-size: 100% auto;
 
         &.good {
             background-color: rgba(44, 188, 155, 0.5);
@@ -363,18 +397,17 @@ a.sort {
             opacity: 1;
         }
 
-        a {
-            font-weight: 600;
-            color: white;
-            text-decoration: none;
-            font-size: 1.76rem;
-            width: 100px;
-
-            display: inline-block;
-            padding: 5px;
+        button {
+            border: none;
+            color: @white;
+            cursor: pointer;
             background: #4DBCA1;
-            height: 3.2rem;
-            line-height: 2.24rem;
+            font-family: @body-font;
+            font-size: 1.76rem;
+            font-weight: 600;
+            padding: 5px;
+            width: 85%;
+
 
             &.tweet_link {
                 background: #1ABCC2;
