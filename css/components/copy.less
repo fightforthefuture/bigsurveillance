@@ -1,0 +1,70 @@
+.copy {
+    h1 {
+        a {
+            &:link, &:visited, &:hover, &:active {
+                color: @body-copy-color;
+                text-decoration: none;
+            }
+        }
+        font-size: 5.4rem;
+        padding: 0 3rem;
+        @media screen and (min-width: @small-phone) {
+            font-size: 5rem;
+        }
+        @media screen and (min-width: @large-phone) {
+            padding: 0 4rem;
+            font-size: 5.5rem;
+        }
+        @media screen and (min-width: @small-tablet) {
+            padding: 0 8rem;
+        }
+    }
+    article {
+        max-height: 40rem;
+        overflow: hidden;
+        position: relative;
+        transition: max-height 400ms;
+    }
+    p {
+        font-weight: 300;
+
+    }
+    hr {
+        border-color: transparent;
+        border-bottom: lighten(@background-color, 20%) solid 0.1rem;
+        margin: 0 auto 4rem;
+        width: 30%;
+    }
+    .more {
+        bottom: 0;
+        background: linear-gradient(to bottom, transparent, @background-color);
+        color: @white;
+        content: 'Learn more';
+        display: block;
+        left: 0;
+        line-height: 1;
+        padding: 3rem 0;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        text-transform: uppercase;
+        &:link, &:visited {
+            text-decoration: none;
+        }
+        &:hover, &:active {
+            background: linear-gradient(to bottom, transparent, @background-color 75%);
+
+        }
+        &::before {
+            color: fade(@white, 40%);
+            content: '▼';
+            margin-right: 1rem;
+        }
+    }
+    .expanded {
+        max-height: 100%;
+        .more {
+            display: none;
+        }
+    }
+}
