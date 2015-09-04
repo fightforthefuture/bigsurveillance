@@ -1,11 +1,9 @@
 <html>
 <head>
-    <title>Choose your future &lt;3</title>
+    <title>Choose your future &hearts;</title>
     <script src="//use.typekit.net/gwc3hsx.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
-    <script type="text/javascript" src="https://mothership-js.herokuapp.com/core.js"></script>
-    <script type="text/javascript" src="js/compiled.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/core.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/core.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -20,28 +18,12 @@
 </p>
 
 <div class="action">
-    Make big tech say if they oppose CISA and stand by their privacy policy.
+    <p>
+        Make big tech say if they oppose CISA and stand by their privacy policy.
+    </p>
     <div id="petition">
 HELLO
     </div>
-    <script type="text/javascript">
-        new EmailPetitionController({
-            inject: '#petition',
-            tag:    'test-petition',
-            required: ['email', 'zip'],
-            buttonText: 'Send Now',
-            onSend: function(formData)
-            {
-                document.getElementById('petition').innerHTML = '<p>Thanks!</p>';
-
-                new CallModalController({
-                    campaign:   'cisa-cloture-fax',
-                    zip:        formData.zip,
-                    callScript: 'CISA is really a bad law. Please oppose it!'
-                });
-            }
-        });
-    </script>
 </div>
 
 <div class="scoreboard">
@@ -68,6 +50,25 @@ HELLO
     </div>
 </div>
 
+<script type="text/javascript" src="https://mothership-js.herokuapp.com/core.js"></script>
+<script type="text/javascript" src="js/core.js"></script>
+<script type="text/javascript">
+    new EmailPetitionController({
+        inject: '#petition',
+        tag:    'test-petition',
+        required: ['email', 'zip'],
+        buttonText: 'Send Now',
+        onSend: function(formData)
+        {
+            document.getElementById('petition').innerHTML = '<p>Thanks!</p>';
 
+            new CallModalController({
+                campaign:   'cisa-cloture-fax',
+                zip:        formData.zip,
+                callScript: 'CISA is really a bad law. Please oppose it!'
+            });
+        }
+    });
+</script>
 </body>
 </html>

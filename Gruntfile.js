@@ -1,8 +1,14 @@
 module.exports = function(grunt) {
+  require('jit-grunt')(grunt, {});
+
   grunt.initConfig({
-    connect: {
-      uses_defaults: {}
-    },
+      connect: {
+          server: {
+              options: {
+                  port: 8000
+              }
+          }
+      },
 
     concat: {
         js : {
@@ -12,7 +18,7 @@ module.exports = function(grunt) {
                 'js/views/**/*.js',
                 'js/main.js',
             ],
-            dest : 'js/compiled.js'
+            dest: 'js/core.js'
         },
         options: {
           separator: '',
@@ -21,32 +27,45 @@ module.exports = function(grunt) {
     uglify : {
         js: {
             files: {
-                'js/compiled.min.js' : [ 'js/compiled.js' ]
+                'js/core.js': ['js/core.js']
             }
         }
     },
-    
-    less: {
-      development: {
-        options: {
-          compress: true,
-          yuicompress: true,
-          optimization: 2
-        },
-        files: {
-          "css/core.min.css": "css/core.less"
-        }
-      }
-    },
-    
+
+      less: {
+          compile: {
+              files: {
+                  'css/core.css': 'css/core.less'
+              },
+              options: {
+                  sourcemap: true
+              }
+
+          }
+      },
+
+      postcss: {
+          modify: {
+              src: 'css/core.css',
+              options: {
+                  map: true,
+                  processors: [
+                      require('autoprefixer-core')({browsers: 'last 2 versions'}),
+                      require('cssnano')()
+                  ]
+              }
+          }
+      },
+
     watch: {
-      
+
       styles: {
         files: [
-          'css/*.less',
+            'css/**/*.less',
         ],
         tasks: [
-          'less'
+            'less',
+            'postcss'
         ],
         options: {
           nospawn: true,
@@ -71,10 +90,15 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.registerTask('default', ['connect','watch']);
+    grunt.registerTask('build', [
+        'less',
+        'postcss',
+        'concat',
+        'uglify'
+    ]);
+    grunt.registerTask('default', [
+        'build',
+        'connect:server',
+        'watch'
+    ]);
 };
