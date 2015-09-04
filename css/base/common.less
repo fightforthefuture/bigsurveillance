@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box
+}
+
+html, body {
+    font-size: 62.5%;
+    height: 100%;
+}
+
+body {
+    background: @background-color url('../images/dome.jpg') center top no-repeat;
+    font-size: 1.6rem;
+    font-family: @body-font;
+    padding: 4rem 15px 0;
+    position: relative;
+
+    @media screen and (min-width: @small-phone) {
+        padding-top: 6.5rem;
+    }
+    @media screen and (min-width: @large-phone) {
+        padding-top: 9.36rem;
+    }
+    @media screen and (min-width: @medium-laptop) {
+        background-size: 100% auto;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: @heading-font;
+    text-align: center;
+}
+
+h1 {
+    color: @white;
+    font-size: 26vw;
+    line-height: 0.8;
+    text-align: center;
+    letter-spacing: 0.08rem;
+    margin-bottom: 3.04rem;
+
+    @media screen and (min-width: @small-phone) {
+        font-size: 10.56rem;
+        line-height: 0.82;
+    }
+
+    em {
+        display: block;
+    }
+}
+
+h2 {
+    color: @secondary-headline-color;
+    font-size: 17vw;
+    letter-spacing: 0.16rem;
+    margin-bottom: 25px;
+    @media screen and (min-width: @small-phone) {
+        font-size: 8rem;
+    }
+}
+
+h3 {
+    display: block;
+    font-size: 3.52rem;
+    margin-bottom: 0.8rem;
+}
+
+p {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3.04rem auto;
+    color: @body-copy-color;
+    font-size: 1.3em;
+    line-height: 1.5em;
+
+    &.cta {
+        font-size: 1.669rem;
+        line-height: 2.32rem;
+        color: @white;
+    }
+}

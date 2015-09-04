@@ -1,0 +1,53 @@
+.modal {
+    p, li {
+        color: @black;
+    }
+    ul {
+        list-style: disc outside;
+        padding-left: 2rem;
+    }
+    li {
+        font-size: 1.6rem;
+        line-height: 1.5;
+        margin-bottom: 1.6rem;
+        text-align: left;
+        @media screen and (min-width: @large-phone) {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
+    .close {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        top: 0;
+        color: black;
+        opacity: .4;
+        font-size: 30px;
+        text-decoration: none;
+
+        &:hover {
+            opacity: .6;
+        }
+    }
+}
+
+.politician_modal {
+    p {
+        border-radius: 2em;
+        padding: 1em;
+    }
+    p.freedom {
+        background-color: rgba(44, 188, 155, 0.5);
+    }
+    p.authority {
+        background-color: #ff8082;
+    }
+    #vote& {
+        background: hsla(0, 100%, 100%, 0.82);
+
+    }
+}
+

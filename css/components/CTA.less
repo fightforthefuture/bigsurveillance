@@ -1,0 +1,108 @@
+.action {
+    background: fade(@action-box-backgrounds, 40%);
+    border-radius: 10px;
+    padding: 2.4rem 1.44rem 1.6rem 1.44rem;
+    max-width: 652px;
+    margin: 4.08rem auto;
+
+    p {
+        color: @white;
+        font-weight: 600;
+        font-size: 1.76rem;
+        text-align: center;
+    }
+}
+
+.petition {
+    form {
+        display: flex;
+        margin: 1.68rem 0;
+        padding: 0;
+
+        @media screen and (min-width: @small-phone) {
+            background: @white;
+            border: 3px solid @action-box-borders;
+            border-radius: 7px;
+        }
+    }
+    input {
+        border: 0 none transparent;
+        border-radius: 0.7rem;
+        display: block;
+        font-size: 2.24rem;
+        background: @white;
+        margin: 0 auto 1rem;
+        max-width: 100%;
+        padding: 1.5rem;
+
+        @media screen and (min-width: @small-phone) {
+            display: inline;
+            margin: 0;
+        }
+
+        &[name="email"] {
+            @media screen and (min-width: @small-phone) {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+                border-right: 0.1rem solid darken(@white, 19%);
+                padding-right: 0;
+                width: 41.5%;
+            }
+        }
+        &[name="zip"] {
+            @media screen and (min-width: @small-phone) {
+                border-radius: 0;
+                width: 20%;
+            }
+        }
+
+        &.error {
+            background: #fdd;
+        }
+    }
+    button {
+        background-color: #ff4d4d;
+        border: none;
+        display: block;
+        font-size: 2.24rem;
+        line-height: 2.56rem;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        height: 5.44rem;
+        vertical-align: top;
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 0.08rem;
+        color: @white;
+        border-radius: 14px;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: background-color 400ms ease;
+
+        @media screen and (min-width: @small-phone) {
+            border-color: @white;
+            border-style: solid;
+            border-width: 0.64rem 0.8rem 0.35em 0.8rem;
+            display: inline;
+            margin: 0.2rem 0 0;
+            width: 39%;
+        }
+
+        &:hover {
+            background-color: #ee3d3d;
+        }
+    }
+
+    textarea {
+        display: none;
+    }
+    p {
+        font-size: 1.28rem;
+        margin-bottom: 0;
+        color: rgba(255, 255, 255, .7);
+        a {
+            color: @white;
+        }
+    }
+}

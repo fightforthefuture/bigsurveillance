@@ -52,3 +52,28 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+/* end eric meyer's reset */
+
+.clear:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clear {
+    display: inline-block;
+}
+
+/* hide IE mac \*/
+* html .clear {
+    height: 1%;
+}
+
+.clear {
+    display: block;
+}
+
+/* */
