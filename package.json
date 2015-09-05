@@ -7,7 +7,8 @@
     "postinstall": "bundle",
     "start": "grunt",
     "verbose": "grunt dev -vvv",
-    "build": "grunt build"
+    "build": "grunt build",
+    "depoy": "./deploy-ghpages.sh"
   },
   "repository": {
     "type": "git",
