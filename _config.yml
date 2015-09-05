@@ -1,0 +1,35 @@
+#######################
+# Config: Development #
+#######################
+# (production settings go in _config.build.yml)
+
+name: Big Surveillance
+url: 'https://fightforthefuture.github.io/bigsurveillance'
+description: Tech has power over our future.
+timezone: America/Los_Angeles
+googleanalytics: UA-26576645-28
+
+exclude: [
+  'img', 'css', 'fonts', '**.haml',
+  '**.png', '**.jpg', '**.jpeg', '**.gif', '**.webp', '**.svg', '**.ico',
+]
+
+###########
+# Content #
+###########
+
+future: true
+show_drafts: true
+permalink: /:title/ # See Jekyll documentation for permalink styles
+
+#############
+# Compiling #
+#############
+
+highlighter: pygments
+markdown: rdiscount
+rdiscount:
+  extensions:
+    - footnotes
+#    - autolink
+#    - smart
