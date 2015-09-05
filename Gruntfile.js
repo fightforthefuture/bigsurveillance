@@ -51,7 +51,8 @@ module.exports = function (grunt) {
                         dot: true,
                         cwd: '<%= site.app %>',
                         src: [
-                            'images/**/*'
+                            'images/**/*',
+                            'congress/**/*'
                         ],
                         dest: '<%= site.dist %>'
                     }
@@ -100,7 +101,7 @@ module.exports = function (grunt) {
             options: {
                 hostname: '0.0.0.0',
                 livereload: 35728,
-                port: 9001,
+                port: 9050,
                 middleware: function (connect, options, middlewares) {
                     middlewares.unshift(function (request, response, next) {
                         response.setHeader('Access-Control-Allow-Origin', '*');
@@ -120,6 +121,12 @@ module.exports = function (grunt) {
         },
 
         watch: {
+            gruntfile: {
+              files: ['Gruntfile.js'],
+                options: {
+                    reload: true
+                }
+            },
             images: {
                 files: ['<%= site.app %>/images/**/*.*'],
                 tasks: ['copy:server']
