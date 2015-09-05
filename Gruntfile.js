@@ -1,104 +1,216 @@
-module.exports = function(grunt) {
-  require('jit-grunt')(grunt, {});
+module.exports = function (grunt) {
+    require('time-grunt')(grunt);
+    require('jit-grunt')(grunt, {});
 
-  grunt.initConfig({
-      connect: {
-          server: {
-              options: {
-                  port: 8000
-              }
-          }
-      },
+    grunt.initConfig({
+        site: {
+            app: 'app',
+            dist: 'dist'
+        },
 
-    concat: {
-        js : {
-            src : [
-                'js/controllers/**/*.js',
-                'js/models/*.js',
-                'js/views/**/*.js',
-                'js/main.js',
-            ],
-            dest: 'js/core.js'
-        },
-        options: {
-          separator: '',
-        },
-    },
-    uglify : {
-        js: {
-            files: {
-                'js/core.js': ['js/core.js']
+        clean: {
+            server: {
+                files: [
+                    {
+                        dot: true,
+                        src: '<%= site.dist %>/*'
+                    }
+                ]
             }
+        },
+
+        jekyll: {
+            options: {
+                bundleExec: true,
+                config: '_config.yml',
+                dest: '<%= site.dist %>',
+                src: '<%= site.app %>'
+            },
+            build: {
+                options: {
+                    config: '_config.yml,_config.build.yml'
+                }
+            },
+            server: {
+                options: {
+                    src: '<%= site.app %>'
+                }
+            },
+            check: {
+                options: {
+                    doctor: true
+                }
+            }
+        },
+
+        copy: {
+            server: {
+                files: [
+                    {
+                        expand: true,
+                        dot: true,
+                        cwd: '<%= site.app %>',
+                        src: [
+                            'images/**/*'
+                        ],
+                        dest: '<%= site.dist %>'
+                    }
+                ]
+            }
+        },
+
+        less: {
+            options: {
+                compress: true
+            },
+            build: {},
+            server: {
+                options: {
+                    compress: false,
+                    sourceMap: true
+                },
+                files: {
+                    '<%= site.dist %>/css/core.css': '<%= site.app %>/_less/core.less'
+                }
+            },
+            test: {}
+        },
+
+        postcss: {
+            build: {
+                options: {
+                    map: true,
+                    processors: [
+                        require('autoprefixer')({browsers: 'last 2 versions'}),
+                        require('cssnano')()
+                    ]
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= site.dist %>/css',
+                        src: '**/*.css',
+                        dest: '<%= site.dist %>/css'
+                    }
+                ]
+            }
+        },
+
+        connect: {
+            options: {
+                hostname: '0.0.0.0',
+                livereload: 35728,
+                port: 9001,
+                middleware: function (connect, options, middlewares) {
+                    middlewares.unshift(function (request, response, next) {
+                        response.setHeader('Access-Control-Allow-Origin', '*');
+                        response.setHeader('Access-Control-Allow-Methods', '*');
+                        return next();
+                    });
+                    return middlewares;
+                },
+                useAvailablePort: true
+            },
+            livereload: {
+                options: {
+                    base: '<%= site.dist %>',
+                    open: true
+                }
+            }
+        },
+
+        watch: {
+            images: {
+                files: ['<%= site.app %>/images/**/*.*'],
+                tasks: ['copy:server']
+            },
+            less: {
+                files: ['<%= site.app %>/css/**/*.less'],
+                tasks: ['less:server']
+            },
+            javascript: {
+                files: ['<%= site.app %>/js/**/*.js'],
+                tasks: ['concat']
+            },
+            jekyll: {
+                files: [
+                    '_*.*',
+                    '<%= site.app %>/**/*.{xml,html,yml,md,mkd,markdown,txt}'
+                ],
+                tasks: ['jekyll:server', 'concurrent']
+            },
+            livereload: {
+                options: {
+                    livereload: '<%= connect.options.livereload %>'
+                },
+                files: [
+                    '<%= site.dist %>/**/*.*'
+                ]
+            }
+        },
+
+        concat: {
+            options: {
+                sourceMap: true,
+                separator: grunt.util.linefeed + ';'
+            },
+            server: {
+                files: [
+                    {
+                        src: [
+                            'js/controllers/**/*.js',
+                            'js/models/*.js',
+                            'js/views/**/*.js',
+                            'js/main.js'
+                        ],
+                        dest: '<%= site.dist %>/js/core.js'
+                    }
+                ]
+            }
+        },
+
+        uglify: {
+            options: {
+                sourceMap: true,
+                sourceMapIncludeSources: true,
+                check: 'gzip'
+            },
+            build: {
+                files: {
+                    '<%= site.dist %>/js/core.js': '<%= site.dist %>/js/core.js'
+                }
+            }
+        },
+
+        concurrent: {
+            server: [
+                'copy:server',
+                'less:server',
+                'concat'
+            ]
         }
-    },
+    });
 
-      less: {
-          compile: {
-              files: {
-                  'css/core.css': 'css/core.less'
-              },
-              options: {
-                  sourcemap: true
-              }
-
-          }
-      },
-
-      postcss: {
-          modify: {
-              src: 'css/core.css',
-              options: {
-                  map: true,
-                  processors: [
-                      require('autoprefixer-core')({browsers: 'last 2 versions'}),
-                      require('cssnano')()
-                  ]
-              }
-          }
-      },
-
-    watch: {
-
-      styles: {
-        files: [
-            'css/**/*.less',
-        ],
-        tasks: [
-            'less',
-            'postcss'
-        ],
-        options: {
-          nospawn: true,
-          debounceDelay: 250
-        }
-      },
-      scripts: {
-        files: [
-          'js/main.js',
-          'js/controllers/**/*.js',
-          'js/models/*.js',
-          'js/views/**/*.js'
-        ],
-        tasks: [
-          'concat', 'uglify'
-        ],
-        options: {
-          nospawn: true,
-          debounceDelay: 250
-        }
-      }
-    }
-  });
+    grunt.registerTask('dev', [
+        'clean:server',
+        'jekyll:server',
+        'concurrent:server',
+        'connect:livereload',
+        'watch'
+    ]);
 
     grunt.registerTask('build', [
-        'less',
-        'postcss',
-        'concat',
-        'uglify'
+        'clean:server',
+        'jekyll:build',
+        'concurrent:server',
+        'postcss:build'
     ]);
+
+    grunt.registerTask('test', [
+        'jekyll:check'
+    ]);
+
     grunt.registerTask('default', [
-        'build',
-        'connect:server',
-        'watch'
+        'dev'
     ]);
 };
