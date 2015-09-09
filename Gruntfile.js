@@ -165,10 +165,10 @@ module.exports = function (grunt) {
                 files: [
                     {
                         src: [
-                            'js/controllers/**/*.js',
-                            'js/models/*.js',
-                            'js/views/**/*.js',
-                            'js/main.js'
+                            '<%= site.app %>/_js/controllers/**/*.js',
+                            '<%= site.app %>/_js/models/*.js',
+                            '<%= site.app %>/_js/views/**/*.js',
+                            '<%= site.app %>/_js/main.js'
                         ],
                         dest: '<%= site.dist %>/js/core.js'
                     }
