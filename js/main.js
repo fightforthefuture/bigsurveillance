@@ -54,23 +54,61 @@ var STATES = {
 };
 
 var politicians = new Politicians();
+var unfiltered_politicians = new Politicians();
 var geocode = null;
+
+var hideNote = function(){
+  note = document.getElementById('techNote');
+
+  note.style.display="none";
+};
+
+var showNote = function(){
+  note = document.getElementById('techNote');
+
+  note.style.display="block";
+};
+
+var xhr_annotate = new XMLHttpRequest();
+
+xhr_annotate.onreadystatechange = function(){
+  if (xhr_annotate.readyState === 4){
+    var res = JSON.parse(xhr_annotate.response);
+    console.log(res);
+    unfiltered_politicians.each(function(d){
+      var bioguide = d.get("bioguide");
+      d.set({party: res[bioguide]});
+      console.log(d.get("party"));
+    });
+
+      new HistogramController({
+          collection: unfiltered_politicians,
+          inject: '#histogram'
+      });
+
+  }
+};
+
+
 
 // get the spreadsheet from google
 var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {
         var res = JSON.parse(xhr.response);
-
         for (var i = 0; i < res.feed.entry.length; i++) {
             var entry = res.feed.entry[i];
             var politician = new Politician();
             politician.populateFromGoogle(entry);
             politicians.add(politician);
+            unfiltered_politicians.add(politician);
         }
 
         // convert to a filter collection (which allows us to filter on state)
         politicians = new PoliticiansStateFilter(politicians);
+
+        xhr_annotate.open("get",'data/bioguideToParty.json',true);
+        xhr_annotate.send();
 
         checkIfFinishedWithXHRs();
     }
@@ -90,6 +128,8 @@ xhr2.onreadystatechange = function () {
 };
 xhr2.open("get", 'https://fftf-geocoder.herokuapp.com', true);
 xhr2.send();
+
+
 
 // only initialize scoreboard if the spreadsheet & location have loaded via XHR
 var checkIfFinishedWithXHRs = function () {
