@@ -51,3 +51,14 @@
     }
 }
 
+#techNote {
+    a {
+        &:link, &:visited {
+            color: @background-color;
+            text-decoration: none;
+        }
+        &:hover, &:active, &:focus {
+            text-decoration: underline;
+        }
+    }
+}

@@ -19,3 +19,7 @@ indent_size = 4
 curly_bracket_next_line = false
 spaces_around_operators = true
 spaces_around_brackets = both
+
+# except package.json
+[package.json]
+indent_size = 2

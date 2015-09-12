@@ -1,1 +1,4 @@
 node_modules
+js/core.js
+css/core.css
+dist/
