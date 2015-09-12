@@ -3,11 +3,15 @@
 #######################
 # (production settings go in _config.build.yml)
 
-name: Big Surveillance
+name: Choose your future—STOP CISA and big surveillance
 url: 'https://fightforthefuture.github.io/bigsurveillance'
 description: Tech has power over our future.
 timezone: America/Los_Angeles
 googleanalytics: UA-26576645-28
+author:
+  - googleid: 102356128596404327231
+  - twitterid: 382376904
+  - twitter: fightfortheftr
 
 exclude: [
   'img', 'css', 'fonts', '**.haml',
