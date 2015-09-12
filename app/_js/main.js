@@ -57,17 +57,12 @@ var politicians = new Politicians();
 var unfiltered_politicians = new Politicians();
 var geocode = null;
 
-var hideNote = function(){
-  note = document.getElementById('techNote');
+function methodologyModalShowHide() {
+    document.getElementById('techNote').classList.toggle('shown');
+}
 
-  note.style.display="none";
-};
-
-var showNote = function(){
-  note = document.getElementById('techNote');
-
-  note.style.display="block";
-};
+document.getElementById('showNote').onclick = methodologyModalShowHide;
+document.getElementById('hideNote').onclick = methodologyModalShowHide;
 
 var xhr_annotate = new XMLHttpRequest();
 

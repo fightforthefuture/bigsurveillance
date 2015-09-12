@@ -52,6 +52,7 @@ module.exports = function (grunt) {
                         cwd: '<%= site.app %>',
                         src: [
                             'images/**/*',
+                            'data/**/*',
                             'congress/**/*'
                         ],
                         dest: '<%= site.dist %>'
@@ -132,11 +133,11 @@ module.exports = function (grunt) {
                 tasks: ['copy:server']
             },
             less: {
-                files: ['<%= site.app %>/css/**/*.less'],
+                files: ['<%= site.app %>/_less/**/*.less'],
                 tasks: ['less:server']
             },
             javascript: {
-                files: ['<%= site.app %>/js/**/*.js'],
+                files: ['<%= site.app %>/_js/**/*.js'],
                 tasks: ['concat']
             },
             jekyll: {
@@ -165,6 +166,7 @@ module.exports = function (grunt) {
                 files: [
                     {
                         src: [
+                            'node_modules/d3/d3.min.js',
                             '<%= site.app %>/_js/controllers/**/*.js',
                             '<%= site.app %>/_js/models/*.js',
                             '<%= site.app %>/_js/views/**/*.js',

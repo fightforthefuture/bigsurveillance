@@ -16,7 +16,9 @@
   },
   "author": "",
   "license": "BSD",
-  "dependencies": {},
+  "dependencies": {
+    "d3": "^3.5.6"
+  },
   "devDependencies": {
     "autoprefixer": "^6.0.0",
     "cssnano": "^2.6.1",
