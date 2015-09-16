@@ -4,14 +4,33 @@ Because everyone really _is_ out to get your data with no pesky responsibilities
 like having reliable security, as long as they’re willing to share it with the
 federal government.
 
+## My troll-y writing pretties
+
+_i’m looking at you, charlie_
+
+**CAMPAIGN AND WRITING PEOPLE READ HERE PLEASE**
+
+* Generally, content is written in Markdown format. You can find documentation
+for this wonderful plain text formatting syntax all over:
+    - [daringfireball][07], the source of markdown
+    - [github][08]'s docs are super easy to follow
+    - [Discount][09] documents some extra features we have available to us
+* Any content that is blog-post-like in nature can be found in `app/_posts`.
+* Any additional post should follow the naming convention
+`YYYY-MM-DD-post-title.md`
+* If there’s text you need to update, but can't find, it is likely hiding in
+`app/_layouts/default.html`.
+* If you are unclear on updating the html, ask a dev and we’re happy to help!
+
+
 ## Development
 
 ### Frameworks and libraries
 
-** [Composer.js][02] JavaScript MVC
-** [Jekyll][03]
-** [Grunt.js][04]
-** [Liquid templating language][05]
+* [Composer.js][02] JavaScript MVC
+* [Jekyll][03]
+* [Grunt.js][04]
+* [Liquid templating language][05]
 
 ### Installing & running the server
 
@@ -78,12 +97,6 @@ real performance hit as a result of good organization
 [04]: http://gruntjs.com/getting-started
 [05]: https://github.com/Shopify/liquid/wiki/Liquid-for-Designers
 [06]: https://smacss.com/
-
-## Copy editing
-
-* Any content that is blog-post-like in nature can be found in `app/_posts`.
-* Any additional post should follow the naming convention
-`YYYY-MM-DD-post-title.md`
-* If there’s text you can't find, it is likely hiding in either `app/index.html`
-or `app/_layouts/default.html`. If you are unclear on updating the html, ask a
-dev and we’re happy to help!
+[07]: http://daringfireball.net/projects/markdown/syntax
+[08]: https://help.github.com/articles/markdown-basics/
+[09]: http://www.pell.portland.or.us/~orc/Code/discount/#Language.extensions
