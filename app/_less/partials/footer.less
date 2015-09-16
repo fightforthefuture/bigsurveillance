@@ -1,6 +1,10 @@
-#fftf-footer, #fftfef-footer {
+#fftf-footer {
     font-size: 1.4rem;
+    left: 0;
+    line-height: 1.5;
     padding: 2rem 1rem;
+    position: absolute;
+    right: 0;
     text-align: center;
 
     @media screen and (min-width: @small-phone) {
@@ -12,14 +16,19 @@
 
     a {
         &:link, &:visited, &:hover, &:active, &:focus {
+            font-weight: 600;
             text-decoration: none;
+        }
+        &:hover, &:active, &:focus {
+            border-bottom: 0.1rem dotted lightgray;
         }
     }
     dl {
         align-items: center;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-around;
-        margin: 0 auto;
+        margin: 0 auto 1rem;
         max-width: 310px;
     }
     dt {
@@ -29,11 +38,9 @@
     dd {
         flex-grow: 2;
         text-align: left;
-
-        a {
-            display: block;
-            margin: 1rem 0;
-        }
+    }
+    p {
+        margin-bottom: 1rem;
     }
 }
 
@@ -46,15 +53,12 @@
             color: @white;
         }
     }
+    img {
+        margin-top: 1rem;
+    }
 }
 
-#fftfef-footer {
-    background-color: lighten(@white, 2%);
-    background-image: url('/images/fftfef-bg.gif');
-    color: lighten(@black, 20%);
-    a {
-        &:link, &:visited, &:hover, &:active, &:focus {
-            color: lighten(@black, 20%);
-        }
-    }
+.footer-logo {
+    display: block;
+    margin: 0 auto;
 }

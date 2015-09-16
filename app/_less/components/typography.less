@@ -27,7 +27,7 @@
     }
     p {
         font-weight: 300;
-
+        line-height: 1.5;
     }
     hr {
         border-color: transparent;
@@ -79,3 +79,33 @@ button.link {
         color: @white;
     }
 }
+
+.inline {
+    display: inline;
+    margin: 0;
+    padding: 0;
+
+    li {
+        display: inline;
+    }
+}
+
+ul, ol {
+    &.piped {
+        li {
+            margin: 0;
+            padding: 0;
+            &::before {
+                content: '|\00a0';
+                display: inline-block;
+            }
+            &:first-child {
+                &::before {
+                    content: '';
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
