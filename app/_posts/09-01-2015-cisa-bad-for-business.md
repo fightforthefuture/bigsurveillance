@@ -1,5 +1,6 @@
 ---
 title: CISA is bad for business.
+layout: default
 ---
 
 It’s the dirty deal that lets companies and the government do whatever they want
