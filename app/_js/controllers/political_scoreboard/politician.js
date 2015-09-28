@@ -36,7 +36,22 @@ var PoliticianController = Composer.Controller.extend({
 
     tweet: function (e) {
         e.preventDefault();
-        var txt = encodeURIComponent('.@' + this.model.get('twitter') + ', lol');
+
+        var name = this.model.get('twitter');
+        if (!name) {
+            if (this.model.get('organization') == 'House')
+                name = 'Rep. ' + this.model.get('last_name');
+            else
+                name = 'Sen. ' + this.model.get('last_name');
+        }
+        if (this.model.get('grade').charAt(0) == 'A')
+            var article = 'an';
+        else
+            var article = 'a';
+
+        var url = window.location.protocol + '//' + window.location.host + '?politician='+ this.model.get('bioguide');
+
+        var txt = encodeURIComponent('Here\'s why '+name+' got '+article+' '+this.model.get('grade')+' on surveillance: '+url+' #StopCISA');
         window.open('https://twitter.com/intent/tweet?text=' + txt);
     },
 

@@ -29,10 +29,9 @@ var PoliticianView = function(data) {
 
     rollover.classList.add('rollover');
 
-    if (data.politician.twitter) {
-        tweetLink.classList.add('tweet_link');
-        rollover.appendChild(tweetLink);
-    }
+    tweetLink.classList.add('tweet_link');
+    rollover.appendChild(tweetLink);
+
     infoLink.classList.add('info_link');
     infoLink.textContent = 'i';
     rollover.appendChild(infoLink);

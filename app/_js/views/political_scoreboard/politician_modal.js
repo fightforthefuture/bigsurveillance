@@ -12,24 +12,30 @@ var PoliticianModalView = function (data) {
 
     modal.appendChild(close);
     modal.appendChild(title);
+    console.log(data);
 
 
     for (var i = 0; i < data.positions.length; i++) {
-      if (data.positions[i].url === undefined){
         var position = $c('li');
-        position.textContent = data.positions[i].info;
-        voteList.appendChild(position);
-      }
-      else {
-        var position_link = $c('a');
-        position_link.href = data.positions[i].url;
-        position_link.target = "_blank";
-        position_link.textContent = data.positions[i].info;
-        var position = $c('li');
-        position.appendChild(position_link);
-        voteList.appendChild(position);
+        if (data.positions[i].score < 0) {
+            position.className = 'bad';
+        } else {
+            position.className = 'good';
+        }
+        if (data.positions[i].url === undefined){
+            position.textContent = data.positions[i].info;
+            voteList.appendChild(position);
+        }
+        else {
+            var position_link = $c('a');
+            position_link.href = data.positions[i].url;
+            position_link.target = "_blank";
+            position_link.textContent = data.positions[i].info;
 
-      }
+            position.appendChild(position_link);
+            voteList.appendChild(position);
+
+        }
     }
 
     modal.appendChild(voteList);

@@ -1,7 +1,5 @@
 var HistogramView = function(collection, dom_id){
 
-  console.log("making histogram");
-
   var values = collection;
 
   var margin = {top: 25, right: 25, bottom: 25, left: 25},
@@ -21,9 +19,6 @@ var HistogramView = function(collection, dom_id){
       var rep_grades = values.filter(function(d){return d.get("party") === 'R';}).map(function(d){return grade_map[d.get("grade")]});
       var dem_grades = values.filter(function(d){return d.get("party") === 'D';}).map(function(d){return grade_map[d.get("grade")]});
 
-      console.log(grades);
-      console.log(rep_grades);
-      console.log(dem_grades);
       var x = d3.scale.linear()
           .domain([0, possible_grades.length])
           .range([0, width]);

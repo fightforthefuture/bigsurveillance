@@ -62,11 +62,9 @@ var xhr_annotate = new XMLHttpRequest();
 xhr_annotate.onreadystatechange = function(){
   if (xhr_annotate.readyState === 4){
     var res = JSON.parse(xhr_annotate.response);
-    console.log(res);
     unfilteredPoliticians.each(function(d){
       var bioguide = d.get("bioguide");
       d.set({party: res[bioguide]});
-      console.log(d.get("party"));
     });
 
       new HistogramController({
@@ -148,6 +146,14 @@ var initializeScoreboard = function () {
         collection: politicians,
         inject: '#scoreboard_data'
     });
+
+    var bioguide = util.getParameterByName('politician');
+    if (bioguide) {
+        var model = unfilteredPoliticians.select_one({bioguide: bioguide});
+        if (model)
+            new PoliticianModalController({model: model});
+        window.location.replace('#scoreboard');
+    }
 
 };
 

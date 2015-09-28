@@ -290,7 +290,7 @@ var Politician = Composer.Model.extend({
             var inc = 1;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted YES on USA Freedom Act (final passage)',
+                info:   'Voted YES on reforming bulk collection via USAF',
                 url:'https://www.eff.org/deeplinks/2015/05/usa-freedom-act-passes-what-we-celebrate-what-we-mourn-and-where-we-go-here'
             });
             score += inc;
