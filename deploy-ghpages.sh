@@ -1,6 +1,7 @@
 #!/bin/bash
 cd dist || exit 0;
-if [ ${TRAVIS} ]  && [ !${TRAVIS_PULL_REQUEST} ]
+
+if  [ "$TRAVIS" = "true" -a "$TRAVIS_PULL_REQUEST" = "false" ]
   then
     (git init
      git config user.name "Travis-CI"
