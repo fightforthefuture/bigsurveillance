@@ -1,15 +1,19 @@
 # Big Surveillance
 
+- Build status: [![Build Status](https://travis-ci.org/fightforthefuture/bigsurveillance.svg?branch=master)](https://travis-ci.org/fightforthefuture/bigsurveillance)
+- Latest deploy: [master branch](https://github.com/fightforthefuture/bigsurveillance/tree/master)
+
 Because everyone really _is_ out to get your data with no pesky responsibilities
 like having reliable security, as long as they’re willing to share it with the
-federal government.
+federal government. Who, you know, are totally trustworthy to use that data in a
+way that doesn't endanger your first amendment rights.
 
-## My troll-y writing pretties
-
-_i’m looking at you, charlie_
+## Authoring
 
 **CAMPAIGN AND WRITING PEOPLE READ HERE PLEASE**
 
+* Site-wide meta information is super important. You can make changes to it at
+`_config.yml`
 * Generally, content is written in Markdown format. You can find documentation
 for this wonderful plain text formatting syntax all over:
     - [daringfireball][07], the source of markdown
