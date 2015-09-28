@@ -48,6 +48,7 @@ var HistogramView = function(collection, dom_id){
       var svg = d3.select(dom_id).append("svg")
           .attr("width", width + margin.left + margin.right)
           .attr("height", height + margin.top + margin.bottom)
+          .attr("fill", "white")
         .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -103,6 +104,7 @@ var HistogramView = function(collection, dom_id){
       .data(["Democrats","Republicans","All"])
             .enter().append("g")
               .attr("class", "legend")
+              .attr("fill", "white")
               .attr("transform", function(d, i) { return "translate(-100," + i * 20 + ")"; });
 
       legend.append("rect")
@@ -131,13 +133,16 @@ var HistogramView = function(collection, dom_id){
               .attr("x", width - 24)
               .attr("y", 9)
               .attr("dy", ".35em")
+              .attr("fill", "white")
               .style("text-anchor", "end")
+              .style("color", "white")
               .text(function(d) { return d; });
 
       svg.append("text")
               .attr("x", (width / 2))
               .attr("y", 0 - (margin.top / 2))
               .attr("text-anchor", "middle")
+              .attr("fill", "white")
               .style("font-size", "16px")
               .style("text-decoration", "underline")
               .text("Grade Distribution by Party Affiliation");

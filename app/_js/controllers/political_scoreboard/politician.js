@@ -8,6 +8,7 @@ var PoliticianController = Composer.Controller.extend({
     },
 
     model: null,
+    masterCollection: null,
 
     init: function () {
         this.render();
@@ -15,12 +16,22 @@ var PoliticianController = Composer.Controller.extend({
 
     render: function () {
 
+        if (this.masterCollection && this.masterCollection.state)
+            var state = this.masterCollection.state;
+        else
+            var state = null;
+
         var div = PoliticianView({
+            state: state,
             politician: this.model.toJSON()
         });
 
         this.html(div);
-        this.el.className = 'politician';
+
+        if (state == 'all' || state == 'senate' || state == 'house')
+            this.el.className = 'block';
+        else
+            this.el.className = 'politician';
     },
 
     tweet: function (e) {

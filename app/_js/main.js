@@ -54,15 +54,8 @@ var STATES = {
 };
 
 var politicians = new Politicians();
-var unfiltered_politicians = new Politicians();
+var unfilteredPoliticians = new Politicians();
 var geocode = null;
-
-function methodologyModalShowHide() {
-    document.getElementById('techNote').classList.toggle('shown');
-}
-
-document.getElementById('showNote').onclick = methodologyModalShowHide;
-document.getElementById('hideNote').onclick = methodologyModalShowHide;
 
 var xhr_annotate = new XMLHttpRequest();
 
@@ -70,14 +63,14 @@ xhr_annotate.onreadystatechange = function(){
   if (xhr_annotate.readyState === 4){
     var res = JSON.parse(xhr_annotate.response);
     console.log(res);
-    unfiltered_politicians.each(function(d){
+    unfilteredPoliticians.each(function(d){
       var bioguide = d.get("bioguide");
       d.set({party: res[bioguide]});
       console.log(d.get("party"));
     });
 
       new HistogramController({
-          collection: unfiltered_politicians,
+          collection: unfilteredPoliticians,
           inject: '#histogram'
       });
 
@@ -96,11 +89,11 @@ xhr.onreadystatechange = function () {
             var politician = new Politician();
             politician.populateFromGoogle(entry);
             politicians.add(politician);
-            unfiltered_politicians.add(politician);
+            unfilteredPoliticians.add(politician);
         }
 
         // convert to a filter collection (which allows us to filter on state)
-        politicians = new PoliticiansStateFilter(politicians);
+        politicians = new PoliticiansFilter(politicians);
 
         xhr_annotate.open("get",'data/bioguideToParty.json',true);
         xhr_annotate.send();
@@ -148,10 +141,25 @@ var initializeScoreboard = function () {
 
     politicians.refresh();
 
-    document.getElementById('scoreboard_data').getElementsByClassName('spinner')[0].remove();
+
+    document.getElementById('scoreboard_data').getElementsByClassName('spinnerContainer')[0].remove();
 
     new PoliticalScoreboardController({
         collection: politicians,
         inject: '#scoreboard_data'
     });
+
 };
+
+
+var onDomContentLoaded = function() {
+    var spinner = util.generateSpinner();
+    document.getElementById('scoreboard_data').appendChild(spinner);
+};
+
+// Wait for DOM content to load.
+if (document.readyState == "complete" || document.readyState == "loaded" || document.readyState == "interactive") {
+    onDomContentLoaded();
+} else if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', onDomContentLoaded, false);
+}

@@ -42,6 +42,9 @@ var PoliticalScoreboardController = Composer.Controller.extend({
     },
 
     init_list: function(filterCollection, inject) {
+
+        var masterCollection = this.collection;
+
         new Composer.ListController({
             collection: filterCollection,
             inject: inject,
@@ -49,7 +52,8 @@ var PoliticalScoreboardController = Composer.Controller.extend({
                 this.track(this.collection, function(model, options) {
                     return new PoliticianController({
                         inject: this.el,
-                        model: model
+                        model: model,
+                        masterCollection: masterCollection
                     });
                 }.bind(this), {bind_reset: true})
             }

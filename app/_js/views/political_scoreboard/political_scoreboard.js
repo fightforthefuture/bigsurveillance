@@ -2,12 +2,35 @@ var PoliticalScoreboardView = function(data) {
     var div = $c('div');
 
     var label = $c('label');
-    label.textContent = 'Choose state:';
+    label.textContent = 'Choose view:';
     label.htmlFor = '_ps_choose_state';
     div.appendChild(label);
 
     var select = $c('select');
     select.id = '_ps_choose_state';
+
+    var optgroup = $c('optgroup');
+    optgroup.label = 'View by Chamber'
+
+    var option = $c('option');
+    option.value = 'all';
+    option.textContent = 'All Congress';
+    optgroup.appendChild(option);
+
+    var option = $c('option');
+    option.value = 'senate';
+    option.textContent = 'Senate';
+    optgroup.appendChild(option);
+
+    var option = $c('option');
+    option.value = 'house';
+    option.textContent = 'House';
+    optgroup.appendChild(option);
+
+    select.appendChild(optgroup);
+
+    var optgroup = $c('optgroup');
+    optgroup.label = 'View by state'
 
     for (var key in STATES)
         if (STATES.hasOwnProperty(key)) {
@@ -16,8 +39,9 @@ var PoliticalScoreboardView = function(data) {
             option.textContent = STATES[key];
             if (key == data.state)
                 option.selected = true;
-            select.appendChild(option);
+            optgroup.appendChild(option);
         }
+    select.appendChild(optgroup);
 
     div.appendChild(select);
 
@@ -40,7 +64,7 @@ var PoliticalScoreboardView = function(data) {
     filtered.className = 'filtered';
     good.appendChild(filtered);
 
-    div.appendChild(good);
+    politicians.appendChild(good);
 
     var bad = $c('div');
     bad.className = 'bad panel';
@@ -57,7 +81,7 @@ var PoliticalScoreboardView = function(data) {
     filtered.className = 'filtered';
     bad.appendChild(filtered);
 
-    div.appendChild(bad);
+    politicians.appendChild(bad);
 
     var meh = $c('div');
     meh.className = 'meh panel';

@@ -1,52 +1,175 @@
+.block {
+
+    > div {
+        display: inline-block;
+        position: relative;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        text-align: center;
+        margin: 5px;
+        cursor: pointer;
+        font-weight: 600;
+
+        &.good {
+            background: #03b3b1;
+        }
+        &.neutral {
+            background: #6E6EBE;
+        }
+        &.bad {
+            background: #d85d40;
+        }
+
+        .hidden {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 32px;
+            height: 32px;
+
+            .politician {
+                position: absolute;
+                top: -114px;
+                left: -33px;
+                display: none;
+                z-index: 9000;
+                box-shadow: 0px 3px 20px black;
+
+                .rollover {
+                    padding-top: 27px;
+                }
+
+                h3 {
+                    right: 6px;
+                    bottom: 6px;
+                }
+
+            }
+
+            &:hover {
+                background: rgba(0, 0, 0, .5);
+                > div {
+                    display: block;
+                }
+            }
+        }
+    }
+}
 .politician {
     display: inline-block;
     position: relative;
-    background-color: gray;
     text-align: center;
+    margin: 0px 15px 15px 0px;
+
+    .good {
+        .headshot {
+            background-color: rgba(3, 179, 177, 0.66);
+        }
+        h3 {
+            background: #03b3b1;
+        }
+        h4 {
+            background: #05484e;
+        }
+        button {
+            border-color: #103644;
+            background: #065e64;
+
+            &:hover {
+                background: #03b3b1;
+                border-color: #05484e;
+            }
+        }
+    }
+    .neutral {
+        .headshot {
+            background-color: rgba(110, 110, 190, 0.66);
+        }
+        h3 {
+            background: #6e6ebe;
+        }
+        h4 {
+            background: #303050;
+        }
+        button {
+            border-color: #202040;
+            background: #303050;
+
+            &:hover {
+                background: #6e6ebe;
+                border-color: #303050;
+            }
+        }
+    }
+    .bad {
+        .headshot {
+            background-color: rgba(216, 93, 64, 0.66);
+        }
+        h3 {
+            background: #d85d40;
+        }
+        h4 {
+            background: #8f3e2a;
+        }
+        button {
+            border-color: #4b220e;
+            background: #a14e3a;
+
+            &:hover {
+                background: #d85d40;
+                border-color: #8f3e2a;
+            }
+        }
+    }
 
     .headshot {
-        width: 128px;
-        height: 156px;
+        width: 97px;
+        height: 114px;
+        border-radius: 10px;
         cursor: pointer;
         background: center center no-repeat;
         background-blend-mode: multiply;
         background-size: 100% auto;
-
-        &.good {
-            background-color: rgba(44, 188, 155, 0.5);
-        }
-        &.neutral {
-            background-color: rgba(32, 0, 128, 0.5);
-        }
-        &.bad {
-            background-color: #ff8082;
-
-        }
     }
 
     h3 {
         position: absolute;
-        bottom: 29px;
-        width: 100%;
+        bottom: -5px;
+        right: -5px;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
         text-align: center;
-        font-size: 3.52rem;
+        font-size: 1.9rem;
         font-weight: 600;
         color: @white;
-        text-shadow: 0 1px 3px @background-color;
-        font-family: @handwriting-font;
+        text-align: center;
+        font-family: @body-font;
+        margin-bottom: 0px;
+        border-radius: 5px;
+        z-index: 9000;
     }
 
     h4 {
         position: absolute;
-        bottom: 8px;
+        top: 0px;
         width: 100%;
         text-transform: uppercase;
         letter-spacing: 0.16rem;
-        font-size: 2.08rem;
+        font-size: 1.7rem;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        text-shadow: 0 1px 3px @background-color;
+        height: 22px;
+        line-height: 22px;
+        -webkit-border-top-left-radius: 10px;
+        -webkit-border-top-right-radius: 10px;
+        -moz-border-radius-topleft: 10px;
+        -moz-border-radius-topright: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        z-index: 9000;
     }
 
     .rollover {
@@ -59,34 +182,39 @@
         padding-top: 35px;
         opacity: 0;
         transition: opacity .2s linear;
+        border-radius: 10px;
 
         &:hover {
             opacity: 1;
         }
 
         button {
-            border: none;
             color: @white;
             cursor: pointer;
-            background: #4DBCA1;
-            font-family: @body-font;
-            font-size: 1.76rem;
+            font-family: @quote-font;
+            font-size: 2.5rem;
             font-weight: 600;
-            padding: 5px;
-            width: 85%;
+            width: 45px;
+            height: 45px;
+            vertical-align: top;
+            border-width: 3px;
+            border-style: solid;
+            border-radius: 100px;
+            transition: all .2s linear;
 
             &.tweet_link {
-                background: #1ABCC2;
-                margin-bottom: 15px;
+                background-image: url(../images/tw_white.png);
+                background-size: 24px auto;
+                background-position: center center;
+                background-repeat: no-repeat;
+                &:hover {
+                    background-color: #1ABCC2;
+                    border-color: #0A7C82
+                }
 
                 img {
                     width: 24px;
                     height: 24px;
-                    margin-right: 5px;
-                    vertical-align: middle;
-                }
-                span {
-                    vertical-align: middle;
                 }
             }
         }

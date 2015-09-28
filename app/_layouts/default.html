@@ -4,6 +4,7 @@
     <script src="//use.typekit.net/gwc3hsx.js"></script>
     <script>try {Typekit.load({async: true});} catch (e) {}</script>
     {% include meta.html %}
+    {% include scripts_head.html %}
 </head>
 <body>
 
@@ -31,27 +32,8 @@
         We have the power to protect the Internet and ourselves, but to do that,
         everyone has to take a stand and we should know who is on our side.
     </p>
-    <p>
-        <button class="link" id="showNote">
-            Learn more about our scoring method
-        </button>
-    </p>
-    <div id="scoreboard_data">
-        <div class="spinner">
-            <div class="blade d01"><div></div></div>
-            <div class="blade d02"><div></div></div>
-            <div class="blade d03"><div></div></div>
-            <div class="blade d04"><div></div></div>
-            <div class="blade d05"><div></div></div>
-            <div class="blade d06"><div></div></div>
-            <div class="blade d07"><div></div></div>
-            <div class="blade d08"><div></div></div>
-            <div class="blade d09"><div></div></div>
-            <div class="blade d10"><div></div></div>
-            <div class="blade d11"><div></div></div>
-            <div class="blade d12"><div></div></div>
-        </div>
-    </div>
+    <div id="scoreboard_data"></div>
+    <div id="histogram"></div>
 </div>
 <section class="copy">
     {{ content }}

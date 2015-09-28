@@ -383,21 +383,35 @@ var Politician = Composer.Model.extend({
 **/
 var Politicians = Composer.Collection.extend({
     sortfn: function(a, b) {
-        
-        if (a.get('last_name') < b.get('last_name'))
-            return -1;
-        if (a.get('last_name') > b.get('last_name'))
+
+        if (a.get('state_short') < b.get('state_short'))
+            return - 1;
+        else if (a.get('state_short') > b.get('state_short'))
             return 1;
-        return 0;
-            
+        else
+            if (a.get('last_name') < b.get('last_name'))
+                return -1;
+            if (a.get('last_name') > b.get('last_name'))
+                return 1;
+            return 0;
+
     },
 });
 
-var PoliticiansStateFilter = Composer.FilterCollection.extend({
+var PoliticiansFilter = Composer.FilterCollection.extend({
 
     state: 'MA',
 
     filter: function(model) {
-        return model.get('state_short') == this.state;
+        var state = this.state;
+
+        if (state == 'all')
+            return true;
+        else if (state == 'house')
+            return model.get('organization') == 'House';
+        else if (state == 'senate')
+            return model.get('organization') == 'Senate';
+        else
+            return model.get('state_short') == this.state;
     }
 });

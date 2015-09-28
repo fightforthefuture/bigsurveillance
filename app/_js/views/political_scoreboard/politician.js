@@ -3,8 +3,6 @@ var PoliticianView = function(data) {
         div = $c('div'),
         headshot = $c('div'),
         tweetLink = $c('button'),
-        twitterLogo = $c('img'),
-        tweetText = $c('span'),
         infoLink = $c('button'),
         name = $c('h4'),
         grade = $c('h3'),
@@ -14,11 +12,11 @@ var PoliticianView = function(data) {
     headshot.classList.add('headshot');
 
     if (data.politician.score >= 6) {
-        headshot.classList.add('good');
+        div.classList.add('good');
     } else if (data.politician.score >= 0) {
-        headshot.classList.add('neutral');
+        div.classList.add('neutral');
     } else {
-        headshot.classList.add('bad');
+        div.classList.add('bad');
     }
 
     div.appendChild(headshot);
@@ -33,17 +31,35 @@ var PoliticianView = function(data) {
 
     if (data.politician.twitter) {
         tweetLink.classList.add('tweet_link');
-        twitterLogo.src = 'images/tw_white.png';
-        tweetLink.appendChild(twitterLogo);
-        tweetText.textContent = 'Tweet';
-        tweetLink.appendChild(tweetText);
         rollover.appendChild(tweetLink);
     }
     infoLink.classList.add('info_link');
-    infoLink.textContent = 'Grade Info';
+    infoLink.textContent = 'i';
     rollover.appendChild(infoLink);
 
     div.appendChild(rollover);
 
-    return div;
+    if (data.state == 'all' || data.state == 'senate' || data.state == 'house'){
+
+        var block = $c('div');
+        block.textContent = data.politician.state_short;
+        if (data.politician.score >= 6) {
+            block.classList.add('good');
+        } else if (data.politician.score >= 0) {
+            block.classList.add('neutral');
+        } else {
+            block.classList.add('bad');
+        }
+        var hidden = $c('div');
+        hidden.className = 'hidden';
+        var politician = $c('div');
+        politician.className = 'politician';
+        politician.appendChild(div)
+        hidden.appendChild(politician);
+        block.appendChild(hidden);
+
+
+        return block;
+    } else
+        return div;
 };
