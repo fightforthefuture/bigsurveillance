@@ -68,6 +68,11 @@ var PoliticalScoreboardController = Composer.Controller.extend({
     filter: function() {
         var state = this.select.options[this.select.selectedIndex].value;
 
+        if (state == 'all' || state == 'senate' || state == 'house')
+            document.getElementById('histogram').className = 'visible';
+        else
+            document.getElementById('histogram').className = '';
+
         this.collection.state = state;
         this.collection.refresh();
 

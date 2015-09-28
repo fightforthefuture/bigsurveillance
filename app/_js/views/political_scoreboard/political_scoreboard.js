@@ -70,7 +70,7 @@ var PoliticalScoreboardView = function(data) {
     bad.className = 'bad panel';
 
     var h3 = $c('h3');
-    h3.textContent = 'Team Control';
+    h3.textContent = 'Team Surveillance';
     bad.appendChild(h3);
 
     var em = $c('em');

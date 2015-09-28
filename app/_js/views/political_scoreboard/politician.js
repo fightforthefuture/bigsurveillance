@@ -42,7 +42,10 @@ var PoliticianView = function(data) {
     if (data.state == 'all' || data.state == 'senate' || data.state == 'house'){
 
         var block = $c('div');
-        block.textContent = data.politician.state_short;
+        if (data.politician.state_short)
+            block.textContent = data.politician.state_short;
+        else
+            block.textContent = '?';
         if (data.politician.score >= 6) {
             block.classList.add('good');
         } else if (data.politician.score >= 0) {
