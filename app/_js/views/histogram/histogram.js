@@ -65,8 +65,7 @@ var HistogramView = function(collection, dom_id){
           .attr("x", 0)
           .attr("width", (x(data[0].dx) - 1)/3 )
           .attr("height", function(d) { return height - y(d.y); })
-          .style("fill","#004489")
-          .attr('fill-opacity', 0.7);
+          .style("fill","#888888")
 
       // format bars
       var barRep = svg.selectAll(".barRep")
@@ -81,7 +80,6 @@ var HistogramView = function(collection, dom_id){
           .attr("width", (x(data_rep[0].dx) - 1)/5 )
           .attr("height", function(d) { return height - y(d.y); })
           .style("fill", "#FF0000")
-          .attr('fill-opacity', 0.4);
 
 
       // format bars
@@ -97,8 +95,7 @@ var HistogramView = function(collection, dom_id){
           .attr("x", 0)
           .attr("width", (x(data_dem[0].dx) - 1)/5 )
           .attr("height", function(d) { return height - y(d.y); })
-          .style("fill", "#0000FF")
-          .attr('fill-opacity', 0.4);
+          .style("fill", "#00AAFF")
 
       var legend = svg.selectAll(".legend")
       .data(["Democrats","Republicans","All"])
@@ -113,12 +110,13 @@ var HistogramView = function(collection, dom_id){
               .attr("height", 18)
               .style("fill", function(d){
                 if (d==="Democrats")
-                  return "#0000FF";
+                  return "#00AAFF";
                 if (d==="Republicans")
                   return "#FF0000";
                 if (d==="All")
-                  return "#004489";
+                  return "#888888";
               } )
+              /*
               .attr('fill-opacity', function(d){
                 if (d==="Democrats")
                   return 0.4;
@@ -127,6 +125,7 @@ var HistogramView = function(collection, dom_id){
                 if (d==="All")
                   return 1;
               });
+            */
 ;
 
       legend.append("text")
