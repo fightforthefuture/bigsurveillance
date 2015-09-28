@@ -82,7 +82,8 @@ var Politician = Composer.Model.extend({
             var inc = 3;
             score_criteria.push({
                 score:  inc,
-                info:   'Supported the FISA Courts Reform Act'
+                info:   'Supported the FISA Courts Reform Act',
+                url: 'http://www.ibtimes.com/nsa-fisa-surveillance-obama-likely-back-secret-court-reform-senator-says-1368781'
             });
             score += inc;
         }
@@ -90,7 +91,8 @@ var Politician = Composer.Model.extend({
             var inc = 4;
             score_criteria.push({
                 score:  inc,
-                info:   'Supported the Intelligence Oversight and Surveillance Reform Act'
+                info:   'Supported the Intelligence Oversight and Surveillance Reform Act',
+                url:   'https://cdt.org/blog/bills-offer-clear-choice-end-bulk-collection-of-americans%E2%80%99-data-or-endorse-it/'
             });
             score += inc;
         }
@@ -98,7 +100,8 @@ var Politician = Composer.Model.extend({
             var inc = -4;
             score_criteria.push({
                 score:  inc,
-                info:   'Supported the FISA Improvements Act'
+                info:   'Supported the FISA Improvements Act',
+                url:'http://www.theguardian.com/world/2013/nov/15/feinstein-bill-nsa-warrantless-searches-surveillance'
             });
             score += inc;
         }
@@ -106,7 +109,8 @@ var Politician = Composer.Model.extend({
             var inc = -4;
             score_criteria.push({
                 score:  inc,
-                info:   'Supported the FISA Transparency and Modernization Act'
+                info:   'Supported the FISA Transparency and Modernization Act',
+                url:'https://www.eff.org/deeplinks/2014/04/nsa-reform-bill-intelligence-community-written-intelligence-community-and'
             });
             score += inc;
         }
@@ -114,7 +118,8 @@ var Politician = Composer.Model.extend({
             var inc = 4;
             score_criteria.push({
                 score:  inc,
-                info:   'Supported the Surveillance State Repeal Act'
+                info:   'Supported the Surveillance State Repeal Act',
+                url:'http://www.restorethe4th.com/blog/go-big-or-go-home-pass-the-new-surveillance-state-repeal-act/'
             });
             score += inc;
         }
@@ -122,7 +127,8 @@ var Politician = Composer.Model.extend({
             var inc = 2;
             score_criteria.push({
                 score:  inc,
-                info:   'Supported the original USA Freedom Act (prior to May 18th, 2014)'
+                info:   'Supported the original USA Freedom Act (prior to May 18th, 2014)',
+                url:' https://www.eff.org/deeplinks/2014/07/new-senate-usa-freedom-act-first-step-towards-reforming-mass-surveillance'
             });
             score += inc;
         }
@@ -130,7 +136,8 @@ var Politician = Composer.Model.extend({
             var inc = 4;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted for Conyers Amash Amendment'
+                info:   'Voted for Conyers Amash Amendment',
+                url: ' http://americablog.com/2013/07/amash-conyers-anti-nsa-amendment-lost-by-12-votes-205-217.html'
             });
             score += inc;
         }
@@ -138,7 +145,8 @@ var Politician = Composer.Model.extend({
             var inc = -2;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted for gutted House version of USA Freedom Act of 2014'
+                info:   'Voted for gutted House version of USA Freedom Act of 2014',
+                url: 'https://www.eff.org/deeplinks/2014/05/eff-dismayed-houses-gutted-usa-freedom-act'
             });
             score += inc;
         }
@@ -146,7 +154,8 @@ var Politician = Composer.Model.extend({
             var inc = 3;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted for Massie-Lofgren Amendment (2014)'
+                info:   'Voted for Massie-Lofgren Amendment (2014)',
+                url:' http://www.huffingtonpost.com/2014/12/10/nsa-surveillance-spending-bill_n_6304834.html'
             });
             score += inc;
         }
@@ -154,7 +163,8 @@ var Politician = Composer.Model.extend({
             var inc = 4;
             score_criteria.push({
                 score:  inc,
-                info:   'Supported whistleblower protection measures for Intelligence employees and contractors'
+                info:   'Supported whistleblower protection measures for Intelligence employees and contractors',
+                url:'http://whistleblower.org/blog/121230-49-orgs-call-congress-restore-whistleblower-rights-intelligence-contractors'
             });
             score += inc;
         }
@@ -162,7 +172,9 @@ var Politician = Composer.Model.extend({
             var inc = 4;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted NO on reauthorizing the PATRIOT Act *and* NO on cloture for the first Senate USA Freedom Act'
+                info:   'Voted NO on reauthorizing the PATRIOT Act *and* NO on cloture for the first Senate USA Freedom Act',
+                url:'http://www.thewhir.com/web-hosting-news/senate-votes-to-invoke-cloture-on-usa-freedom-act-advancing-it-to-an-amendment-process'
+
             });
             score += inc;
         }
@@ -170,7 +182,8 @@ var Politician = Composer.Model.extend({
             var inc = 1;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted NO on reauthorizing the PATRIOT Act *and* YES on cloture for the first Senate USA Freedom Act'
+                info:   'Voted NO on reauthorizing the PATRIOT Act *and* YES on cloture for the first Senate USA Freedom Act',
+                url:'http://www.thewhir.com/web-hosting-news/senate-votes-to-invoke-cloture-on-usa-freedom-act-advancing-it-to-an-amendment-process'
             });
             score += inc;
         }
@@ -178,7 +191,8 @@ var Politician = Composer.Model.extend({
             var inc = -4;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted YES on reauthorizing the PATRIOT Act and NO on the first USA Freedom Act cloture vote'
+                info:   'Voted YES on reauthorizing the PATRIOT Act and NO on the first USA Freedom Act cloture vote',
+                url:'http://thehill.com/policy/national-security/242173-mcconnell-introduces-short-term-nsa-bill'
             });
             score += inc;
         }
@@ -186,7 +200,8 @@ var Politician = Composer.Model.extend({
             var inc = 3;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted NO on reauthorizing the PATRIOT Act'
+                info:   'Voted NO on reauthorizing the PATRIOT Act',
+                url:'http://thehill.com/policy/national-security/242173-mcconnell-introduces-short-term-nsa-bill'
             });
             score += inc;
         }
@@ -194,7 +209,8 @@ var Politician = Composer.Model.extend({
             var inc = -3;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted YES on reauthorizing the PATRIOT Act'
+                info:   'Voted YES on reauthorizing the PATRIOT Act',
+                url:'https://cdt.org/insight/oppose-senator-feinsteins-fisa-reform-act-of-2015/'
             });
             score += inc;
         }
@@ -202,7 +218,8 @@ var Politician = Composer.Model.extend({
             var inc = -3;
             score_criteria.push({
                 score:  inc,
-                info:   'Supported the FISA Reform Act'
+                info:   'Supported the FISA Reform Act',
+                url:'https://www.eff.org/deeplinks/2015/06/eff-opposes-amendments-weakening-usa-freedom-act'
             });
             score += inc;
         }
@@ -210,7 +227,8 @@ var Politician = Composer.Model.extend({
             var inc = 1;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted NO on USA Freedom data retention amendment (1449)'
+                info:   'Voted NO on USA Freedom data retention amendment (1449)',
+                url: 'https://www.eff.org/deeplinks/2015/06/eff-opposes-amendments-weakening-usa-freedom-act'
             });
             score += inc;
         }
@@ -218,7 +236,8 @@ var Politician = Composer.Model.extend({
             var inc = -3;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted YES on USA Freedom data retention amendment (1449)'
+                info:   'Voted YES on USA Freedom data retention amendment (1449)',
+                url: 'https://www.eff.org/deeplinks/2015/06/eff-opposes-amendments-weakening-usa-freedom-act'
             });
             score += inc;
         }
@@ -226,7 +245,8 @@ var Politician = Composer.Model.extend({
             var inc = 1;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted NO on amendment 1450 extending implementation of USA Freedom Act by 1 year'
+                info:   'Voted NO on amendment 1450 extending implementation of USA Freedom Act by 1 year',
+                url:'https://www.eff.org/deeplinks/2015/06/eff-opposes-amendments-weakening-usa-freedom-act'
             });
             score += inc;
         }
@@ -234,7 +254,8 @@ var Politician = Composer.Model.extend({
             var inc = -2;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted YES on amendment 1450 extending implementation of USA Freedom Act by 1 year'
+                info:   'Voted YES on amendment 1450 extending implementation of USA Freedom Act by 1 year',
+                url:'https://www.eff.org/deeplinks/2015/06/eff-opposes-amendments-weakening-usa-freedom-act'
             });
             score += inc;
         }
@@ -242,7 +263,8 @@ var Politician = Composer.Model.extend({
             var inc = 1;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted NO on amendment 1451 to gut amicus proceedings'
+                info:   'Voted NO on amendment 1451 to gut amicus proceedings',
+                url: 'https://www.eff.org/deeplinks/2015/06/eff-opposes-amendments-weakening-usa-freedom-act'
             });
             score += inc;
         }
@@ -250,7 +272,8 @@ var Politician = Composer.Model.extend({
             var inc = -3;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted YES on amendment 1451 to gut amicus proceedings'
+                info:   'Voted YES on amendment 1451 to gut amicus proceedings',
+                url: 'https://www.eff.org/deeplinks/2015/06/eff-opposes-amendments-weakening-usa-freedom-act'
             });
             score += inc;
         }
@@ -258,7 +281,8 @@ var Politician = Composer.Model.extend({
             var inc = 4;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted NO on USA Freedom Act (final passage)'
+                info:   'Voted NO on USA Freedom Act (final passage)',
+                url:"http://www.restorethe4th.com/blog/most-reps-voting-for-usa-freedom-were-opponents-of-surveillance-reform/"
             });
             score += inc;
         }
@@ -266,7 +290,8 @@ var Politician = Composer.Model.extend({
             var inc = 1;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted YES on USA Freedom Act (final passage)'
+                info:   'Voted YES on USA Freedom Act (final passage)',
+                url:'https://www.eff.org/deeplinks/2015/05/usa-freedom-act-passes-what-we-celebrate-what-we-mourn-and-where-we-go-here'
             });
             score += inc;
         }
@@ -274,7 +299,8 @@ var Politician = Composer.Model.extend({
             var inc = -4;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted NO on USA Freedom Act (final passage) and YES on extending the PATRIOT Act'
+                info:   'Voted NO on USA Freedom Act (final passage) and YES on extending the PATRIOT Act',
+                url:"http://www.restorethe4th.com/blog/most-reps-voting-for-usa-freedom-were-opponents-of-surveillance-reform/"
             });
             score += inc;
         }
@@ -282,7 +308,8 @@ var Politician = Composer.Model.extend({
             var inc = 4;
             score_criteria.push({
                 score:  inc,
-                info:   'Supported bills reforming Section 702 of FISA'
+                info:   'Supported bills reforming Section 702 of FISA',
+                url:undefined
             });
             score += inc;
         }
@@ -290,7 +317,8 @@ var Politician = Composer.Model.extend({
             var inc = 3;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted YES on Massie-Lofgren Amendment to HR2685: Defund Section 702 surveillance'
+                info:   'Voted YES on Massie-Lofgren Amendment to HR2685: Defund Section 702 surveillance',
+                url:'https://demandprogress.org/letter-of-support-for-massie-lofgren-amendment-to-the-department-of-defense-appropriations-act-of-2016-h-r-2685/'
             });
             score += inc;
         }
@@ -298,7 +326,8 @@ var Politician = Composer.Model.extend({
             var inc = -3;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted NO on Massie-Lofgren Amendment to HR2685: Defund Section 702 surveillance'
+                info:   'Voted NO on Massie-Lofgren Amendment to HR2685: Defund Section 702 surveillance',
+                url:'https://demandprogress.org/letter-of-support-for-massie-lofgren-amendment-to-the-department-of-defense-appropriations-act-of-2016-h-r-2685/'
             });
             score += inc;
         }
@@ -306,7 +335,8 @@ var Politician = Composer.Model.extend({
             var inc = 3;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted YES on Massie-Lofgren Amendment to HR4870: Ban encryption backdoors'
+                info:   'Voted YES on Massie-Lofgren Amendment to HR4870: Ban encryption backdoors',
+                url: 'https://shutthebackdoor.net/'
             });
             score += inc;
         }
@@ -314,7 +344,8 @@ var Politician = Composer.Model.extend({
             var inc = -3;
             score_criteria.push({
                 score:  inc,
-                info:   'Voted NO on Massie-Lofgren Amendment to HR4870: Ban encryption backdoors'
+                info:   'Voted NO on Massie-Lofgren Amendment to HR4870: Ban encryption backdoors',
+                url: 'https://shutthebackdoor.net/'
             });
             score += inc;
         }
@@ -356,9 +387,6 @@ var Politician = Composer.Model.extend({
         }
         else if(score >= -9){
             var grade="D-"
-        }
-        else if (this.get('last_name') == 'McConnell'){
-            var grade="F-"
         }
         else{
             var grade="F"
