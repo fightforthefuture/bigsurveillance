@@ -11,7 +11,7 @@ body .sp_fb_small, body .sp_tw_small {
         color: white;
         cursor: pointer;
         display: inline-block;
-        font-family: Verdana, Geneva, Helvetica, sans-serif;
+        font-family: @body-font;
         font-weight: bold;
         height: 30px;
         width: 120px;
@@ -19,6 +19,7 @@ body .sp_fb_small, body .sp_tw_small {
         position: relative;
         text-decoration: none;
         text-transform: uppercase;
+        font-size: 16px;
 
         &::before {
             position: absolute;
@@ -49,7 +50,7 @@ body .sp_fb_small {
 }
 body .sp_tw_small {
     a {
-        background: #51c9f0 url('../images/tw_white.png') 15px center no-repeat;
+        background: #17a1ce url('../images/tw_white.png') 15px center no-repeat;
         background-size: 20px auto;
 
         &::before {

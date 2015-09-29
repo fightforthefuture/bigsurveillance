@@ -32,7 +32,7 @@ button.social {
     color: white;
     cursor: pointer;
     display: inline-block;
-    font-family: Verdana, Geneva, Helvetica, sans-serif;
+    font-family: @body-font;
     font-weight: bold;
     height: 2.142857143em;
     line-height: 2;
@@ -54,7 +54,7 @@ button.social {
     }
 
     &.twitter {
-        background: #51c9f0;
+        background: #17a1ce;
 
         &::before {
             background: url('../images/tw_white.png') center center no-repeat;
@@ -71,6 +71,11 @@ button.social {
             background: url('../images/fb_white.png') center center no-repeat;
             background-size: 100% auto;
         }
+    }
+
+    &.donate {
+        padding-left: 1em;
+        background: #e6b520;
     }
 
 }

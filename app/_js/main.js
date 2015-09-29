@@ -169,6 +169,12 @@ if (!util.getParameterByName('org')) {
 
     console.log('coin toss: ', window.org);
 }
+var org = util.getParameterByName('org') || window.org;
+
+if (org == 'rt4')
+    window.DONATE_URL = 'http://www.restorethe4th.com/';
+else
+    window.DONATE_URL = 'https://donate.fightforthefuture.org/?tag=decidethefuture';
 
 
 var onDomContentLoaded = function() {
@@ -202,3 +208,6 @@ if (document.readyState == "complete" || document.readyState == "loaded" || docu
 } else if (document.addEventListener) {
     document.addEventListener('DOMContentLoaded', onDomContentLoaded, false);
 }
+
+
+

@@ -1,19 +1,18 @@
 div.action_bar {
-    border-top: 1px solid #663333;
     padding: 3px 1px 4px 1px;
     box-sizing: border-box;
     position: fixed;
     left: 0px;
     bottom: 0px;
     width: 100%;
-    background: #442222;
+    border-top: 1px solid lighten(#202027, 10%);
+    background: #202027;
     z-index: 9001;
     font-weight: 600;
     text-align: center;
     @media screen and (min-width: @small-laptop) {
         text-align: right;
-        border-top: 2px solid #663333;
-        padding: 8px 10px 10px 10px;
+        padding: 10px 10px 12px 10px;
     }
 
     span {
@@ -29,11 +28,11 @@ div.action_bar {
 
         @media screen and (min-width: @small-laptop) {
             display: block;
-            font-size: 30px;
+            font-size: 27px;
             color: #fff;
             position: absolute;
             left: 30px;
-            top: 8px;
+            top: 11px;
             font-weight: 300;
 
             strong {
@@ -47,17 +46,22 @@ div.action_bar {
         display: none;
         margin-top: 0px;
         margin: 0px 5px;
-        padding: 0px 10px 0px 10px;
-        border: 1px solid #c4a63a;
-        height: 2.9rem;
+        border: 0px;
+        padding: 0px 15px 0px 15px;
+        height: 30px;
         box-sizing: border-box;
+        font-size: 16px;
+        font-weight: bold;
         line-height: 27px;
-        color: #4d3a0b;
+        width: 120px;
+        color: @white;
+        font-family: @body-font;
+        cursor: pointer;
         text-decoration: none;
+        text-transform: uppercase;
+        text-align: center;
         border-radius: 25px;
-        background: #fadb62; /* Old browsers */
-        background: linear-gradient(to bottom, #fadb62 0%,#d1b243 100%); /* W3C */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fadb62', endColorstr='#d1b243',GradientType=0 ); /* IE6-9 */
+        background: #5f5f84; /* Old browsers */
 
         @media screen and (min-width: @small-phone) {
             display: inline-block;
