@@ -51,6 +51,7 @@ module.exports = function (grunt) {
                         dot: true,
                         cwd: '<%= site.app %>',
                         src: [
+                            'fonts/**/*',
                             'images/**/*',
                             'data/**/*',
                             'congress/**/*'

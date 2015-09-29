@@ -4,7 +4,7 @@
 # (production settings go in _config.build.yml)
 
 name: Choose your future—STOP CISA and big surveillance
-url: 'https://fightforthefuture.github.io/bigsurveillance'
+url: http://decidethefuture.org/
 description: Tech has power over our future.
 timezone: America/Los_Angeles
 googleanalytics: UA-26576645-28

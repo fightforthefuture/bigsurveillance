@@ -37,13 +37,15 @@
     }
     .more {
         bottom: 0;
-        background: linear-gradient(to bottom, transparent, @background-color);
+        background: linear-gradient(to bottom, transparent, @background-color 75%);
         color: @white;
         content: 'Learn more';
         display: block;
+        font-family: "Bebas Neue", Arial, sans-serif;
+        font-size: 1.7rem;
         left: 0;
         line-height: 1;
-        padding: 3rem 0;
+        padding: 4rem 0;
         position: absolute;
         right: 0;
         text-align: center;
@@ -52,8 +54,7 @@
             text-decoration: none;
         }
         &:hover, &:active {
-            background: linear-gradient(to bottom, transparent, @background-color 75%);
-
+            background: linear-gradient(to bottom, transparent, @background-color);
         }
         &::before {
             color: fade(@white, 40%);

@@ -1,4 +1,6 @@
 #fftf-footer {
+    background-color: @blueBlack;
+    color: @white;
     font-size: 1.4rem;
     left: 0;
     line-height: 1.5;
@@ -6,10 +8,8 @@
     position: absolute;
     right: 0;
     text-align: center;
-    background-color: @blueBlack;
     margin-top: 5rem;
     border-top: 3px solid lighten(@blueBlack, 10%);
-    color: @white;
 
     hr {
         display: block;
@@ -35,8 +35,8 @@
 
     a.text {
         &:link, &:visited, &:hover, &:active, &:focus {
-            color: fade(@white, 40%);
-            font-weight: 500;
+            color: @white;
+            font-weight: 600;
             text-decoration: none;
         }
         &:hover, &:active, &:focus {
@@ -57,7 +57,6 @@
             opacity: .75;
         }
     }
-
 }
 
 .footer-logo {
