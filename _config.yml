@@ -3,9 +3,10 @@
 #######################
 # (production settings go in _config.build.yml)
 
-name: Choose your future—STOP CISA and big surveillance
-url: http://decidethefuture.org/
-description: Tech has power over our future.
+name: Decide the Future
+sharetitle: They’re deciding the future of the Internet right now
+url: http://www.decidethefuture.org
+description: Find out where these politicians stand on your freedom
 timezone: America/Los_Angeles
 googleanalytics: UA-26576645-28
 author:
