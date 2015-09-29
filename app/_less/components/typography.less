@@ -46,14 +46,21 @@
         border-color: transparent;
         border-bottom: lighten(@background-color, 20%) solid 0.1rem;
         margin: 0 auto 4rem;
+        @media screen and (min-width: @small-phone) {
+            margin-bottom: 6rem;
+        }
         width: 30%;
+
+        &:first-child {
+            display: none;
+        }
     }
     .more {
         bottom: 0;
         background-image: linear-gradient(to bottom, transparent, @background-color 75%);
         color: #bcc7e4;
         font-family: @body-font;
-        font-size: 1.7rem;
+        font-size: 2.2rem;
         height: 12.7rem;
         left: 0;
         padding: 7rem 0 0;
@@ -66,9 +73,16 @@
             text-decoration: none;
         }
         &:hover, &:active {
-            background-image: linear-gradient(to bottom, transparent, @background-color);
+            /* background-image: linear-gradient(to bottom, transparent, @background-color); */
+            color: @white;
+            text-decoration: underline;
+            &::before {
+                color: @white;
+                text-decoration: none;
+            }
         }
         &::before {
+            display: inline-block;
             color: fade(#bcc7e4, 50%);
             content: '▼';
             margin-right: 1rem;

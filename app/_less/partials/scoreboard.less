@@ -40,6 +40,7 @@
     p {
         font-size: 2rem;
         line-height: 2.4rem;
+        padding: 0rem 2rem;
     }
 }
 
@@ -120,6 +121,10 @@
 }
 
 #histogram {
+    display: none;
+    &.visible {
+        display: block;
+    }
     overflow-x: scroll;
     padding: 3rem 0;
 }
