@@ -1,16 +1,11 @@
 ---
 title: CISA is bad for business.
 layout: default
+published: true
 ---
 
-It’s the dirty deal that lets companies and the government do whatever they want
-with your private data.
 
-The government is proposing a massive bribe—they will give corporations immunity
-for breaking virtually any law if they do so while providing Lorem ipsum dolor
-sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
+After the Snowden revelations, American companies lost business in countries all over the world. People don't want to be spied on, they want to trust their companies. And, companies all over the world are capitalizing on that. CISA would make it clear to everyone in the world that American companies are surveillance tools for the US government. If American tech equals surveillance, why would you choose them? 
+
+In addition, CISA is a bill that props up monopolies over startups. In a truly competitive market, there are low barriers to entry for everyone. But, when monopolies can break any rule on the books, it's no holds barred to holding onto territory, especially with a free pass for fraud or other crimes. Smaller companies trying to get ahead won't be able to truly compete against big bad companies that get away with anything. Talk about a competitive edge! 
+
