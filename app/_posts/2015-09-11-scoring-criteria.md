@@ -1,8 +1,7 @@
 ---
-title: Our Scoring System.
+title: Our Scoring System
 layout: default
 slug: "our-scoring-system"
-published: true
 ---
 
 <p>This project originated in a desire to update EFF's <a href="https://standagainstspying.org/">"Stand Against Spying"</a> scorecard covering legislative activity in the 113th Congress (2013-14), to take into account votes taken in the legislative battle over Section 215 renewal and the USA FREEDOM Act, which provided limited reforms of Section 215. It is a joint project of Restore The Fourth and Fight for the Future, with the key participants being Alex Marthews and Zaki Manian of Restore The Fourth and Tiffiniy Cheng and Jeff Lyon of Fight for the Future.

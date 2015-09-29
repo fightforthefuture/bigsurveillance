@@ -34,9 +34,10 @@
             max-height: 28rem;
         }
 
-        @media screen and (min-width: @large-phone) {
-            max-height: 24rem;
+        @media screen and (min-width: @small-tablet) {
+            max-height: 32rem;
         }
+
     }
     a {
         color: @white;
@@ -91,7 +92,6 @@
             text-decoration: none;
         }
         &:hover, &:active {
-            /* background-image: linear-gradient(to bottom, transparent, @background-color); */
             color: @white;
             text-decoration: underline;
             &::before {
@@ -108,11 +108,14 @@
     }
     .expanded {
         max-height: 10000rem;
+        margin-bottom: 3rem;
         .more {
             display: none;
         }
     }
-}
+    .video-wrapper{
+
+    }}
 
 button.link {
     background: transparent;
