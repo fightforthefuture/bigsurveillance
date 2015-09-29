@@ -1,3 +1,8 @@
+---
+title: CISA is a dirty deal.
+slug: cisa-dirty-deal
+layout: default
+---
 
 It's the dirty deal that lets much of government from the NSA to local police get your private data from your favorite websites and lets them use it without due process.
 

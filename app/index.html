@@ -4,7 +4,7 @@ layout: default
 
 {% for post in site.posts %}
 <hr>
-<article>
+<article id="{{ post.slug }}">
     <h1>
         <a href="#{{ post.slug }}" class="expand-me">
             {{ post.title }}

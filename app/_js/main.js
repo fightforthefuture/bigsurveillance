@@ -169,3 +169,23 @@ if (document.readyState == "complete" || document.readyState == "loaded" || docu
 } else if (document.addEventListener) {
     document.addEventListener('DOMContentLoaded', onDomContentLoaded, false);
 }
+
+(function (doc, win) {
+    "use strict";
+
+    var
+        viewMoreLinks = doc.getElementsByClassName('expand-me'),
+        links = viewMoreLinks.length;
+
+    function expandArticle(e) {
+        e.preventDefault();
+
+        var
+            href = e.target.getAttribute('href').replace(/#/, '');
+        doc.getElementById(href).classList.add('expanded');
+    }
+
+    while (links--) {
+        viewMoreLinks[links].addEventListener('click', expandArticle);
+    }
+})(document, window);
