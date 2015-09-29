@@ -74,7 +74,7 @@ var PoliticalScoreboardView = function(data) {
     bad.appendChild(h3);
 
     var em = $c('em');
-    em.textContent = 'These politicians are working to expand the surveillance state and control the Internet.';
+    em.textContent = 'These politicians are working with monopolies to control the Internet for power and profit.';
     bad.appendChild(em);
 
     var filtered = $c('div');
