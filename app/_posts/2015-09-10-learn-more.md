@@ -13,6 +13,5 @@ The Internet is integrated into every part of our lives - what we allow to happe
 <div class="video-wrapper">
 <div class="video-container">
     <iframe src="http://www.youtube.com/embed/2YsZoqwRnKE" frameborder="0" width="560" height="315"></iframe>
-    <video src="#"></video>
 </div>
 </div>
