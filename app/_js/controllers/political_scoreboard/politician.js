@@ -5,11 +5,11 @@ var PoliticianController = Composer.Controller.extend({
         'click button.info_link': 'info',
         'click h4': 'tweet',
         'click .headshot': 'tweet',
-        'click .hidden': 'click'
+        'click .peekaboo': 'click'
     },
 
     elements: {
-        '.hidden': 'hidden'
+        '.peekaboo': 'hidden'
     },
 
     model: null,

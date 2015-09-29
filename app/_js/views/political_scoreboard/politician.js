@@ -53,7 +53,7 @@ var PoliticianView = function(data) {
             block.classList.add('bad');
         }
         var hidden = $c('div');
-        hidden.className = 'hidden';
+        hidden.className = 'peekaboo';
         var politician = $c('div');
         politician.className = 'politician';
         politician.appendChild(div)
