@@ -38,9 +38,27 @@
             max-height: 24rem;
         }
     }
+    a {
+        color: @white;
+    }
     p {
         font-weight: 300;
         line-height: 1.5;
+    }
+    strong {
+        font-weight: bold;
+    }
+    ul {
+        li {
+            max-width: 72ch;
+            margin: 0px auto 3rem;
+            color: @white;
+            text-align: center;
+            line-height: 1.5;
+        }
+    }
+    h3, h4 {
+        color: @white;
     }
     hr {
         border-color: transparent;
@@ -89,7 +107,7 @@
         }
     }
     .expanded {
-        max-height: 100rem;
+        max-height: 10000rem;
         .more {
             display: none;
         }
