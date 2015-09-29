@@ -1,12 +1,12 @@
 p.cta {
-    font-size: 1.8rem;
-    line-height: 2.5rem;
+    font-size: 2rem;
+    line-height: 2.8rem;
     text-shadow: 0px 0px 5px black;
 }
 
 
 .action {
-    background: fade(@action-box-backgrounds, 40%);
+    background: @action-box-backgrounds;
     border-radius: 10px;
     padding: 2.4rem 1.44rem 1.6rem 1.44rem;
     max-width: 652px;
@@ -21,16 +21,21 @@ p.cta {
 
     p {
         color: @white;
-        font-weight: 600;
-        font-size: 1.76rem;
-        line-height: 2.2rem;
+        font-weight: 400;
+        font-size: 2.1rem;
+        line-height: 3rem;
         text-align: center;
+        margin-bottom: 0rem;
+
+        strong {
+            font-weight: bold;
+        }
     }
 }
 
 .petition {
     form {
-        margin: 1.68rem 0;
+        margin: 1.3rem 0;
         padding: 0;
 
         @media screen and (min-width: @small-phone) {
