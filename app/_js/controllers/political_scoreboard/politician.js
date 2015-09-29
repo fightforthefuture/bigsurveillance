@@ -4,7 +4,12 @@ var PoliticianController = Composer.Controller.extend({
         'click button.tweet_link': 'tweet',
         'click button.info_link': 'info',
         'click h4': 'tweet',
-        'click .headshot': 'tweet'
+        'click .headshot': 'tweet',
+        'click .hidden': 'click'
+    },
+
+    elements: {
+        '.hidden': 'hidden'
     },
 
     model: null,
@@ -56,8 +61,17 @@ var PoliticianController = Composer.Controller.extend({
     },
 
     info: function (e) {
-        e.preventDefault();
+        if (e)
+            e.preventDefault();
 
         new PoliticianModalController({model: this.model});
+    },
+
+    click: function(e) {
+        if (e)
+            e.preventDefault();
+
+        if (e.target && this.hidden && e.target == this.hidden)
+            this.info();
     }
 });
