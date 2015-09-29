@@ -171,7 +171,7 @@ if (!util.getParameterByName('org')) {
 var org = util.getParameterByName('org') || window.org;
 
 if (org == 'rt4')
-    window.DONATE_URL = 'http://www.restorethe4th.com/';
+    window.DONATE_URL = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=245ZSF2CHHYXN';
 else
     window.DONATE_URL = 'https://donate.fightforthefuture.org/?tag=decidethefuture';
 
