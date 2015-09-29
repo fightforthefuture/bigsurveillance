@@ -1,0 +1,78 @@
+/*
+* Everything is relative.
+*
+* Including this component. To resize, overwrite the font-size of
+* div.share, button.social somewhere in your code.
+*
+* *****************
+* Don't touch this.
+* *****************
+*/
+
+div.share, button.social {
+    font-size: 1.4rem;
+}
+
+div.share {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 2.142857143em;
+    display: inline-block;
+    margin-bottom: 1.428571429em;
+    padding: 1.428571429em 0.714285714em;
+    width: 16.428571429em;
+    @media screen and (min-width: @small-phone) {
+        border-radius: 7.142857143em;
+        padding: 0.714285714em;
+        width: 31.428571429em;
+    }
+}
+
+button.social {
+    border: 0;
+    border-radius: 7.142857143em;
+    box-sizing: border-box;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Verdana, Geneva, Helvetica, sans-serif;
+    font-weight: bold;
+    height: 2.142857143em;
+    line-height: 2;
+    margin-left: 0.357142857em;
+    margin-right: 0.357142857em;
+    padding: 0 1em 0 2.857142857em;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &::before {
+        content: '';
+        display: block;
+        height: 1.428571429em;
+        left: 1em;
+        position: absolute;
+        top: 0.357142857em;
+        width: 1.428571429rem;
+    }
+
+    &.twitter {
+        background: #51c9f0;
+
+        &::before {
+            background: url('../images/tw_white.png') center center no-repeat;
+            background-size: 100% auto;
+        }
+    }
+    &.facebook {
+        background: #3b5a95;
+
+        @media screen and (min-width: @small-phone) {
+            margin-bottom: 0;
+        }
+        &::before {
+            background: url('../images/fb_white.png') center center no-repeat;
+            background-size: 100% auto;
+        }
+    }
+
+}

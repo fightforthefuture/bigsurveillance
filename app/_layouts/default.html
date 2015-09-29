@@ -21,6 +21,25 @@
     <div id="petition">
         HELLO
     </div>
+    <script type="text/javascript">
+        new EmailPetitionController({
+            inject: '#petition',
+            tag:    'test-petition',
+            required: ['email', 'zip'],
+            buttonText: 'Send Now',
+            onSend: function(formData)
+            {
+                document.getElementById('petition').innerHTML = '<p>Thanks!</p>';
+
+                new CallModalController({
+                    campaign:   'cisa-cloture-fax',
+                    zip:        formData.zip,
+                    callScript: 'CISA is really a bad law. Please oppose it!'
+                });
+            }
+        });
+    </script>
+
 </div>
 
 <a id="scoreboard" name="scoreboard"></a>
@@ -37,6 +56,7 @@
     {{ content }}
 </section>
 {% include fftf-footer.html %}
+{% include action-bar.html %}
 {% include methodology-modal.html %}
 {% include scripts.html %}
 </body>
