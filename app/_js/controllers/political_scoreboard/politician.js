@@ -51,7 +51,7 @@ var PoliticianController = Composer.Controller.extend({
             else
                 name = 'Sen. ' + this.model.get('last_name');
         }
-        if (this.model.get('grade').charAt(0) == 'A')
+        if (this.model.get('grade').charAt(0) == 'A' || this.model.get('grade').charAt(0) == 'F')
             var article = 'an';
         else
             var article = 'a';

@@ -139,7 +139,6 @@ var initializeScoreboard = function () {
 
     politicians.refresh();
 
-
     document.getElementById('scoreboard_data').getElementsByClassName('spinnerContainer')[0].remove();
 
     new PoliticalScoreboardController({

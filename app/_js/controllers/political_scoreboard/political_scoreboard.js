@@ -39,6 +39,11 @@ var PoliticalScoreboardController = Composer.Controller.extend({
             }
         });
         this.init_list(this.meh, this.meh_list);
+
+        // hide the "unclear" section if no politicians in it
+        this.with_bind(this.meh, 'reset', this.maybeHideMehPanel.bind(this));
+
+        this.maybeHideMehPanel();
     },
 
     init_list: function(filterCollection, inject) {
@@ -75,7 +80,10 @@ var PoliticalScoreboardController = Composer.Controller.extend({
 
         this.collection.state = state;
         this.collection.refresh();
+    },
 
+    maybeHideMehPanel: function() {
+        console.log('maybe hiding meh panel');
         if (this.meh.models().length == 0)
             this.meh_panel.style.display = 'none';
         else
