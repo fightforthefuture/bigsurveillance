@@ -2,63 +2,71 @@
     font-size: 1.4rem;
     left: 0;
     line-height: 1.5;
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 5rem 1rem;
     position: absolute;
     right: 0;
     text-align: center;
+    background-color: @blueBlack;
+    margin-top: 5rem;
+    border-top: 3px solid lighten(@blueBlack, 10%);
+    color: @white;
+
+    hr {
+        display: block;
+        margin: 1rem auto 3rem auto;
+        border-width: 0px;
+        width: 40%;
+        border-top: 1px solid lighten(@blueBlack, 10%);
+    }
+    .share {
+        margin-bottom: 3rem;
+    }
+
+    img {
+        margin-top: 1rem;
+    }
 
     @media screen and (min-width: @small-phone) {
-        padding: 2rem 1rem;
+        padding: 2rem 1rem 5rem 1rem;
     }
     @media screen and (min-width: @large-tablet) {
-        padding: 2rem;
+        padding: 2rem 1rem 7rem 1rem;
     }
 
-    a {
+    a.text {
         &:link, &:visited, &:hover, &:active, &:focus {
-            font-weight: 600;
+            color: fade(@white, 40%);
+            font-weight: 500;
             text-decoration: none;
         }
         &:hover, &:active, &:focus {
             border-bottom: 0.1rem dotted lightgray;
+            color: fade(@white, 50%);
         }
-    }
-    dl {
-        align-items: center;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        margin: 0 auto 1rem;
-        max-width: 310px;
-    }
-    dt {
-        margin-right: 1rem;
-        text-align: right;
-    }
-    dd {
-        flex-grow: 2;
-        text-align: left;
     }
     p {
-        margin-bottom: 1rem;
-    }
-}
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
 
-#fftf-footer {
-    background-color: @blueBlack;
-    color: @white;
+        em {
+            font-style: italic;
+        }
 
-    a {
-        &:link, &:visited, &:hover, &:active, &:focus {
-            color: @white;
+        small {
+            font-size: 1.4rem;
+            opacity: .75;
         }
     }
-    img {
-        margin-top: 1rem;
-    }
+
 }
 
 .footer-logo {
-    display: block;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    vertical-align: middle;
+    max-width: 400px;
+    max-height: 110px;
+    max-width: 100%;
     margin: 0 auto;
 }
