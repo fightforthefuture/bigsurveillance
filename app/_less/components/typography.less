@@ -1,22 +1,27 @@
 .copy {
     h1 {
+        font-size: 17vw;
+        margin: 0 auto 3rem;
+        max-width: 66rem;
+        padding: 0.5rem 0 0;
         a {
             &:link, &:visited, &:hover, &:active {
                 color: @body-copy-color;
                 text-decoration: none;
             }
         }
-        font-size: 5.4rem;
-        padding: 0 3rem;
         @media screen and (min-width: @small-phone) {
             font-size: 5rem;
         }
         @media screen and (min-width: @large-phone) {
-            padding: 0 4rem;
+            padding: 0.5rem 3rem 0;
             font-size: 5.5rem;
         }
         @media screen and (min-width: @small-tablet) {
-            padding: 0 8rem;
+            padding: 0.5rem 6rem 0;
+        }
+        @media screen and (min-width: @large-tablet) {
+            padding: 0.5rem 0 0;
         }
     }
     article {
@@ -24,6 +29,14 @@
         overflow: hidden;
         position: relative;
         transition: max-height 400ms;
+
+        @media screen and (min-width: @small-phone) {
+            max-height: 28rem;
+        }
+
+        @media screen and (min-width: @large-phone) {
+            max-height: 24rem;
+        }
     }
     p {
         font-weight: 300;
@@ -37,27 +50,26 @@
     }
     .more {
         bottom: 0;
-        background: linear-gradient(to bottom, transparent, @background-color 75%);
-        color: @white;
-        content: 'Learn more';
-        display: block;
-        font-family: "Bebas Neue", Arial, sans-serif;
+        background-image: linear-gradient(to bottom, transparent, @background-color 75%);
+        color: #bcc7e4;
+        font-family: @body-font;
         font-size: 1.7rem;
+        height: 12.7rem;
         left: 0;
-        line-height: 1;
-        padding: 4rem 0;
+        padding: 7rem 0 0;
         position: absolute;
         right: 0;
         text-align: center;
         text-transform: uppercase;
+        transition: background-image 300ms; // some day browsers will implement this.
         &:link, &:visited {
             text-decoration: none;
         }
         &:hover, &:active {
-            background: linear-gradient(to bottom, transparent, @background-color);
+            background-image: linear-gradient(to bottom, transparent, @background-color);
         }
         &::before {
-            color: fade(@white, 40%);
+            color: fade(#bcc7e4, 50%);
             content: '▼';
             margin-right: 1rem;
         }
