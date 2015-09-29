@@ -43,7 +43,9 @@ var PoliticianController = Composer.Controller.extend({
         e.preventDefault();
 
         var name = this.model.get('twitter');
-        if (!name) {
+        if (name) {
+            name = '@' + name;
+        } else {
             if (this.model.get('organization') == 'House')
                 name = 'Rep. ' + this.model.get('last_name');
             else
