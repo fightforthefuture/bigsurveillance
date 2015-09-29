@@ -158,9 +158,42 @@ var initializeScoreboard = function () {
 };
 
 
+// Org coin toss
+if (!util.getParameterByName('org')) {
+    var coinToss = Math.random();
+
+    if (coinToss > .5)
+        window.org = 'fftf';
+    else
+        window.org = 'rt4';
+
+    console.log('coin toss: ', window.org);
+}
+
+
 var onDomContentLoaded = function() {
     var spinner = util.generateSpinner();
     document.getElementById('scoreboard_data').appendChild(spinner);
+
+    (function (doc, win) {
+        "use strict";
+
+        var
+            viewMoreLinks = doc.getElementsByClassName('expand-me'),
+            links = viewMoreLinks.length;
+
+        function expandArticle(e) {
+            e.preventDefault();
+
+            var
+                href = e.target.getAttribute('href').replace(/#/, '');
+            doc.getElementById(href).classList.add('expanded');
+        }
+
+        while (links--) {
+            viewMoreLinks[links].addEventListener('click', expandArticle);
+        }
+    })(document, window);
 };
 
 // Wait for DOM content to load.
@@ -169,23 +202,3 @@ if (document.readyState == "complete" || document.readyState == "loaded" || docu
 } else if (document.addEventListener) {
     document.addEventListener('DOMContentLoaded', onDomContentLoaded, false);
 }
-
-(function (doc, win) {
-    "use strict";
-
-    var
-        viewMoreLinks = doc.getElementsByClassName('expand-me'),
-        links = viewMoreLinks.length;
-
-    function expandArticle(e) {
-        e.preventDefault();
-
-        var
-            href = e.target.getAttribute('href').replace(/#/, '');
-        doc.getElementById(href).classList.add('expanded');
-    }
-
-    while (links--) {
-        viewMoreLinks[links].addEventListener('click', expandArticle);
-    }
-})(document, window);
