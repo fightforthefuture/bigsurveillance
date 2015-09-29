@@ -15,30 +15,27 @@
 </p>
 
 <div class="action">
-    <p>
-       The US Congress has to hear from us this week or CISA will pass and change the world for the worse. Stop them now.
-    </p>
-    <div id="petition">
-        HELLO
+    <div id="action">
+        <p>
+           The US Congress has to hear from us this week or CISA will pass and change the world for the worse. Stop them now.
+        </p>
+        {% include cta_petition.html %}
     </div>
-    <script type="text/javascript">
-        new EmailPetitionController({
-            inject: '#petition',
-            tag:    'test-petition',
-            required: ['email', 'zip'],
-            buttonText: 'Send Now',
-            onSend: function(formData)
-            {
-                document.getElementById('petition').innerHTML = '<p>Thanks!</p>';
-
-                new CallModalController({
-                    campaign:   'cisa-cloture-fax',
-                    zip:        formData.zip,
-                    callScript: 'CISA is really a bad law. Please oppose it!'
-                });
-            }
-        });
-    </script>
+    <div id="thanks" style="display: none;">
+        <h3>Thanks for taking action!</h3>
+        <p>
+            We're up against some of the most powerful corporate lobbyists in the country, but that hasn't stopped us before. If a critical mass of citizens speak out against CISA, our voices will be impossible to ignore.
+        </p>
+        <div class="share">
+            <!--
+            JL NOTE ~ switch this back when we're done with ShareProgress
+            <button class="social facebook">Share this</button>
+            <button class="social twitter">Tweet this</button>
+            -->
+            <div class='sp_16092 sp_fb_small' ></div>
+            <div class='sp_16093 sp_tw_small' ></div>
+        </div>
+    </div>
 
 </div>
 

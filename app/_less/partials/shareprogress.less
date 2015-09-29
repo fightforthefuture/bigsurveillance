@@ -2,7 +2,7 @@ body .sp_fb_small, body .sp_tw_small {
     display: inline-block;
     height: 30px;
     vertical-align: bottom;
-    margin-right: 10px;
+    margin: 0px 5px;
 
     a {
         border: 0;
@@ -30,6 +30,13 @@ body .sp_fb_small, body .sp_tw_small {
         }
     }
 }
+div.share {
+    .sp_fb_small, .sp_tw_small {
+        @media screen and (max-width: @small-phone) {
+            margin: 0px;
+        }
+    }
+}
 body .sp_fb_small {
     a {
         background: #3b5a95 url('../images/fb_white.png') 15px center no-repeat;
@@ -43,7 +50,7 @@ body .sp_fb_small {
 body .sp_tw_small {
     a {
         background: #51c9f0 url('../images/tw_white.png') 15px center no-repeat;
-        background-size: 18px auto;
+        background-size: 20px auto;
 
         &::before {
             content: 'TWEET';
