@@ -1,9 +1,9 @@
 var PoliticalScoreboardController = Composer.Controller.extend({
     elements: {
-        '.good .filtered': 'good_list',
-        '.bad .filtered': 'bad_list',
-        '.meh .filtered': 'meh_list',
-        '.panel.meh': 'meh_panel',
+        '.internet .filtered': 'good_list',
+        '.surveillance .filtered': 'bad_list',
+        '.unknown .filtered': 'meh_list',
+        '.team.unknown': 'meh_panel',
         'select': 'select'
     },
 
@@ -84,9 +84,10 @@ var PoliticalScoreboardController = Composer.Controller.extend({
 
     maybeHideMehPanel: function() {
         console.log('maybe hiding meh panel');
-        if (this.meh.models().length == 0)
-            this.meh_panel.style.display = 'none';
-        else
-            this.meh_panel.style.display = 'inline-block';
+        if (this.meh.models().length == 0) {
+            this.meh_panel.classList.add('hidden');
+        } else {
+            this.meh_panel.classList.remove('hidden');
+        }
     }
 });

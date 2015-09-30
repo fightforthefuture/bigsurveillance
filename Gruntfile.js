@@ -213,6 +213,7 @@ module.exports = function (grunt) {
         'clean:server',
         'jekyll:build',
         'concurrent:server',
+        'uglify:build',
         'postcss:build'
     ]);
 

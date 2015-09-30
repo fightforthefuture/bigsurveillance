@@ -2,9 +2,11 @@
 title: Our Scoring System
 layout: default
 slug: "our-scoring-system"
+published: true
 ---
 
-<p>This project originated in a desire to update EFF's <a href="https://standagainstspying.org">"Stand Against Spying"</a> scorecard covering legislative activity in the 113th Congress (2013-14), to take into account votes taken in the legislative battle over Section 215 renewal and the USA FREEDOM Act, which provided limited reforms of Section 215. It is a joint project of <a href="https://restorethe4th.com">Restore The Fourth</a> and <a href="https://fightforthefuture.org">Fight for the Future</a>, with the key participants being Alex Marthews and Zaki Manian of Restore The Fourth and Tiffiniy Cheng and Jeff Lyon of Fight for the Future.</p>
+
+<p>This project originated in a desire to update EFF's <a href="https://standagainstspying.org">"Stand Against Spying"</a> scorecard covering legislative activity in the 113th Congress (2013-14), to take into account votes taken in the legislative battle over Section 215 renewal and the USA FREEDOM Act, which provided limited reforms of Section 215. It is a joint project of <a href="https://restorethe4th.com">Restore The Fourth</a> and <a href="https://fightforthefuture.org">Fight for the Future</a>.</p>
 <p>
 We decided early on that, like with "Stand Against Spying", the scorecard should be objective: That is, it should not contain value judgments about the quality or trustworthiness of legislators' public statements on mass surveillance, or about how the legislator was generally perceived to stand on that issue, but should consider only the votes they actually took, and decisions to sponsor or cosponsor legislation introduced in Congress.
  </p>
@@ -66,4 +68,3 @@ Second, reporters should not treat the reforms in the USA FREEDOM Act as being t
  </p>
 
 <p>Third, the data does provide some guidance as to who in Congress is more likely to support reform. Having a military background, serving on an intelligence committee, being in leadership and being from the South seems to be associated with hostility to surveillance reform (an exemplar here being Tom Cotton); being African-American, being recently elected, identifying with Ron Paul, or being from the Pacific Northwest, Upper Midwest or Northeast, seems to be associated with support of surveillance reform. It’s not just a story about Rand Paul and his presidential ambitions; surveillance reformers include many legislators from many backgrounds. There is also usually substantial variation within states that argues against easy conclusions. In key 2016 races around the country, the candidates running from both parties have sharply different positions on surveillance, and we have no reason to suppose that this will change in future cycles.</p>
-
