@@ -24,6 +24,7 @@ var PoliticianView = function(data) {
     name.textContent = data.politician.last_name;
     div.appendChild(name);
 
+    grade.classList.add('grade');
     grade.textContent = data.politician.grade;
     div.appendChild(grade);
 

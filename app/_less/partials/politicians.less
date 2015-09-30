@@ -1,137 +1,8 @@
-.block {
-
-    > div {
-        display: inline-block;
-        position: relative;
-        width: 32px;
-        height: 32px;
-        line-height: 32px;
-        text-align: center;
-        margin: 5px;
-        cursor: pointer;
-        font-weight: 600;
-
-        &.good {
-            background: #03b3b1;
-        }
-        &.neutral {
-            background: #6E6EBE;
-        }
-        &.bad {
-            background: #d85d40;
-        }
-
-        .peekaboo {
-            position: absolute;
-            left: 0px;
-            top: 0px;
-            width: 32px;
-            height: 32px;
-
-            .politician {
-                position: absolute;
-                top: -114px;
-                left: -33px;
-                display: none;
-                z-index: 9000;
-                box-shadow: 0px 3px 20px black;
-
-                .rollover {
-                    padding-top: 27px;
-                }
-
-                h3 {
-                    right: 6px;
-                    bottom: 6px;
-                }
-
-            }
-
-            &:hover {
-                background: rgba(0, 0, 0, .5);
-                > div {
-                    display: block;
-                }
-            }
-        }
-    }
-}
 .politician {
     display: inline-block;
     position: relative;
     text-align: center;
-    margin: 0px 15px 15px 0px;
-
-    .good {
-        .headshot {
-            background-color: rgba(3, 179, 177, 0.66);
-        }
-        h3 {
-            background: #03b3b1;
-        }
-        h4 {
-            background: #05484e;
-        }
-        button {
-            border-color: #103644;
-            background: #065e64;
-
-            &:hover {
-                background: #03b3b1;
-                border-color: #05484e;
-            }
-        }
-    }
-    .neutral {
-        .headshot {
-            background-color: rgba(110, 110, 190, 0.66);
-        }
-        h3 {
-            background: #6e6ebe;
-        }
-        h4 {
-            background: #303050;
-        }
-        button {
-            border-color: #202040;
-            background: #303050;
-
-            &:hover {
-                background: #6e6ebe;
-                border-color: #303050;
-            }
-        }
-    }
-    .bad {
-        .headshot {
-            background-color: rgba(216, 93, 64, 0.66);
-        }
-        h3 {
-            background: #d85d40;
-        }
-        h4 {
-            background: #8f3e2a;
-        }
-        button {
-            border-color: #4b220e;
-            background: #a14e3a;
-
-            &:hover {
-                background: #d85d40;
-                border-color: #8f3e2a;
-            }
-        }
-    }
-
-    .headshot {
-        width: 97px;
-        height: 114px;
-        border-radius: 10px;
-        cursor: pointer;
-        background: center center no-repeat;
-        background-blend-mode: multiply;
-        background-size: 100% auto;
-    }
+    margin: 0 1.5rem 1.5rem 0;
 
     h3 {
         position: absolute;
@@ -143,17 +14,18 @@
         text-align: center;
         font-size: 1.9rem;
         font-weight: 600;
-        color: @white;
-        text-align: center;
         font-family: @body-font;
-        margin-bottom: 0px;
+        margin-bottom: 0;
         border-radius: 5px;
         z-index: 9000;
+    }
+    .grade {
+        color: @white;
     }
 
     h4 {
         position: absolute;
-        top: 0px;
+        top: 0;
         width: 100%;
         text-transform: uppercase;
         letter-spacing: 0.16rem;
@@ -187,48 +59,118 @@
         &:hover {
             opacity: 1;
         }
+    }
 
-        button {
-            color: @white;
-            cursor: pointer;
-            font-family: @quote-font;
-            font-size: 2.5rem;
-            font-weight: 600;
-            width: 45px;
-            height: 45px;
-            vertical-align: top;
-            border-width: 3px;
-            border-style: solid;
-            border-radius: 100px;
-            transition: all .2s linear;
+    button {
+        border-radius: 100px;
+        border-style: solid;
+        border-width: 3px;
+        color: @white;
+        cursor: pointer;
+        font-family: @quote-font;
+        font-size: 2.5rem;
+        font-weight: 600;
+        height: 4.5rem;
+        transition: background-color 200ms linear, border-color 200ms linear;
+        vertical-align: top;
+        width: 4.5rem;
 
-            &.tweet_link {
-                background-image: url(../images/tw_white.png);
-                background-size: 24px auto;
-                background-position: center center;
-                background-repeat: no-repeat;
-                &:hover {
-                    background-color: #1ABCC2;
-                    border-color: #0A7C82
-                }
+        &.tweet_link {
+            background-image: url('../images/tw_white.png');
+            background-size: 24px auto;
+            background-position: center center;
+            background-repeat: no-repeat;
 
-                img {
-                    width: 24px;
-                    height: 24px;
-                }
+            img {
+                width: 24px;
+                height: 24px;
             }
         }
     }
 }
 
-.modal.politician_modal {
+.headshot {
+    background: center center no-repeat;
+    background-blend-mode: multiply;
+    background-size: 100% auto;
+    border-radius: 1rem;
+    cursor: pointer;
+    height: 11.4rem;
+    width: 9.7rem;
+}
+
+.good {
+    .headshot {
+        background-color: rgba(3, 179, 177, 0.66);
+    }
+    .grade {
+        background: #03b3b1;
+    }
+    h4 {
+        background: #05484e;
+    }
+    button {
+        background-color: #065e64;
+        border-color: #103644;
+
+        &:hover {
+            background-color: #03b3b1;
+            border-color: #05484e;
+        }
+    }
+}
+
+.neutral {
+    .headshot {
+        background-color: rgba(110, 110, 190, 0.66);
+    }
+    .grade {
+        background: #6e6ebe;
+    }
+    h4 {
+        background: #303050;
+    }
+    button {
+        background-color: #303050;
+        border-color: #202040;
+
+        &:hover {
+            background-color: #6e6ebe;
+            border-color: #303050;
+        }
+    }
+}
+
+.bad {
+    .headshot {
+        background-color: rgba(216, 93, 64, 0.66);
+    }
+    .grade {
+        background: #d85d40;
+    }
+    h4 {
+        background: #8f3e2a;
+    }
+    button {
+        background-color: #a14e3a;
+        border-color: #4b220e;
+
+        &:hover {
+            background-color: #d85d40;
+            border-color: #8f3e2a;
+        }
+    }
+}
+
+.politician_modal {
     ul {
         padding-left: 3rem;
-        li.bad {
+        .bad {
             list-style-image: url('../images/down.png');
         }
-        li.good {
+        .good {
             list-style-image: url('../images/up.png');
         }
     }
 }
+

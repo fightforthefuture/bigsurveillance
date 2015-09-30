@@ -1,6 +1,5 @@
 .politicians {
     margin-top: 2.4rem;
-    background: #171a1e;
     @media screen and (min-width: @large-phone) {
         display: flex;
         flex-direction: row;
@@ -9,11 +8,11 @@
 }
 
 .scoreboard {
-    padding: 1rem 0 0rem 0;
     border-radius: 5px;
     max-width: 768px;
     margin: 60px auto;
     color: @white;
+    padding: 1rem 0 0;
     text-align: center;
     background: #232330;
 
@@ -24,11 +23,11 @@
     .spinnerContainer {
         padding-bottom: 4rem;
 
-        .spinner {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto;
-        }
+    }
+    .spinner {
+        height: 10rem;
+        margin: 0 auto;
+        width: 10rem;
     }
     .link {
         font-size: 1.6rem;
@@ -40,11 +39,10 @@
     p {
         font-size: 2rem;
         line-height: 2.4rem;
-        padding: 0rem 2rem;
-
-        a {
-            color: @white;
-        }
+        padding: 0 2rem;
+    }
+    a {
+        color: @white;
     }
 }
 
@@ -59,17 +57,13 @@
     }
 }
 
-.panel {
-    display: inline-block;
-    vertical-align: top;
+.team {
+    background: #171a1e;
     padding-top: 2.5rem;
-
-
-    text-align: left;
     @media screen and (min-width: @large-phone) {
         width: 50%;
-        &.good {
-            border-right: 1px solid #353535;
+        &.internet {
+            border-right: 0.1rem solid #353535;
         }
     }
 
@@ -82,35 +76,34 @@
         color: #737396;
     }
 
-    &.good {
-        > h3 {
-            color: #01d5c8;
-        }
-        em {
-            color: #00dcd9;
-        }
+}
+.internet {
+    h3 {
+        color: #01d5c8;
     }
-    &.bad {
-
-        > h3 {
-            color: #dd5b3c;
-        }
-        em {
-            color: #ea6e51;
-        }
+    em {
+        color: #00dcd9;
     }
-    &.meh {
-        background: #171a1e;
-        padding-top: 0rem;
-        width: 100%;
+}
 
-        > h3 {
-            color: #6e41d3;
-            background: #202032;
-            height: 6rem;
-            line-height: 6rem;
-            margin-bottom: 15px;
-        }
+.surveillance {
+    h3 {
+        color: #dd5b3c;
+    }
+    em {
+        color: #ea6e51;
+    }
+}
+
+.unknown {
+    padding-top: 0;
+    width: 100%;
+    h3 {
+        color: #6e41d3;
+        background: #202032;
+        height: 6rem;
+        line-height: 6rem;
+        margin-bottom: 15px;
     }
 }
 

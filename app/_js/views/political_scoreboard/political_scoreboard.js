@@ -1,100 +1,101 @@
-var PoliticalScoreboardView = function(data) {
-    var div = $c('div');
+var PoliticalScoreboardView = function (data) {
+    var
+        container = $c('div'),
+        politicians = $c('div'),
+        good = $c('div'),
+        bad = $c('div'),
+        meh = $c('div'),
+        goodPoliticians = $c('div'),
+        badPoliticians = $c('div'),
+        mehPoliticians = $c('div'),
+        label = $c('label'),
+        select = $c('select'),
+        chamberOptGroup = $c('optgroup'),
+        stateOptGroup = $c('optgroup'),
+        allCongress = $c('option'),
+        senate = $c('option'),
+        house = $c('option'),
+        goodHeadline = $c('h3'),
+        badHeadline = $c('h3'),
+        mehHeadline = $c('h3'),
+        goodSubHead = $c('em'),
+        badSubHead = $c('em');
 
-    var label = $c('label');
     label.textContent = 'Choose view:';
     label.htmlFor = '_ps_choose_state';
-    div.appendChild(label);
+    container.appendChild(label);
 
-    var select = $c('select');
     select.id = '_ps_choose_state';
 
-    var optgroup = $c('optgroup');
-    optgroup.label = 'View by Chamber'
+    chamberOptGroup.label = 'View by Chamber';
 
-    var option = $c('option');
-    option.value = 'all';
-    option.textContent = 'All Congress';
-    optgroup.appendChild(option);
+    allCongress.value = 'all';
+    allCongress.textContent = 'All Congress';
+    chamberOptGroup.appendChild(allCongress);
 
-    var option = $c('option');
-    option.value = 'senate';
-    option.textContent = 'Senate';
-    optgroup.appendChild(option);
+    senate.value = 'senate';
+    senate.textContent = 'Senate';
+    chamberOptGroup.appendChild(senate);
 
-    var option = $c('option');
-    option.value = 'house';
-    option.textContent = 'House';
-    optgroup.appendChild(option);
+    house.value = 'house';
+    house.textContent = 'House';
+    chamberOptGroup.appendChild(house);
 
-    select.appendChild(optgroup);
+    select.appendChild(chamberOptGroup);
 
-    var optgroup = $c('optgroup');
-    optgroup.label = 'View by state'
+    stateOptGroup.label = 'View by state';
 
     for (var key in STATES)
         if (STATES.hasOwnProperty(key)) {
-            var option = $c('option');
-            option.value = key;
-            option.textContent = STATES[key];
-            if (key == data.state)
-                option.selected = true;
-            optgroup.appendChild(option);
+            var state = $c('option');
+            state.value = key;
+            state.textContent = STATES[key];
+            if (key === data.state)
+                state.selected = true;
+            stateOptGroup.appendChild(state);
         }
-    select.appendChild(optgroup);
+    select.appendChild(stateOptGroup);
 
-    div.appendChild(select);
+    container.appendChild(select);
 
-    var politicians = $c('div');
     politicians.className = 'politicians';
-    div.appendChild(politicians);
+    container.appendChild(politicians);
 
-    var good = $c('div');
-    good.className = 'good panel';
+    good.className = 'team internet';
 
-    var h3 = $c('h3');
-    h3.textContent = 'Team Internet';
-    good.appendChild(h3);
+    goodHeadline.textContent = 'Team Internet';
+    good.appendChild(goodHeadline);
 
-    var em = $c('em');
-    em.textContent = 'These politicians are standing up for the free Internet and oppose mass surveillance.';
-    good.appendChild(em);
+    goodSubHead.textContent = 'These politicians are standing up for the free Internet and oppose mass surveillance.';
+    good.appendChild(goodSubHead);
 
-    var filtered = $c('div');
-    filtered.className = 'filtered';
-    good.appendChild(filtered);
+    goodPoliticians.className = 'filtered';
+    good.appendChild(goodPoliticians);
 
     politicians.appendChild(good);
 
-    var bad = $c('div');
-    bad.className = 'bad panel';
+    bad.className = 'team surveillance';
 
-    var h3 = $c('h3');
-    h3.textContent = 'Team Surveillance';
-    bad.appendChild(h3);
+    badHeadline.textContent = 'Team Surveillance';
+    bad.appendChild(badHeadline);
 
-    var em = $c('em');
-    em.textContent = 'These politicians are working with monopolies to control the Internet for power and profit.';
-    bad.appendChild(em);
+    badSubHead.textContent = 'These politicians are working with monopolies to control the Internet for power and profit.';
+    bad.appendChild(badSubHead);
 
-    var filtered = $c('div');
-    filtered.className = 'filtered';
-    bad.appendChild(filtered);
+    badPoliticians.className = 'filtered';
+    bad.appendChild(badPoliticians);
 
     politicians.appendChild(bad);
 
-    var meh = $c('div');
-    meh.className = 'meh panel';
+    meh.className = 'team unknown';
 
-    var h3 = $c('h3');
-    h3.textContent = 'Unclear';
-    meh.appendChild(h3);
+    mehHeadline.textContent = 'Unclear';
+    meh.appendChild(mehHeadline);
 
-    var filtered = $c('div');
-    filtered.className = 'filtered';
-    meh.appendChild(filtered);
+    mehPoliticians.className = 'filtered';
+    meh.appendChild(mehPoliticians);
 
-    div.appendChild(meh);
+    container.appendChild(meh);
 
-    return div;
+    return container;
 };
