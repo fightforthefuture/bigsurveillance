@@ -57,26 +57,6 @@ var politicians = new Politicians();
 var unfilteredPoliticians = new Politicians();
 var geocode = null;
 
-var xhr_annotate = new XMLHttpRequest();
-
-xhr_annotate.onreadystatechange = function(){
-  if (xhr_annotate.readyState === 4){
-    var res = JSON.parse(xhr_annotate.response);
-    unfilteredPoliticians.each(function(d){
-      var bioguide = d.get("bioguide");
-      d.set({party: res[bioguide]});
-    });
-
-      new HistogramController({
-          collection: unfilteredPoliticians,
-          inject: '#histogram'
-      });
-
-  }
-};
-
-
-
 // get the spreadsheet from google
 var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function () {
@@ -92,9 +72,6 @@ xhr.onreadystatechange = function () {
 
         // convert to a filter collection (which allows us to filter on state)
         politicians = new PoliticiansFilter(politicians);
-
-        xhr_annotate.open("get",'data/bioguideToParty.json',true);
-        xhr_annotate.send();
 
         checkIfFinishedWithXHRs();
     }

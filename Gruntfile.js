@@ -166,7 +166,6 @@ module.exports = function (grunt) {
                 files: [
                     {
                         src: [
-                            'node_modules/d3/d3.min.js',
                             '<%= site.app %>/_js/controllers/**/*.js',
                             '<%= site.app %>/_js/models/*.js',
                             '<%= site.app %>/_js/views/**/*.js',

@@ -1,3 +1,61 @@
+.block {
+
+    > div {
+        display: inline-block;
+        position: relative;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        text-align: center;
+        margin: 5px;
+        cursor: pointer;
+        font-weight: 600;
+
+        &.good {
+            background: #03b3b1;
+        }
+        &.neutral {
+            background: #6E6EBE;
+        }
+        &.bad {
+            background: #d85d40;
+        }
+
+        .peekaboo {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 32px;
+            height: 32px;
+
+            .politician {
+                position: absolute;
+                top: -114px;
+                left: -33px;
+                display: none;
+                z-index: 9000;
+                box-shadow: 0px 3px 20px black;
+
+                .rollover {
+                    padding-top: 27px;
+                }
+
+                h3 {
+                    right: 6px;
+                    bottom: 6px;
+                }
+
+            }
+
+            &:hover {
+                background: rgba(0, 0, 0, .5);
+                > div {
+                    display: block;
+                }
+            }
+        }
+    }
+}
 .politician {
     display: inline-block;
     position: relative;
