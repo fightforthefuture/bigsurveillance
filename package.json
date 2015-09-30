@@ -1,8 +1,7 @@
 {
   "name": "bigsurveillance",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Decide the future of the internet.",
   "scripts": {
     "postinstall": "bundle",
     "start": "grunt",
@@ -10,29 +9,36 @@
     "build": "grunt build",
     "deploy": "./deploy-ghpages.sh"
   },
+  "author": [
+    {
+      "name": "Aki Braun",
+      "email": "aki@fightforthefuture.org"
+    },
+    {
+      "name": "Jeff Lyon",
+      "email": "jeff@fightforthefuture.org"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/fightforthefuture/mothership-js.git"
   },
-  "author": "",
-  "license": "BSD",
+  "license": "GPL-2.0",
   "dependencies": {
     "d3": "^3.5.6"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.0",
-    "cssnano": "^2.6.1",
+    "cssnano": "^3.2.0",
     "grunt": "^0.4.5",
-    "grunt-autoprefixer": "^2.2.0",
     "grunt-cli": "^0.1.13",
-    "grunt-concurrent": "^1.0.0",
+    "grunt-concurrent": "^2.0.3",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-connect": "~0.11.2",
     "grunt-contrib-copy": "^0.8.0",
-    "grunt-contrib-csslint": "^0.4.0",
-    "grunt-contrib-less": "~0.11.4",
-    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-uglify": "^0.9.2",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-jekyll": "^0.4.2",
     "grunt-postcss": "^0.6.0",
