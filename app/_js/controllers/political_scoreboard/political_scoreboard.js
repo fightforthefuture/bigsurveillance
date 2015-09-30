@@ -78,7 +78,6 @@ var PoliticalScoreboardController = Composer.Controller.extend({
     },
 
     maybeHideMehPanel: function() {
-        console.log('maybe hiding meh panel');
         if (this.meh.models().length == 0) {
             this.meh_panel.classList.add('hidden');
         } else {
