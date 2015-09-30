@@ -1,17 +1,18 @@
 p.cta {
     font-size: 2rem;
     line-height: 2.8rem;
-    text-shadow: 0px 0px 5px black;
+    text-shadow: 0 0 0.5rem black;
 }
 
 
 .action {
     background: @action-box-backgrounds;
-    border-radius: 10px;
+    border-radius: 1rem;
     padding: 1.8rem 1.44rem 1.6rem 1.44rem;
-    max-width: 652px;
+    max-width: 90%;
     margin: 4.08rem auto;
     text-align: center;
+    width: 82rem;
 
     h3 {
         color: white;
@@ -25,7 +26,7 @@ p.cta {
         font-size: 2.1rem;
         line-height: 3rem;
         text-align: center;
-        margin-bottom: 0rem;
+        margin-bottom: 0;
 
         strong {
             font-weight: bold;
@@ -39,44 +40,49 @@ p.cta {
 
 .petition {
     form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         margin: 1.3rem 0;
         padding: 0;
-
-        @media screen and (min-width: @small-phone) {
-            background: @white;
-            border: 3px solid @action-box-borders;
-            border-radius: 7px;
-            display: flex;
-        }
     }
     input {
         border: 0 none transparent;
         border-radius: 0.7rem;
         display: block;
-        font-size: 2.24rem;
+        font-size: 1.9rem;
         background: @white;
         margin: 0 auto 1rem;
         max-width: 100%;
         padding: 1.5rem;
+        width: 50rem;
 
-        @media screen and (min-width: @small-phone) {
+        @media screen and (min-width: @small-tablet) {
+            border-radius: 0;
+            border-right: @action-box-borders solid 0.1rem;
             display: inline;
             margin: 0;
+            padding: 1.5rem 1rem;
+            width: 30%;
         }
 
-        &[name="email"] {
-            @media screen and (min-width: @small-phone) {
-                border-top-right-radius: 0;
-                border-bottom-right-radius: 0;
-                border-right: 0.1rem solid @action-box-backgrounds;
-                padding-right: 0;
-                width: 41.5%;
+        &[name="first_name"] {
+            @media screen and (min-width: @small-tablet) {
+                border-top-left-radius: 0.7rem;
+                border-bottom-left-radius: 0.7rem;
             }
         }
         &[name="zip"] {
-            @media screen and (min-width: @small-phone) {
-                border-radius: 0;
-                width: 20%;
+            @media screen and (min-width: @large-phone) {
+                margin: 0 0.5rem 0 auto;
+                width: 24.5rem;
+            }
+            @media screen and (min-width: @small-tablet) {
+                border-right: none;
+                border-top-right-radius: 0.7rem;
+                border-bottom-right-radius: 0.7rem;
+                margin: 0;
+                width: 10%;
             }
         }
 
@@ -87,30 +93,28 @@ p.cta {
     button {
         background-color: #ff4d4d;
         border: none;
-        display: block;
         font-size: 2.24rem;
-        line-height: 2.56rem;
+        line-height: 2.4;
         margin: 0 auto;
         padding: 0 1.5rem;
         height: 5.44rem;
-        vertical-align: top;
         text-transform: uppercase;
         text-align: center;
         letter-spacing: 0.08rem;
         color: @white;
         border-radius: 14px;
-        overflow: hidden;
-        white-space: nowrap;
         cursor: pointer;
         transition: background-color 400ms ease;
 
-        @media screen and (min-width: @small-phone) {
-            border-color: @white;
-            border-style: solid;
-            border-width: 0.1rem;
-            display: inline;
-            margin: 0.74rem 0.7rem 0.25em 0.7rem;
-            width: 39%;
+        @media screen and (min-width: @large-phone) {
+            margin: 0 auto 0 0.5rem;
+            width: 24.5rem;
+        }
+
+        @media screen and (min-width: @small-tablet) {
+            border-radius: 0.7rem;
+            margin: 1rem auto 0;
+            width: 100%;
         }
 
         &:hover {
