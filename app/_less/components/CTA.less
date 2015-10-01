@@ -4,11 +4,12 @@ p.cta {
     text-shadow: 0 0 0.5rem black;
 }
 
+.disclosure {
+    line-height: 1.2;
+    margin-top: 1.6rem;
+}
 
 .action {
-    background: @action-box-backgrounds;
-    border-radius: 1rem;
-    padding: 1.8rem 1.44rem 1.6rem 1.44rem;
     max-width: 90%;
     margin: 4.08rem auto;
     text-align: center;
@@ -23,18 +24,30 @@ p.cta {
     p {
         color: @white;
         font-weight: 400;
-        font-size: 2.1rem;
-        line-height: 3rem;
         text-align: center;
         margin-bottom: 0;
 
-        strong {
-            font-weight: bold;
+        &:first-child {
+            background: @action-box-backgrounds;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+            line-height: 1.43;
+            font-size: 2.1rem;
+            padding: 1.8rem 1.44rem 0;
         }
+    }
+    form {
+        background: @action-box-backgrounds;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        padding: 1.3rem 1.44rem 1.8rem;
     }
 
     .share {
         margin-top: 2rem;
+    }
+    strong {
+        font-weight: bold;
     }
 }
 
@@ -43,8 +56,6 @@ p.cta {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        margin: 1.3rem 0;
-        padding: 0;
     }
     input {
         border: 0 none transparent;
