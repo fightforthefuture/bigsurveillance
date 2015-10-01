@@ -1,0 +1,32 @@
+nav {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    background: @fixed-bar-background-color;
+    border-bottom: 0.1rem solid lighten(@fixed-bar-background-color, 20%);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, .5);
+    text-align: center;
+    padding: .5rem 0 .8rem 0;
+    z-index: 9001;
+
+    a {
+        color: fade(@white, 90%);
+        font-weight: 600;
+        font-size: 1.4rem;
+        @media screen and (min-width: @small-phone) {
+            font-size: 1.8rem;
+        }
+    }
+    ul li {
+        display:inline-block;
+    }
+    ul li:before {
+        content: '\00a0\2022\00a0\00a0';
+        color: @white;
+        font-size: 1.5rem;
+    }
+    ul li:first-child:before {
+        content: '';
+    }
+}

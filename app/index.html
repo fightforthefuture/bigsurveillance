@@ -5,7 +5,7 @@ layout: default
 {% for post in site.posts %}
 <hr>
 {% if forloop.first %}
-<article id="{{ post.slug }}"><!--class="expanded"-->
+<article id="{{ post.slug }}" class="expanded">
 {% else %}
 <article id="{{ post.slug }}">
 {% endif %}
@@ -17,5 +17,8 @@ layout: default
     <time datetime="{{ post.date | date_to_rfc822 }}"></time>
     {{ post.content }}
     <a href="#{{ post.slug }}" class="expand-me more">Learn more&hellip;</a>
+    {% if forloop.first == false %}
+        <a href="#{{ post.slug }}" class="expand-me more">Learn more&hellip;</a>
+    {% endif %}
 </article>
 {% endfor %}

@@ -1,9 +1,9 @@
 .copy {
     h1 {
-        font-size: 17vw;
+        font-size: 4rem;
         margin: 0 auto 3rem;
         max-width: 66rem;
-        padding: 0.5rem 0 0;
+        padding: 5rem 0 0;
         a {
             &:link, &:visited, &:hover, &:active {
                 color: @body-copy-color;
@@ -14,14 +14,14 @@
             font-size: 5rem;
         }
         @media screen and (min-width: @large-phone) {
-            padding: 0.5rem 3rem 0;
+            padding: 5rem 3rem 0;
             font-size: 5.5rem;
         }
         @media screen and (min-width: @small-tablet) {
-            padding: 0.5rem 6rem 0;
+            padding: 5rem 6rem 0;
         }
         @media screen and (min-width: @large-tablet) {
-            padding: 0.5rem 0 0;
+            padding: 5rem 0 0;
         }
     }
     article {
@@ -64,9 +64,9 @@
     hr {
         border-color: transparent;
         border-bottom: lighten(@background-color, 20%) solid 0.1rem;
-        margin: 0 auto 4rem;
+        margin: 0 auto 0rem;
         @media screen and (min-width: @small-phone) {
-            margin-bottom: 6rem;
+            margin-bottom: 1rem;
         }
         width: 30%;
 
@@ -108,14 +108,37 @@
     }
     .expanded {
         max-height: 10000rem;
-        margin-bottom: 3rem;
+        margin-bottom: 1rem;
         .more {
             display: none;
         }
     }
     .video-wrapper{
 
-    }}
+    }
+    .btn {
+        margin-top: 2rem;
+        display: inline-block;
+        padding: 5px;
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
+        background: #ff4d4d;
+        padding: 5px 15px;
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        @media screen and (min-width: @small-phone) {
+            font-size: 2rem;
+        }
+
+        &:hover {
+            background: #ee3d3d;
+        }
+    }
+}
+
 
 button.link {
     background: transparent;
