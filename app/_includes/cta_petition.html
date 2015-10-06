@@ -13,8 +13,6 @@
         },
         onSend: function(formData)
         {
-            document.getElementById('action').style.display = 'none';
-            document.getElementById('thanks').style.display = 'block';
 
             new CallModalController({
                 campaign:   'cisa-cloture-fax',
@@ -23,6 +21,16 @@
                 callScript: 'Please oppose CISA, the Cybersecurity Information Sharing Act. CISA won\'t fix the cybersecurity problems we face in the U.S.—it will only lead to more warrantless mass surveillance of millions of Americans. We need real cybersecurity legislation, and it\'s not CISA.',
                 shareText:  'We\'re up against some of the most powerful corporate lobbyists in the country, but that hasn\'t stopped us before. If a critical mass of citizens speak out against CISA, our voices will be impossible to ignore.',
             });
+
+            var
+                form = document.getElementById('petition').getElementsByTagName('form')[0],
+                thanks = document.getElementById('thanks');
+
+            document.getElementById('form-headline').classList.add('hidden');
+            thanks.classList.remove('hidden');
+            form.removeAttribute('style');
+            form.innerHTML = '';
+            form.appendChild(thanks);
         }
     });
 </script>
