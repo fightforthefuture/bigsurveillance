@@ -116,7 +116,10 @@ var initializeScoreboard = function () {
 
     politicians.refresh();
 
-    document.getElementById('scoreboard_data').getElementsByClassName('spinnerContainer')[0].remove();
+    var spinner = document.querySelector('#scoreboard_data .spinnerContainer');
+
+    if (spinner)
+        spinner.remove();
 
     new PoliticalScoreboardController({
         collection: politicians,
@@ -154,8 +157,11 @@ else
 
 
 var onDomContentLoaded = function() {
-    var spinner = util.generateSpinner();
-    document.getElementById('scoreboard_data').appendChild(spinner);
+
+    if (politicians.models().length == 0) {
+        var spinner = util.generateSpinner();
+        document.getElementById('scoreboard_data').appendChild(spinner);
+    }
 
     (function (doc, win) {
         "use strict";
