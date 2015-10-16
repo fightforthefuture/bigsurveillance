@@ -44,6 +44,298 @@
     a {
         color: @white;
     }
+
+    .table-wrapper {
+        position: relative;
+        max-height: 500px;
+        overflow: hidden;
+
+        .more {
+            text-align: center;
+            background-image: linear-gradient(to bottom, transparent, #17171b 75%);
+            color: fade(#bcc7e4, 50%);
+            padding-right: 3rem;
+            padding-left: 3rem;
+            line-height: 8.5rem;
+            font-weight: 800;
+            font-size: 2rem;
+            &.good {
+                color: fade(#00dcd9, 50%);
+
+                &:hover {
+                    color: fade(#00dcd9, 100%);
+                }
+            }
+            &.bad {
+                color: fade(#cd5236, 50%);
+
+                &:hover {
+                    color: fade(#cd5236, 100%);
+                }
+            }
+            &::before {
+                content: '';
+            }
+            &::after {
+                display: inline-block;
+
+                content: '∨';
+                font-weight: bold;
+                margin-left: .5rem;
+                transform : scale(1,.5);
+            }
+        }
+    }
+
+    .corporate {
+        padding: 10px 10px 30px 10px;
+        background: #17171b;
+
+        .team {
+            width: 100%;
+            max-width: 625px;
+            margin: 0px auto;
+            padding: 12px 0px 10px 0px;
+
+            img {
+                width: 66%;
+                height: auto;
+            }
+
+            &.good {
+                img {
+                    max-width: 244px;
+                }
+                p {
+                    color: #00dcd9;
+                }
+            }
+            &.bad {
+                img {
+                    max-width: 181px;
+                }
+                p {
+                    color: #cd5236;
+                }
+            }
+
+            p {
+                width: 100%;
+                white-space: normal;
+                padding: 5px 10px;
+                margin: 0px auto;
+                font-size: 1.4rem;
+                line-height: 1.9rem;
+
+            }
+
+            @media screen and (min-width: @large-phone) {
+                img {
+                    float: left;
+                    margin-right: 3rem;
+                    margin-left: 2rem;
+                }
+                p {
+                    padding: 0px 10px;
+                    margin-top: -4px;
+                }
+
+                &.good {
+                    /*border-bottom: 2px solid #083734;*/
+                    background: #22222c;
+                }
+                &.bad {
+                    /*border-bottom: 2px solid #35150d;*/
+                    margin-bottom: 3px;
+                    background: #2c2222;
+                }
+                padding: 20px 0px 20px 0px;
+                margin: 3rem auto 0rem auto;
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+
+            }
+        }
+
+        table {
+            width: 100%;
+            max-width: 625px;
+            margin: 0px auto .5rem auto;
+            table-layout: fixed;
+
+            th, td {
+                border-right: 1px solid #2b2b34;
+
+                img {
+
+                }
+            }
+            td {
+                padding: 5px;
+                border-bottom: 1px solid #2b2b34;
+                vertical-align: middle;
+            }
+            th {
+                padding: 0px 2px;
+                border-bottom: 0px none transparent;
+                width: 20%;
+                vertical-align: top;
+
+
+                span {
+                    display: block;
+                    background: #03b3b1;
+                    font-size: 1rem;
+                    padding: 8px 0px;
+                    text-transform: uppercase;
+
+                    strong {
+                        display: block;
+                        margin: 0px 0px;
+                        font-size: 1.2rem;
+                        font-weight: 600;
+                    }
+
+                    @media screen and (min-width: @small-phone) {
+                        font-size: 1.5rem;
+                        font-weight: 600;
+
+                        strong {
+                            font-size: 1.8rem;
+                            font-weight: 800;
+                        }
+                    }
+                }
+                @media screen and (min-width: @large-phone) {
+                    background: #22222c;
+                }
+            }
+            th:first-child, td:first-child {
+                width: 40%;
+                border-right: 0px none transparent;
+                padding-left: 0px;
+                padding-right: 0px;
+
+            }
+            td:first-child {
+                vertical-align: middle;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+
+                a {
+                    display: block;
+                    width: 100%;
+                    max-width: 100%;
+                    height: 32px;
+                    line-height: 32px;
+                    padding-left: 32px;
+                    text-decoration: none;
+                    position: relative;
+                    text-transform: uppercase;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    text-align: center;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    background-size: 32px 32px !important;      /* yes        */
+                    background-position: 0px 0px !important;    /* i know.    */
+                    background-repeat: no-repeat !important;    /* it sucks.  */
+                    -webkit-background-blend-mode: multiply !important; /* sorry.     */
+                    background-blend-mode: multiply !important; /* sorry.     */
+
+                    span {
+                        display: block;
+                        width: 100%;
+                        height: 32px;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+
+                    @media screen and (min-width: @small-phone) {
+                        height: 48px;
+                        line-height: 48px;
+                        padding-left: 48px;
+                        font-size: 1.5rem;
+                        background-size: 48px 48px !important;
+
+                        span {
+                            text-align: left;
+                            padding: 0px 0px 0px 1rem;
+                            height: 48px;
+                        }
+                    }
+                    @media screen and (min-width: @large-phone) {
+                        height: 64px;
+                        line-height: 64px;
+                        padding-left: 64px;
+                        font-size: 2rem;
+                        background-size: 64px 64px !important;
+
+                        span {
+                            text-align: left;
+                            padding: 0px 0px 0px 1.7rem;
+                            height: 64px;
+                        }
+                    }
+
+                }
+            }
+            th:last-child {
+                padding-right: 0px;
+            }
+            th:last-child, td:last-child {
+                border-right: 0px none transparent;
+            }
+
+            tr.good, tr.bad {
+                img {
+                    width: 16px;
+                    height: 16px;
+                }
+
+                @media screen and (min-width: @small-phone) {
+                    img {
+                        width: auto;
+                        height: auto;
+                    }
+                }
+            }
+
+            tr.good {
+
+                td:first-child {
+                    a {
+                        background-color: rgba(3, 179, 177, 0.66);
+
+                        span {
+                            background: #083734;
+                            color: #04f4f1;
+                        }
+                    }
+                }
+            }
+            tr.bad {
+
+                td {
+                    border-color: #342b2b;
+                }
+
+                td:first-child {
+                    a {
+                        background-color: rgba(216, 93, 64, 0.66);
+
+                        span {
+                            background: #35150d;
+                            color: #ea5a37;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .sort {

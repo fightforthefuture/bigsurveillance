@@ -149,17 +149,27 @@
 
 .headshot {
     background: center center no-repeat;
-    background-blend-mode: multiply;
+    /*background-blend-mode: multiply;*/
     background-size: 100% auto;
     border-radius: 1rem;
     cursor: pointer;
     height: 11.4rem;
     width: 9.7rem;
+
+    /* JL NOTE ~ tmp chrome fix styles -------------------------------------- */
+    img {
+        height: 11.4rem;
+        width: 9.7rem;
+        opacity: .6;
+        border-radius: 1rem;
+    }
+    /* ---------------------------------------------------------------------- */
 }
 
 .good {
     .headshot {
         background-color: rgba(3, 179, 177, 0.66);
+
     }
     .grade {
         background: #03b3b1;

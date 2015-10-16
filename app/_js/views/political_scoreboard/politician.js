@@ -2,13 +2,15 @@ var PoliticianView = function(data) {
     var
         div = $c('div'),
         headshot = $c('div'),
+        img = $c('img'),            // JL NOTE ~ chrome bug fix, remove after issue is gone
         tweetLink = $c('button'),
         infoLink = $c('button'),
         name = $c('h4'),
         grade = $c('h3'),
         rollover = $c('div');
 
-    headshot.style.backgroundImage = 'url(congress/' + data.politician.image + ')';
+    // JL NOTE ~ removed headshot background due to chrome bug. maybe re-add someday?
+    /* headshot.style.backgroundImage = 'url(congress/' + data.politician.image + ')'; */
     headshot.classList.add('headshot');
 
     if (data.politician.score >= 6) {
@@ -18,6 +20,11 @@ var PoliticianView = function(data) {
     } else {
         div.classList.add('bad');
     }
+
+    // JL NOTE ~ added this to fix chrome bug, bah -----------------------------
+    img.src = 'congress/' + data.politician.image;
+    headshot.appendChild(img);
+    // -------------------------------------------------------------------------
 
     div.appendChild(headshot);
 
