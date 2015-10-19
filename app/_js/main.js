@@ -163,6 +163,13 @@ var onDomContentLoaded = function() {
         document.getElementById('scoreboard_data').appendChild(spinner);
     }
 
+
+    // JL HACK ~ ---------------------------------------------------------------
+    if (util.getParameterByName('scorecard') == 'dev')
+        if (document.getElementById('scoreboard_corporate'))
+            document.getElementById('scoreboard_corporate').style.display = 'block';
+    // -------------------------------------------------------------------------
+
     (function (doc, win) {
         "use strict";
 
@@ -172,6 +179,8 @@ var onDomContentLoaded = function() {
 
         function expandArticle(e) {
             e.preventDefault();
+
+            console.log('derp');
 
             var
                 href = e.target.getAttribute('href').replace(/#/, '');
@@ -190,6 +199,3 @@ if (document.readyState == "complete" || document.readyState == "loaded" || docu
 } else if (document.addEventListener) {
     document.addEventListener('DOMContentLoaded', onDomContentLoaded, false);
 }
-
-
-
