@@ -119,6 +119,8 @@ var initializeScoreboard = function () {
     for (var i=0; i < senators.length; i++) {
         new PoliticianController({
             model: senators[i],
+            noGrade: true,
+            extraInfo: true,
             inject: '#targets'
         });
     }

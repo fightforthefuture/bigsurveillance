@@ -31,9 +31,11 @@ var PoliticianView = function(data) {
     name.textContent = data.politician.last_name;
     div.appendChild(name);
 
-    grade.classList.add('grade');
-    grade.textContent = data.politician.grade;
-    div.appendChild(grade);
+    if (!data.noGrade) {
+        grade.classList.add('grade');
+        grade.textContent = data.politician.grade;
+        div.appendChild(grade);
+    }
 
     rollover.classList.add('rollover');
 
@@ -45,6 +47,31 @@ var PoliticianView = function(data) {
     rollover.appendChild(infoLink);
 
     div.appendChild(rollover);
+
+    if (data.extraInfo) {
+        var ul = $c('ul');
+        ul.classList.add('extra_info');
+        console.log('owl');
+
+        if (data.politician.twitter) {
+            var li = $c('li'),
+                a = $c('a');
+            a.classList.add('inline_tweet');
+            a.href = '#';
+            a.textContent = '@' + data.politician.twitter;
+            li.appendChild(a)
+            ul.appendChild(li);
+        }
+        if (data.politician.phone) {
+            var li = $c('li'),
+                a = $c('a');
+            a.href = 'tel://'+data.politician.phone;
+            a.textContent = data.politician.phone;
+            li.appendChild(a)
+            ul.appendChild(li);
+        }
+        div.appendChild(ul);
+    }
 
     if (data.state == 'all' || data.state == 'senate' || data.state == 'house'){
 

@@ -107,7 +107,7 @@
         left: 0;
         top: 0;
         width: 100%;
-        height: 100%;
+        height: 11.4rem;
         background: fade(@background-color, 70%);
         padding-top: 35px;
         opacity: 0;
@@ -142,6 +142,31 @@
             img {
                 width: 24px;
                 height: 24px;
+            }
+        }
+    }
+
+    ul.extra_info {
+        margin-top: 10px;
+        color: white;
+        padding: 0px;
+
+        li {
+            width: 9.7rem;
+            text-overflow: ellipsis;
+            overflow-x: hidden;
+            white-space: nowrap;
+            font-size: 1.3rem;
+            padding-bottom: .5rem;
+
+            a {
+                color: white;
+                opacity: .8;
+
+                &:hover {
+                    text-decoration: underline;
+                    opacity: 1;
+                }
             }
         }
     }

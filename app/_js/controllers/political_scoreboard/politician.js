@@ -5,6 +5,7 @@ var PoliticianController = Composer.Controller.extend({
         'click button.info_link': 'info',
         'click h4': 'tweet',
         'click .headshot': 'tweet',
+        'click .inline_tweet': 'tweet',
         'click .peekaboo': 'click'
     },
 
@@ -13,6 +14,8 @@ var PoliticianController = Composer.Controller.extend({
     },
 
     model: null,
+    noGrade: false,
+    extraInfo: false,
     masterCollection: null,
 
     init: function () {
@@ -28,7 +31,9 @@ var PoliticianController = Composer.Controller.extend({
 
         var div = PoliticianView({
             state: state,
-            politician: this.model.toJSON()
+            politician: this.model.toJSON(),
+            noGrade: this.noGrade,
+            extraInfo: this.extraInfo
         });
 
         this.html(div);
