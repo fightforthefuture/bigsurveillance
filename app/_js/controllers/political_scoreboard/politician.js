@@ -44,7 +44,8 @@ var PoliticianController = Composer.Controller.extend({
 
         var name = this.model.get('twitter');
         if (name) {
-            name = '@' + name;
+            // name = '@' + name;
+            name = '.@' + name;
         } else {
             if (this.model.get('organization') == 'House')
                 name = 'Rep. ' + this.model.get('last_name');
@@ -58,7 +59,8 @@ var PoliticianController = Composer.Controller.extend({
 
         var url = window.location.protocol + '//' + window.location.host + '?politician='+ this.model.get('bioguide');
 
-        var txt = encodeURIComponent('Here\'s why '+name+' got '+article+' '+this.model.get('grade')+' on surveillance: '+url+' #StopCISA');
+        // var txt = encodeURIComponent('Here\'s why '+name+' got '+article+' '+this.model.get('grade')+' on surveillance: '+url+' #StopCISA');
+        var txt = encodeURIComponent(name+', please vote to #StopCISA; more data held by insecure govt agencies won\'t make us safer. '+url);
         window.open('https://twitter.com/intent/tweet?text=' + txt);
     },
 
