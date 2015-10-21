@@ -170,6 +170,32 @@ var onDomContentLoaded = function() {
             viewMoreLinks = doc.getElementsByClassName('expand-me'),
             links = viewMoreLinks.length;
 
+// -------------------------------------------------------------------------
+// This is here until the links that make up each company on the Corporate
+// scoreboard are ready to turn into tweets.
+
+        var
+            i, j,
+            corporateScoreboard = doc.getElementById('scoreboard_corporate').getElementsByTagName('table'),
+            tableLinks;
+
+        i = corporateScoreboard.length;
+        while (i--) {
+
+            tableLinks = corporateScoreboard[i].getElementsByTagName('a');
+            console.log('tableLinks:', tableLinks);
+            j = tableLinks.length;
+
+            while (j--) {
+                console.log('a', tableLinks[j]);
+                tableLinks[j].addEventListener('click', function (e) {
+                    e.preventDefault();
+                });
+            }
+        }
+
+// -------------------------------------------------------------------------
+
         function expandArticle(e) {
             e.preventDefault();
 
