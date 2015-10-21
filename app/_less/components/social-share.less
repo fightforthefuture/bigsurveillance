@@ -45,21 +45,16 @@ button.social {
     &::before {
         content: '';
         display: block;
-        height: 1.428571429em;
         left: 1em;
         position: absolute;
         top: 0.357142857em;
-        width: 1.428571429rem;
     }
 
     &.twitter {
         background: #17a1ce;
 
         &::before {
-            background-image: url('../images/share-icons.png');
-            background-repeat: no-repeat;
-            background-size: auto 100%;
-            background-position: 0 0;
+            .renderTwitter(1.428571429em; auto; 1.42857143em);
         }
     }
     &.facebook {
@@ -69,10 +64,8 @@ button.social {
             margin-bottom: 0;
         }
         &::before {
-            background-image: url('../images/share-icons.png');
-            background-repeat: no-repeat;
-            background-size: auto 100%;
-            background-position: -50% 0;
+            .renderFacebook(1.428571429em; auto; 1.42857143em);
+            background-position: 100% 0;
         }
     }
 
