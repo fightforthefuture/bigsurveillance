@@ -40,20 +40,27 @@ div.share {
 }
 body .sp_fb_small {
     a {
-        background: #3b5a95 url('../images/fb_white.png') 15px center no-repeat;
-        background-size: 18px auto;
-
+        background-color: #3b5a95;
+        left: 1rem;
+        position: relative;
         &::before {
+            .renderFacebook(1.8rem; auto; 1.8rem);
+        }
+        &::after {
             content: 'SHARE';
         }
     }
 }
 body .sp_tw_small {
     a {
-        background: #17a1ce url('../images/tw_white.png') 15px center no-repeat;
-        background-size: 20px auto;
+        background-color: #17a1ce;
+        left: 1rem;
+        position: relative;
 
         &::before {
+            .renderTwitter(1.8rem; auto; 1.8rem);
+        }
+        &::after {
             content: 'TWEET';
         }
     }
