@@ -1,0 +1,22 @@
+---
+layout: protest_only_sorry_aki
+---
+
+{% for post in site.posts %}
+{% if post.expanded %}
+<hr>
+<article id="{{ post.slug }}" class="expanded">
+    <h1>
+        <a href="#{{ post.slug }}" class="expand-me">
+            {{ post.title }}
+        </a>
+    </h1>
+    <time datetime="{{ post.date | date_to_rfc822 }}"></time>
+    {{ post.content }}
+    <a href="#{{ post.slug }}" class="expand-me more">Learn more&hellip;</a>
+    {% if forloop.first == false and post.expanded != true %}
+        <a href="#{{ post.slug }}" class="expand-me more">Learn more&hellip;</a>
+    {% endif %}
+</article>
+{% endif %}
+{% endfor %}
