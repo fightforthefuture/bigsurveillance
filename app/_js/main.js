@@ -163,13 +163,6 @@ var onDomContentLoaded = function() {
         document.getElementById('scoreboard_data').appendChild(spinner);
     }
 
-
-    // JL HACK ~ ---------------------------------------------------------------
-    if (util.getParameterByName('scorecard') == 'dev')
-        if (document.getElementById('scoreboard_corporate'))
-            document.getElementById('scoreboard_corporate').style.display = 'block';
-    // -------------------------------------------------------------------------
-
     (function (doc, win) {
         "use strict";
 
