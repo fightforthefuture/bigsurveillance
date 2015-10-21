@@ -1,0 +1,45 @@
+.renderLogo(@x, @y) {
+    background-position: @x @y;
+}
+
+.abc {
+    background-image: url('../images/govt-depts/govt-depts.png');
+    background-repeat: no-repeat;
+    background-size: 600px 600px;
+    border: 0;
+    color: transparent;
+    display: block;
+    font: 0/0 a;
+    height: 20rem;
+    text-shadow: none;
+    width: 20rem;
+
+    &.depttreasury {
+        .renderLogo(0, 0);
+    }
+
+    &.deptodni {
+        .renderLogo(-200px, 0);
+    }
+
+    &.deptjustice {
+        .renderLogo(0, -200px);
+    }
+
+    &.depthomelandsecurity {
+        .renderLogo(-200px, -200px);
+    }
+
+    &.deptenergy {
+        .renderLogo(-400px, 0);
+    }
+
+    &.deptdefense {
+        .renderLogo(-400px, -200px);
+    }
+
+    &.deptcommerce {
+        .renderLogo(0, -400px);
+    }
+}
+
