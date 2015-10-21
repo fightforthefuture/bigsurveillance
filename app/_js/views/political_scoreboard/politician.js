@@ -2,7 +2,7 @@ var PoliticianView = function(data) {
     var
         div = $c('div'),
         headshot = $c('div'),
-        img = $c('img'),            // JL NOTE ~ chrome bug fix, remove after issue is gone
+        img = $c('i'),            // JL NOTE ~ chrome bug fix, remove after issue is gone
         tweetLink = $c('button'),
         infoLink = $c('button'),
         name = $c('h4'),
@@ -22,7 +22,7 @@ var PoliticianView = function(data) {
     }
 
     // JL NOTE ~ added this to fix chrome bug, bah -----------------------------
-    img.src = 'congress/' + data.politician.image;
+    img.classList.add('congressional-head', data.politician.image.replace('.jpg', ''));
     headshot.appendChild(img);
     // -------------------------------------------------------------------------
 
