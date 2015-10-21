@@ -11,15 +11,10 @@ body {
     background: @background-color url('../images/dome.jpg') center top no-repeat;
     font-size: 1.6rem;
     font-family: @body-font;
-    padding: 0rem 15px 0;
+    padding: 0rem 0px 0;
     position: relative;
 
-    @media screen and (min-width: @small-phone) {
-        padding-top: 1.5rem;
-    }
-    @media screen and (min-width: @large-phone) {
-        padding-top: 4.36rem;
-    }
+
     @media screen and (min-width: @medium-laptop) {
         background-size: 100% auto;
     }
@@ -56,6 +51,15 @@ h1 {
     em {
         display: block;
     }
+
+    &#top {
+        @media screen and (min-width: @small-phone) {
+            padding-top: 5.5rem;
+        }
+        @media screen and (min-width: @large-phone) {
+            padding-top: 9.36rem;
+        }
+    }
 }
 
 h2 {
@@ -71,6 +75,19 @@ h3 {
     display: block;
     font-size: 3.52rem;
     margin-bottom: 0.8rem;
+
+    &.cta {
+        font-family: @body-font;
+        font-size: 3rem;
+        font-weight: 600;
+        padding-top: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    a {
+        color: white;
+        font-weight: bold;
+    }
 }
 
 dt, dd, p {

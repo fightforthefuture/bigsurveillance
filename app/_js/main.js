@@ -115,6 +115,13 @@ var initializeScoreboard = function () {
         politicians.state = geocode.subdivisions[0].iso_code;
 
     politicians.refresh();
+    var senators = politicians.select({organization: 'Senate'});
+    for (var i=0; i < senators.length; i++) {
+        new PoliticianController({
+            model: senators[i],
+            inject: '#targets'
+        });
+    }
 
     var spinner = document.querySelector('#scoreboard_data .spinnerContainer');
 
@@ -183,11 +190,11 @@ var onDomContentLoaded = function() {
         while (i--) {
 
             tableLinks = corporateScoreboard[i].getElementsByTagName('a');
-            console.log('tableLinks:', tableLinks);
+            // console.log('tableLinks:', tableLinks);
             j = tableLinks.length;
 
             while (j--) {
-                console.log('a', tableLinks[j]);
+                // console.log('a', tableLinks[j]);
                 tableLinks[j].addEventListener('click', function (e) {
                     e.preventDefault();
                 });
