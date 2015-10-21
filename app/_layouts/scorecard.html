@@ -1,0 +1,46 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <script src="//use.typekit.net/gwc3hsx.js"></script>
+    <script>try {Typekit.load({async: true});} catch (e) {}</script>
+    {% include meta.html %}
+    <style type="text/css">
+        body {
+            padding-top: 0px;
+            padding: 0px;
+            background: transparent;
+        }
+        .scoreboard {
+            margin-top: 0px;
+            padding-top: 0px;
+        }
+        .scoreboard > h2 {
+            display: none;
+        }
+        .scoreboard > p {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+{% include scoreboard_corporate.html %}
+
+<script type="text/javascript">
+    var
+        viewMoreLinks = document.getElementsByClassName('expand-me'),
+        links = viewMoreLinks.length;
+    function expandArticle(e) {
+        e.preventDefault();
+
+        var
+            href = e.target.getAttribute('href').replace(/#/, '');
+        document.getElementById(href).classList.add('expanded');
+    }
+
+    while (links--) {
+        viewMoreLinks[links].addEventListener('click', expandArticle);
+    }
+</script>
+</body>
+</html>
