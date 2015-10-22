@@ -2,14 +2,14 @@
  * To add company logo:
  * 1. Create a 96px ⨉ 96px png of the new logo
  * 2. Upload it and all the rest of them to https://draeton.github.io/stitches/
- * 3. Change "Style prefix" setting to "logo"
+ * 3. Change "Style prefix" setting to "logo"; "Padding" setting to 0
  * 4. Download the png and the stylesheet
  * 5. Rename the png to companies-logos@2x.png
  * 6. Resize by 50% and save as companies-logos.png
  * 7. Copy company-specific style declarations, paste them below the line
  * */
 
-.stitches-logo(@x: 0, @y: 0, @width: 0, @height: 0) {
+.stitches-logo(@x: 0, @y: 0) {
     background-position: (@x / 3) (@y / 3);
     @media screen and (min-width: @small-phone) {
         background-position: (@x / 2) (@y / 2);
@@ -33,138 +33,142 @@
 // -----------------------------------------------------------------------------
 
     &.logo-adobe {
-        .stitches-logo(0, 0, 96px, 96px);
+        .stitches-logo(0, 0);
     }
 
     &.logo-amazon {
-        .stitches-logo(-96px, 0, 96px, 96px);
+        .stitches-logo(-96px, 0);
     }
 
     &.logo-apple {
-        .stitches-logo(-192px, 0, 96px, 96px);
+        .stitches-logo(-192px, 0);
     }
 
     &.logo-att {
-        .stitches-logo(-288px, 0, 96px, 96px);
+        .stitches-logo(-288px, 0);
     }
 
     &.logo-automattic {
-        .stitches-logo(-384px, 0, 96px, 96px);
+        .stitches-logo(-384px, 0);
     }
 
     &.logo-cisco {
-        .stitches-logo(0, -96px, 96px, 96px);
+        .stitches-logo(0, -96px);
     }
 
     &.logo-comcast {
-        .stitches-logo(-96px, -96px, 96px, 96px);
+        .stitches-logo(-96px, -96px);
     }
 
     &.logo-credomobile {
-        .stitches-logo(-192px, -96px, 96px, 96px);
+        .stitches-logo(-192px, -96px);
     }
 
     &.logo-dell {
-        .stitches-logo(-288px, -96px, 96px, 96px);
+        .stitches-logo(-288px, -96px);
     }
 
     &.logo-disconnect {
-        .stitches-logo(-384px, -96px, 96px, 96px);
+        .stitches-logo(-384px, -96px);
     }
 
     &.logo-dropbox {
-        .stitches-logo(0, -192px, 96px, 96px);
+        .stitches-logo(0, -192px);
     }
 
     &.logo-duckduckgo {
-        .stitches-logo(-96px, -192px, 96px, 96px);
+        .stitches-logo(-96px, -192px);
     }
 
     &.logo-ebay {
-        .stitches-logo(-192px, -192px, 96px, 96px);
+        .stitches-logo(-192px, -192px);
     }
 
     &.logo-expedia {
-        .stitches-logo(-288px, -192px, 96px, 96px);
+        .stitches-logo(-288px, -192px);
     }
 
     &.logo-google {
-        .stitches-logo(-384px, -192px, 96px, 96px);
+        .stitches-logo(-384px, -192px);
     }
 
     &.logo-hp {
-        .stitches-logo(0, -288px, 96px, 96px);
+        .stitches-logo(0, -288px);
     }
 
     &.logo-ibm {
-        .stitches-logo(-96px, -288px, 96px, 96px);
+        .stitches-logo(-96px, -288px);
     }
 
     &.logo-intel {
-        .stitches-logo(-192px, -288px, 96px, 96px);
+        .stitches-logo(-192px, -288px);
     }
 
     &.logo-linkedin {
-        .stitches-logo(-288px, -288px, 96px, 96px);
+        .stitches-logo(-288px, -288px);
     }
 
     &.logo-microsoft {
-        .stitches-logo(-384px, -288px, 96px, 96px);
+        .stitches-logo(-384px, -288px);
     }
 
     &.logo-mozilla {
-        .stitches-logo(0, -384px, 96px, 96px);
+        .stitches-logo(0, -384px);
     }
 
     &.logo-netflix {
-        .stitches-logo(-96px, -384px, 96px, 96px);
+        .stitches-logo(-96px, -384px);
     }
 
     &.logo-oracle {
-        .stitches-logo(-192px, -384px, 96px, 96px);
+        .stitches-logo(-192px, -384px);
     }
 
     &.logo-priceline {
-        .stitches-logo(-288px, -384px, 96px, 96px);
+        .stitches-logo(-288px, -384px);
     }
 
     &.logo-privateinternetaccess {
-        .stitches-logo(-384px, -384px, 96px, 96px);
+        .stitches-logo(-384px, -384px);
     }
 
     &.logo-reddit {
-        .stitches-logo(-480px, 0, 96px, 96px);
+        .stitches-logo(-480px, 0);
     }
 
     &.logo-salesforce {
-        .stitches-logo(-480px, -96px, 96px, 96px);
+        .stitches-logo(-480px, -96px);
+    }
+
+    &.logo-t-mobile {
+        .stitches-logo(-480px, -192px);
     }
 
     &.logo-twilio {
-        .stitches-logo(-480px, -192px, 96px, 96px);
+        .stitches-logo(-480px, -288px);
     }
 
     &.logo-twitter {
-        .stitches-logo(-480px, -288px, 96px, 96px);
+        .stitches-logo(-480px, -384px);
     }
 
     &.logo-verizon {
-        .stitches-logo(-480px, -384px, 96px, 96px);
+        .stitches-logo(0, -480px);
     }
 
     &.logo-wikipedia {
-        .stitches-logo(0, -480px, 96px, 96px);
+        .stitches-logo(-96px, -480px);
     }
 
     &.logo-xerox {
-        .stitches-logo(-96px, -480px, 96px, 96px);
+        .stitches-logo(-192px, -480px);
     }
 
     &.logo-yahoo {
-        .stitches-logo(-192px, -480px, 96px, 96px);
+        .stitches-logo(-288px, -480px);
     }
 
     &.logo-yelp {
-        .stitches-logo(-288px, -480px, 96px, 96px);
+        .stitches-logo(-384px, -480px);
     }
 }
