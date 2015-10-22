@@ -1,10 +1,8 @@
 ---
-title: Corporate Scorecared Methodology
+title: Corporate Scorecard Methodology
 slug: 'corporate-scorecard-methodology'
 published: true
 ---
-
-**Scorecard Methodology**
 
 Companies are rated based on their roles in supporting or opposing legislative
 policies addressing warrantless surveillance of Internet communications and data
