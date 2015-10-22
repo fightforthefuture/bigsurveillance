@@ -121,7 +121,7 @@ var initializeScoreboard = function () {
             model: senators[i],
             noGrade: true,
             extraInfo: true,
-            inject: '#targets'
+            inject: '#targets .side'+i
         });
     }
 

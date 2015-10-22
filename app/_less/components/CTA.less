@@ -1,8 +1,25 @@
 #targets {
     text-align: center;
-
+    .side0, .side1 {
+        display: inline-block;
+    }
     .politician {
         margin: 0px 3rem 1.5rem 0px;
+    }
+    @media screen and (min-width: @small-laptop) {
+        .side0 {
+            position: absolute;
+            left: 50%;
+            margin-left: -470px;
+        }
+        .side1 {
+            position: absolute;
+            left: 50%;
+            margin-left: 372px;
+        }
+        .politician {
+            margin: 0px;
+        }
     }
 }
 p.cta {
@@ -20,7 +37,7 @@ p.cta {
     max-width: 90%;
     margin: 1rem auto;
     text-align: center;
-    width: 82rem;
+    width: 70rem;
 
     h3 {
         color: @white;
