@@ -38,3 +38,10 @@ rdiscount:
     - footnotes
 #    - autolink
 #    - smart
+
+defaults:
+  -
+    scope:
+      path: ''
+    values:
+      layout: 'default'
