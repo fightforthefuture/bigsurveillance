@@ -8,52 +8,9 @@
 </head>
 <body>
 
-<nav>
-    <ul>
-        <li><a href="#scoreboard">Scoreboard</a></li>
-        <li><a href="#protest">Protest</a></li>
-        <li><a href="#video">Video</a></li>
-        <li><a href="#faq">FAQ</a></li>
-    </ul>
-</nav>
+{{ content }}
 
-<h1 id="top">Time is running out<em>to stop CISA.</em></h1>
-<h3 class="cta">This bill would put corporations above the law and let them share your data with the U.S. government. Congress is voting soon. Contact your senators now!</h3>
-<div id="targets"><div class="side0"></div><div class="side1"></div></div>
-<!--
-<p class="cta">
-    The Internet and the power it gives us has changed the course of history, but runaway governments and monopolies are turning the Internet against us for power and profit. Their biggest move yet: passing the surveillance bill CISA, this week. We can stop an Internet for evil, but it's now or never.
-</p>
--->
-<div class="action">
-    <p id="form-headline">
-       <strong>Tell Congress:</strong> Stop CISA! Protect human rights on the Internet.
-    </p>
-    <div id="thanks" class="hidden">
-        <h3>Thanks for taking action!</h3>
-        <p>
-            We're up against some of the most powerful corporate lobbyists in the country, but that hasn't stopped us before. If a critical mass of citizens speak out against CISA, our voices will be impossible to ignore.
-        </p>
-        <div class="share">
-            <!--
-            JL NOTE ~ switch this back when we're done with ShareProgress
-            <button class="social facebook">Share this</button>
-            <button class="social twitter">Tweet this</button>
-            -->
-            <div class='sp_16092 sp_fb_small' ></div>
-            <div class='sp_16093 sp_tw_small' ></div>
-        </div>
-    </div>
-    {% include cta_petition.html %}
-
-</div>
-{% include scoreboard_political.html %}
-{% include scoreboard_corporate.html %}
-<section class="copy">
-    {{ content }}
-</section>
 {% include fftf-footer.html %}
-{% include methodology-modal.html %}
 {% include scripts.html %}
 </body>
 </html>

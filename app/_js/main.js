@@ -192,11 +192,9 @@ var onDomContentLoaded = function() {
         while (i--) {
 
             tableLinks = corporateScoreboard[i].getElementsByTagName('a');
-            // console.log('tableLinks:', tableLinks);
             j = tableLinks.length;
 
             while (j--) {
-                // console.log('a', tableLinks[j]);
                 tableLinks[j].addEventListener('click', function (e) {
                     e.preventDefault();
                 });
