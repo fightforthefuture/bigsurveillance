@@ -5,9 +5,36 @@
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
     ga('create', '{{ site.googleanalytics }}', 'auto');
-    ga('send', 'pageview');
 
-</script>
+    function queryString() {
+        var
+            pairs = location.search.slice(1).split('&'),
+            result = {};
+
+        pairs.forEach(function (pair) {
+            pair = pair.split('=');
+            result[pair[0]] = decodeURIComponent(pair[1] || '');
+        });
+
+        return JSON.parse(JSON.stringify(result));
+    }
+
+    if (window.location.search.indexOf('t=') !== -1) {
+        var
+            url = '{{ site.url }}' + window.location.pathname +
+                window.location.search + '&utm_campaign=' +
+                encodeURIComponent(queryString().t) +
+                '&utm_source=purpose&utm_medium=email';
+
+        ga('set', 'anonymizeIp', true);
+        ga('set', 'forceSSL', true);
+        ga('send', 'pageview', url);
+        ga('set', 'utm_source', 'purpose');
+        ga('set', 'utm_medium', 'email');
+
+    } else {
+        ga('send', 'pageview');
+    }</script>
 <script src='//cdn.goroost.com/roostjs/lo4qjr79fz73s44hpjojvzb26qrne4ix' async></script>
 <script>
   var _roost = _roost || [];
