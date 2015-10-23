@@ -1,26 +1,12 @@
----
-layout: default
-title: Protest in Washington, DC!
----
-
-<h1 id="top">Stop CISA!</h1>
-<section class="copy">
-{% for post in site.posts %}
-{% if post.expanded %}
-<hr>
-<article id="{{ post.slug }}" class="expanded">
-    <h1>
-        <a href="#{{ post.slug }}" class="expand-me">
-            {{ post.title }}
-        </a>
-    </h1>
-    <time datetime="{{ post.date | date_to_rfc822 }}"></time>
-    {{ post.content }}
-    <a href="#{{ post.slug }}" class="expand-me more">Learn more&hellip;</a>
-    {% if forloop.first == false and post.expanded != true %}
-        <a href="#{{ post.slug }}" class="expand-me more">Learn more&hellip;</a>
-    {% endif %}
-</article>
-{% endif %}
-{% endfor %}
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script type="application/javascript">
+    window.location.replace('/');
+</script>
+</body>
+</html>
