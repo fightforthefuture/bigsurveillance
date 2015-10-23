@@ -1,24 +1,27 @@
 #targets {
+    margin: 0 auto;
+    max-width: 95%;
+    position: relative;
     text-align: center;
+    width: 60rem;
     .side0, .side1 {
         display: inline-block;
     }
     .politician {
-        margin: 0px 3rem 1.5rem 0px;
+        margin: 0 3rem 1.5rem 0;
     }
-    @media screen and (min-width: @small-laptop) {
+    @media screen and (min-width: (@small-tablet + 45)) {
         .side0 {
             position: absolute;
-            left: 50%;
-            margin-left: -470px;
+            left: -11.5rem;
         }
         .side1 {
             position: absolute;
-            left: 50%;
+            right: -11.5rem;
             margin-left: 372px;
         }
         .politician {
-            margin: 0px;
+            margin: 0;
         }
     }
 }
@@ -37,7 +40,7 @@ p.cta {
     max-width: 90%;
     margin: 1rem auto;
     text-align: center;
-    width: 70rem;
+    width: 60rem;
 
     h3 {
         color: @white;
@@ -98,13 +101,19 @@ p.cta {
             display: inline;
             margin: 0;
             padding: 1.5rem 1rem;
-            width: 30%;
+            width: 28%;
         }
 
         &[name="first_name"] {
             @media screen and (min-width: @small-tablet) {
                 border-top-left-radius: 0.7rem;
                 border-bottom-left-radius: 0.7rem;
+            }
+        }
+
+        &[name="address1"] {
+            @media screen and (min-width: @small-tablet) {
+                width: 30%;
             }
         }
         &[name="zip"] {
@@ -117,7 +126,7 @@ p.cta {
                 border-top-right-radius: 0.7rem;
                 border-bottom-right-radius: 0.7rem;
                 margin: 0;
-                width: 10%;
+                width: 14%;
             }
         }
 

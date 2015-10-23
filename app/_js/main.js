@@ -150,7 +150,7 @@ var initializeScoreboard = function () {
 if (!util.getParameterByName('org')) {
     var coinToss = Math.random();
 
-    if (coinToss > .5)
+    if (coinToss > .1)
         window.org = 'fftf';
     else
         window.org = 'rt4';
