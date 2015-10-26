@@ -141,8 +141,8 @@ var renderTopStateSelector = function() {
         }, 10);
     }
     select.onclick = function() {
-        // document.getElementById('just_state').checked = true;
-        // handleTweetSelectorLabels();
+        document.getElementById('just_state').checked = true;
+        handleTweetSelectorLabels();
     }
     document.getElementById('state_selector').appendChild(select);
 }
@@ -316,7 +316,7 @@ var onDomContentLoaded = function() {
         }, 200);
     });
 
-    /*
+
     handleTweetSelectorLabels();
     document.getElementById('EVERYONE').addEventListener('change', function() {
         handleTweetSelectorLabels();
@@ -324,7 +324,7 @@ var onDomContentLoaded = function() {
     document.getElementById('just_state').addEventListener('change', function() {
         handleTweetSelectorLabels();
     });
-    */
+
     document.getElementById('tweet_text').addEventListener('change', function() {
         handleRemainingTweetText();
     });
