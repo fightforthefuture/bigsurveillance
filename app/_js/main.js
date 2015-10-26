@@ -2,6 +2,14 @@ var TWEET_BLASTER_URL = 'https://tweet-congress.herokuapp.com';
 //var TWEET_BLASTER_URL = 'http://metacube:9000';
 var SPREADSHEET_URL = 'https://spreadsheets.google.com/feeds/list/1rTzEY0sEEHvHjZebIogoKO1qfTez2T6xNj0AScO6t24/default/public/values?alt=json';
 
+var DEFAULT_TWEETS = [
+    '#StopCISA—the largest mass surveillance bill since the PATRIOT Act www.decidethefuture.org',
+    'please vote to #StopCISA—this bill is bad for cybersecurity and human rights. www.decidethefuture.org',
+    '#StopCISA! Keep our private data out of the hands of insecure government agencies www.decidethefuture.org',
+    '#StopCISA! Don\'t give companies immunity for violating their privacy policies. www.decidethefuture.org',
+    '#StopCISA—Don\'t trade our privacy for a law that won\'t even fix our cybersecurity www.decidethefuture.org',
+]
+
 var STATES = {
     'AL': 'Alabama',
     'AK': 'Alaska',
@@ -330,7 +338,11 @@ var onDomContentLoaded = function() {
     if (util.getParameterByName('call')) {
         popCallModal();
     }
+    var random_tweet = DEFAULT_TWEETS[Math.floor(Math.random()*DEFAULT_TWEETS.length)];
+    document.getElementById('tweet_text').value = random_tweet;
+
     handleRemainingTweetText();
+
 
 
     (function (doc, win) {
