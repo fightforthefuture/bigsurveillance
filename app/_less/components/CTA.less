@@ -69,6 +69,25 @@
             background: #535360;
         }
     }
+
+    label {
+        padding-right: 5px;
+        &.sel {
+            background: transparent;
+                &:hover {
+                background: #535360;
+            }
+        }
+        &:last-child {
+            display: none;
+        }
+        input {
+            display: none;
+        }
+        span.just {
+            display: none;
+        }
+    }
 }
 
 #tweet_text_container {
