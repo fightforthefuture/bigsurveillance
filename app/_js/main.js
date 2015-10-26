@@ -1,4 +1,5 @@
 var TWEET_BLASTER_URL = 'https://tweet-congress.herokuapp.com';
+//var TWEET_BLASTER_URL = 'http://metacube:9000';
 var SPREADSHEET_URL = 'https://spreadsheets.google.com/feeds/list/1rTzEY0sEEHvHjZebIogoKO1qfTez2T6xNj0AScO6t24/default/public/values?alt=json';
 
 var STATES = {
@@ -132,8 +133,8 @@ var renderTopStateSelector = function() {
         }, 10);
     }
     select.onclick = function() {
-        document.getElementById('just_state').checked = true;
-        handleTweetSelectorLabels();
+        // document.getElementById('just_state').checked = true;
+        // handleTweetSelectorLabels();
     }
     document.getElementById('state_selector').appendChild(select);
 }
@@ -307,6 +308,7 @@ var onDomContentLoaded = function() {
         }, 200);
     });
 
+    /*
     handleTweetSelectorLabels();
     document.getElementById('EVERYONE').addEventListener('change', function() {
         handleTweetSelectorLabels();
@@ -314,6 +316,7 @@ var onDomContentLoaded = function() {
     document.getElementById('just_state').addEventListener('change', function() {
         handleTweetSelectorLabels();
     });
+    */
     document.getElementById('tweet_text').addEventListener('change', function() {
         handleRemainingTweetText();
     });
