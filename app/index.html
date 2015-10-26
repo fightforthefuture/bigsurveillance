@@ -2,14 +2,36 @@
 layout: default
 ---
 {% include nav.html %}
-<h1 id="top">Time is running out<em>to stop CISA.</em></h1>
-<h3 class="cta">This bill would put corporations above the law and let them share your data with the U.S. government. Congress is voting soon. Contact your senators now!</h3>
-<div id="targets"><div class="side0"></div><div class="side1"></div></div>
+<h1 id="top">Join the Tweet Storm <em>to stop CISA.</em></h1>
+<h3 class="cta">This bill would put corporations above the law and let them share your data with the U.S. government. The Senate is voting. Help us flood them with tweets!</h3>
 <div class="action">
     <p id="form-headline">
-        <strong>Tell Congress:</strong><br/>
-        No CISA! Protect human rights and an Internet for good.
+        <!--
+        <strong>Join the Tweet Storm to #StopCISA!</strong><br/>
+        Help blanket Congress with tweets!
+        -->
+        <div id="targets"><div class="side0"></div><div class="side1"></div></div>
+        <div id="tweet_text_container">
+            <textarea id="tweet_text" maxlength="105">please vote to #StopCISA—this bill is bad for cybersecurity and human rights. www.decidethefuture.org</textarea>
+            <div id="remaining">0</div>
+        </div>
+        <div class="selectors">
+            <span class="tweet_to">Tweet to:</span>
+            <label for="EVERYONE" class="sel" id="EVERYONE_label"><input type="radio" name="tweet_to" id="EVERYONE" checked> the whole Senate</label>
+            <label for="just_state" id="just_state_label"><input type="radio" name="tweet_to" id="just_state"> just <span id="placeholder_state_name">your state</span><span id="state_selector"></span></label>
+        </div>
+        <div id="tweet-iframe-container"></div>
+        <a class="tweet" href="#" id="tweet_your_state"><img src="/images/share/tw_white.png"/>Tweet your Senators</a>
+
     </p>
+    <script type="text/javascript">
+        var url = TWEET_BLASTER_URL;
+        var iframe = $c('iframe');
+        iframe.id = 'tweet_blaster_frame';
+        iframe.src = url + '?return='+encodeURIComponent(window.location.href.split("#")[0]);
+        iframe.frameborder = 0;
+        document.getElementById('tweet-iframe-container').appendChild(iframe);
+    </script>
     <div id="thanks" class="hidden">
         <h3>Thanks for taking action!</h3>
         <p>
@@ -25,7 +47,6 @@ layout: default
             <div class='sp_16093 sp_tw_small' ></div>
         </div>
     </div>
-    {% include cta_petition.html %}
 </div>
 
 {% include scoreboard_political.html %}

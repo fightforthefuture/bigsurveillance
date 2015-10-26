@@ -1,3 +1,4 @@
+var TWEET_BLASTER_URL = 'https://tweet-congress.herokuapp.com';
 var SPREADSHEET_URL = 'https://spreadsheets.google.com/feeds/list/1rTzEY0sEEHvHjZebIogoKO1qfTez2T6xNj0AScO6t24/default/public/values?alt=json';
 
 var STATES = {
@@ -100,6 +101,105 @@ var checkIfFinishedWithXHRs = function () {
         initializeScoreboard();
 };
 
+var renderTopStateSelector = function() {
+    document.getElementById('placeholder_state_name').style.display = 'none';
+    var select = $c('select');
+    for (var state in STATES) {
+        if (STATES.hasOwnProperty(state)) {
+            var option = $c('option');
+            option.textContent = STATES[state];
+            option.value = state;
+            if (politicians.state == state)
+                option.selected = true;
+            select.appendChild(option)
+        }
+    }
+    select.onchange = function() {
+        var state = this.options[this.options.selectedIndex].value;
+        var sbState = document.getElementById('_ps_choose_state');
+        for (var i = 0; i < sbState.options.length; i++) {
+            if (sbState.options[i].value == state)
+                sbState.options[i].selected = true;
+        }
+        var event = new UIEvent("change", {
+            "view": window,
+            "bubbles": true,
+            "cancelable": true
+        });
+        sbState.dispatchEvent(event);
+        setTimeout(function() {
+            loadTopPoliticiansByState();
+        }, 10);
+    }
+    select.onclick = function() {
+        document.getElementById('just_state').checked = true;
+        handleTweetSelectorLabels();
+    }
+    document.getElementById('state_selector').appendChild(select);
+}
+
+var topPoliticians = [null, null];
+var hasTweeted = false;
+
+var generateTweetTextFromTopPoliticians = function() {
+    var tweet = '';
+
+    if (topPoliticians[0].model.get('twitter'))
+        tweet += '.@'+topPoliticians[0].model.get('twitter')+', ';
+    else
+        tweet += 'Sen. '+topPoliticians[0].model.get('last_name')+', ';
+
+    if (topPoliticians[1].model.get('twitter'))
+        tweet += '@'+topPoliticians[1].model.get('twitter')+' ';
+    else
+        tweet += 'Sen. '+topPoliticians[1].model.get('last_name')+' ';
+
+    tweet += document.getElementById('tweet_text').value;
+
+    // tweet += ' http://decidethefuture.org';
+
+    console.log('tweet:', tweet);
+    return tweet;
+}
+
+var loadTopPoliticiansByState = function() {
+    var senators = politicians.select({organization: 'Senate'});
+    for (var i=0; i < senators.length; i++) {
+        if (topPoliticians[i])
+            topPoliticians[i].release();
+
+        topPoliticians[i] = new PoliticianController({
+            model: senators[i],
+            noGrade: true,
+            // extraInfo: true,
+            inject: '#targets .side'+i
+        });
+    }
+}
+
+var handleTweetSelectorLabels = function() {
+    if (document.getElementById('EVERYONE').checked) {
+        document.getElementById('EVERYONE_label').className = 'sel';
+        document.getElementById('just_state_label').className = '';
+        document.getElementById('tweet_blaster_frame').style.display = 'block';
+        document.getElementById('tweet_your_state').style.display = 'none';
+    } else {
+        document.getElementById('EVERYONE_label').className = '';
+        document.getElementById('just_state_label').className = 'sel';
+        document.getElementById('tweet_blaster_frame').style.display = 'none';
+        document.getElementById('tweet_your_state').style.display = 'block';
+    }
+}
+
+var handleRemainingTweetText = function() {
+    var remaining = 105 - document.getElementById('tweet_text').value.length;
+    document.getElementById('remaining').textContent = remaining;
+    if (remaining <= 10)
+        document.getElementById('remaining').className = 'danger';
+    else
+        document.getElementById('remaining').className = '';
+}
+
 var initializeScoreboard = function () {
 
     // select the state if the geocoder didn't give us something bogus
@@ -115,15 +215,14 @@ var initializeScoreboard = function () {
         politicians.state = geocode.subdivisions[0].iso_code;
 
     politicians.refresh();
-    var senators = politicians.select({organization: 'Senate'});
-    for (var i=0; i < senators.length; i++) {
-        new PoliticianController({
-            model: senators[i],
-            noGrade: true,
-            extraInfo: true,
-            inject: '#targets .side'+i
-        });
+    renderTopStateSelector();
+    loadTopPoliticiansByState();
+
+    if (util.getParameterByName('autotweet')) {
+        var tweetText = generateTweetTextFromTopPoliticians();
+        window.location.replace('https://twitter.com/intent/tweet?text='+encodeURIComponent(tweetText));
     }
+
 
     var spinner = document.querySelector('#scoreboard_data .spinnerContainer');
 
@@ -145,6 +244,17 @@ var initializeScoreboard = function () {
 
 };
 
+var alreadyBlasted = false;
+
+window.onhashchange = function () {
+    if (window.location.hash == '#blast' && alreadyBlasted == false) {
+        document.getElementById('tweet_blaster_frame').src = TWEET_BLASTER_URL+'/blast?tweet='+encodeURIComponent(document.getElementById('tweet_text').value);
+        window.location.hash = '#';
+        alreadyBlasted = true;
+        popCallModal(true);
+    }
+}
+
 
 // Org coin toss
 if (!util.getParameterByName('org')) {
@@ -154,8 +264,6 @@ if (!util.getParameterByName('org')) {
         window.org = 'fftf';
     else
         window.org = 'rt4';
-
-    console.log('coin toss: ', window.org);
 }
 var org = util.getParameterByName('org') || window.org;
 
@@ -164,6 +272,15 @@ if (org == 'rt4')
 else
     window.DONATE_URL = 'https://donate.fightforthefuture.org/?tag=decidethefuture';
 
+var popCallModal = function(tweeted) {
+    new CallModalController({
+        headline:   (tweeted ? 'Thanks for tweeting! Now can you call Congress?' : 'Can you call Congress to #StopCISA?'),
+        campaign:   'cisa-cloture-fax',
+        cta:        'Congress needs to understand that CISA is a dirty mass surveillance bill that won\'t protect us from cyber attacks.',
+        callScript: 'Please oppose CISA, the Cybersecurity Information Sharing Act. CISA won\'t fix the cybersecurity problems we face in the U.S.—it will only lead to more warrantless mass surveillance of millions of Americans. We need real cybersecurity legislation, and it\'s not CISA.',
+        shareText:  'We\'re up against some of the most powerful corporate lobbyists in the country, but that hasn\'t stopped us before. If a critical mass of citizens speak out against CISA, our voices will be impossible to ignore.',
+    });
+}
 
 var onDomContentLoaded = function() {
 
@@ -171,6 +288,40 @@ var onDomContentLoaded = function() {
         var spinner = util.generateSpinner();
         document.getElementById('scoreboard_data').appendChild(spinner);
     }
+
+    document.querySelector('.action a.tweet').addEventListener('click', function(e){
+        e.preventDefault();
+        if (!topPoliticians[0])
+            return alert('Hold on, still loading your senators :)');
+
+        var tweetText = generateTweetTextFromTopPoliticians();
+        var win = window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(tweetText), 'zetsubou_billy', 'width=500, height=300, toolbar=no, status=no, menubar=no');
+
+        var pollTimer = window.setInterval(function() {
+            if (win.closed !== false) { // !== is required for compatibility with Opera
+                window.clearInterval(pollTimer);
+                if (hasTweeted == false)
+                    popCallModal(true);
+                hasTweeted = true;
+            }
+        }, 200);
+    });
+
+    handleTweetSelectorLabels();
+    document.getElementById('EVERYONE').addEventListener('change', function() {
+        handleTweetSelectorLabels();
+    });
+    document.getElementById('just_state').addEventListener('change', function() {
+        handleTweetSelectorLabels();
+    });
+    document.getElementById('tweet_text').addEventListener('change', function() {
+        handleRemainingTweetText();
+    });
+    document.getElementById('tweet_text').addEventListener('keyup', function() {
+        handleRemainingTweetText();
+    });
+    handleRemainingTweetText();
+
 
     (function (doc, win) {
         "use strict";

@@ -1,29 +1,129 @@
+#state_selector {
+
+
+    select {
+        cursor: pointer;
+        width: 170px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 2rem;
+        color: white;
+        border: 0px none transparent;
+        background: transparent url('/images/arrow.png') no-repeat 100% 0px;
+        background-size: auto 100%;
+        text-align: left;
+        -webkit-appearance: none; /* gets rid of default appearance in Webkit browsers*/
+        -moz-appearance: none; /* Get rid of default appearance for older Firefox browsers */
+        -ms-appearance: none; /* get rid of default appearance for IE8, 9 and 10*/
+        appearance: none;
+        position: relative;
+        background-color: #333340;
+
+        &:hover {
+            background-color: #333340;
+        }
+
+        option {
+            text-align: left;
+            background: #333340;
+        }
+        &::-ms-expand {
+            display: none; /* hide default arrow in IE10 */
+        }
+    }
+}
+.selectors {
+    color: white;
+    font-size: 2rem;
+    margin: 10px auto 10px auto;
+    .tweet_to {
+        font-weight: bold;
+        margin-right: .5rem;
+        line-height: 40px;
+    }
+    label {
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: top;
+        padding: 5px 15px 5px 5px;
+        margin: 0rem 0rem 0rem .5rem;
+        height: 40px;
+        line-height: 30px;
+        &.sel {
+            background: #535360;
+        }
+        &:hover {
+            background: #535360;
+        }
+    }
+}
+
+#tweet_text_container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0px auto;
+
+
+    textarea {
+        width: 100%;
+        max-width: 500px;
+        height: 112px;
+        font-family: @body-font;
+        font-size: 1.5rem;
+        padding: 5px 10px;
+        margin-bottom: 0px;
+        resize: none;
+
+        @media screen and (min-width: @large-phone) {
+            font-size: 2rem;
+        }
+    }
+    #remaining {
+        position: absolute;
+        right: 10px;
+        bottom: 7px;
+        font-size: 3rem;
+        color: gray;
+        opacity: .7;
+
+        &.danger {
+            color: red;
+        }
+    }
+}
 #targets {
-    margin: 0 auto;
+    margin: 2rem auto 2rem auto;
     max-width: 95%;
     position: relative;
     text-align: center;
     width: 60rem;
+    display: none;
+
     .side0, .side1 {
         display: inline-block;
     }
     .politician {
-        margin: 0 3rem 1.5rem 0;
+        margin: 0 2.5rem 0rem 2.5rem;
     }
-    @media screen and (min-width: (@small-tablet + 45)) {
+
+    @media screen and (min-width: @large-phone) {
+        display: block;
+
         .side0 {
             position: absolute;
-            left: -11.5rem;
+            left: -7.5rem;
         }
         .side1 {
             position: absolute;
-            right: -11.5rem;
+            right: -7.5rem;
             margin-left: 372px;
         }
         .politician {
             margin: 0;
         }
     }
+
 }
 p.cta {
     font-size: 2rem;
@@ -38,9 +138,72 @@ p.cta {
 
 .action {
     max-width: 90%;
-    margin: 1rem auto;
+    margin: 1rem auto 1rem auto;
     text-align: center;
     width: 60rem;
+
+    iframe {
+        display: block;
+        margin: 15px auto;
+        width: 260px;
+        height: 50px;
+
+        @media screen and (min-width: @small-tablet) {
+            width: 400px;
+            height: 75px;
+        }
+    }
+
+    a.tweet {
+        display: none;
+        margin: 15px auto;
+        background-color: #17A1CE;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        text-align: center;
+        font-family: @body-font, Helvetica, Verdana, sans-serif;
+        color: white;
+        width: 250px;
+        height: 50px;
+        border-radius: 10px;
+        text-transform: uppercase;
+        line-height: 50px;
+        text-shadow: 0px 1px 2px rgba(0, 0, 0, .3);
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1bbaee+0,17a1ce+100 */
+        background: #1bbaee; /* Old browsers */
+        background: -moz-linear-gradient(top, #1bbaee 0%, #17a1ce 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1bbaee), color-stop(100%,#17a1ce)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #1bbaee 0%,#17a1ce 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #1bbaee 0%,#17a1ce 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, #1bbaee 0%,#17a1ce 100%); /* IE10+ */
+        background: linear-gradient(to bottom, #1bbaee 0%,#17a1ce 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1bbaee', endColorstr='#17a1ce',GradientType=0 ); /* IE6-9 */
+    }
+    a.tweet img {
+        width: 24px;
+        height: auto;
+        vertical-align: middle;
+        margin: 0px 5px 3px 0px;
+    }
+    @media screen and (min-width: 400px) {
+        a.tweet {
+            width: 390px;
+            height: 75px;
+            line-height: 75px;
+            font-size: 23px;
+        }
+        a.tweet img {
+            width: 38px;
+            height: auto;
+        }
+    }
+    a.tweet:hover {
+        background: #17A1CE;
+        box-shadow: 0px 1px 5px rgba(0, 0, 0, .5);
+        text-shadow: 0px;
+    }
+
 
     h3 {
         color: @white;
@@ -55,12 +218,12 @@ p.cta {
         margin-bottom: 0;
 
         &:first-child {
-            background: @action-box-backgrounds;
+            /*background: @action-box-backgrounds;*/
             border-top-left-radius: 1rem;
             border-top-right-radius: 1rem;
             line-height: 1.43;
             font-size: 2.1rem;
-            padding: 1.8rem 1.44rem 0;
+            padding: 0 1.44rem 0;
         }
     }
     form {
