@@ -70,6 +70,8 @@ var Politician = Composer.Model.extend({
             s_702_reforms:                                          e('reforms'),
             massie_lofgren_amendment_to_hr2685_defund_702:          e('massielofgrenamendmenttohr2685defund702'),
             massie_lofgren_amendment_to_hr4870_no_backdoors:        e('massielofgrenamendmenttohr4870nobackdoors'),
+            ECPA_reform_cosponsor:e('ecpareformcosponsor'),
+            CISA_cloture_vote:e('cisacloture')
         }, {silent: true});
         this.doScore();
     },
@@ -346,6 +348,35 @@ var Politician = Composer.Model.extend({
                 score:  inc,
                 info:   'Voted NO on Massie-Lofgren Amendment to HR4870: Ban encryption backdoors',
                 url: 'https://shutthebackdoor.net/'
+            });
+            score += inc;
+        }
+        if (this.get('ECPA_reform_cosponsor') == 'GOOD') {
+            console.log("ECPA")
+            var inc = 2;
+            score_criteria.push({
+                score:  inc,
+                info:   'Co-Sponsor of Electronic Commmunication Privacy Act Reform',
+                url: 'https://www.eff.org/deeplinks/2015/09/senate-judiciary-committee-finally-focuses-ecpa-reform'
+            });
+            score += inc;
+        }
+        if (this.get('CISA_cloture_vote') == 'BAD') {
+            var inc = -4;
+            score_criteria.push({
+                score:  inc,
+                info:   'Voted for CISA Cloture Vote',
+                url: 'http://www.slate.com/articles/technology/future_tense/2015/10/stopcisa_the_cybersecurity_information_sharing_act_is_a_disaster.html'
+            });
+            score += inc;
+        }
+        else if (this.get('CISA_cloture_vote') == 'GOOD') {
+            var inc = 4;
+
+            score_criteria.push({
+                score: inc,
+                info:   'Voted against CISA Cloture Vote',
+                url: 'http://www.slate.com/articles/technology/future_tense/2015/10/stopcisa_the_cybersecurity_information_sharing_act_is_a_disasteecpareformcosponsorr.html'
             });
             score += inc;
         }
