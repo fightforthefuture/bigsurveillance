@@ -2,9 +2,35 @@
 layout: default
 ---
 {% include nav.html %}
-<h1 id="top">Join the Tweet Storm <em>to stop CISA.</em></h1>
-<h3 class="cta">This bill would put corporations above the law and let them share your data with the U.S. government. The Senate is voting. Help us flood them with tweets!</h3>
+<h1 id="top">Dial 1-985-222-CISA <em>to stop CISA.</em></h1>
+<h3 class="cta">This bill would put corporations above the law and let them share your data with the U.S. government. The Senate is voting. Last chance to contact them.</h3>
+<div class="action top" id="email">
+    <p id="form-headline">
+        <strong>Email Congress to Stop CISA!</strong>
+    </p>
+    {% include cta_petition.html %}
+    <div id="thanks" class="hidden">
+        <h3>Thanks for taking action!</h3>
+        <p>
+            We're up against some of the most powerful corporate lobbyists in the country, but that hasn't stopped us before. If a critical mass of citizens speak out against CISA, our voices will be impossible to ignore.
+        </p>
+        <div class="share">
+            <!--
+            JL NOTE ~ switch this back when we're done with ShareProgress
+            <button class="social facebook">Share this</button>
+            <button class="social twitter">Tweet this</button>
+            -->
+            <div class='sp_16092 sp_fb_small' ></div>
+            <div class='sp_16093 sp_tw_small' ></div>
+        </div>
+    </div>
+</div>
+
+{% include scoreboard_political.html %}
+
+
 <div class="action">
+    <h3>Tweet Congress</h3>
     <p id="form-headline">
         <!--
         <strong>Join the Tweet Storm to #StopCISA!</strong><br/>
@@ -33,30 +59,10 @@ layout: default
         iframe.frameborder = 0;
         document.getElementById('tweet-iframe-container').appendChild(iframe);
     </script>
-    <div id="thanks" class="hidden">
-        <h3>Thanks for taking action!</h3>
-        <p>
-            We're up against some of the most powerful corporate lobbyists in the country, but that hasn't stopped us before. If a critical mass of citizens speak out against CISA, our voices will be impossible to ignore.
-        </p>
-        <div class="share">
-            <!--
-            JL NOTE ~ switch this back when we're done with ShareProgress
-            <button class="social facebook">Share this</button>
-            <button class="social twitter">Tweet this</button>
-            -->
-            <div class='sp_16092 sp_fb_small' ></div>
-            <div class='sp_16093 sp_tw_small' ></div>
-        </div>
-    </div>
+
 </div>
 
-{% include scoreboard_political.html %}
-<div class="action lower_on_page" id="email">
-    <p id="form-headline">
-        <strong>Email Congress to Stop CISA!</strong>
-    </p>
-    {% include cta_petition.html %}
-</div>
+
 {% include scoreboard_corporate.html %}
 <section class="copy">
 
@@ -81,3 +87,4 @@ layout: default
     {% endfor %}
 </section>
 {% include methodology-modal.html %}
+{% include action-bar.html %}
