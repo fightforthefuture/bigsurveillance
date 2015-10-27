@@ -185,7 +185,7 @@ var loadTopPoliticiansByState = function() {
         topPoliticians[i] = new PoliticianController({
             model: senators[i],
             noGrade: true,
-            // extraInfo: true,
+            extraInfo: true,
             inject: '#targets .side'+i
         });
     }
