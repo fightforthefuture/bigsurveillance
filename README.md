@@ -38,7 +38,7 @@ for this wonderful plain text formatting syntax all over:
 
 ### Installing & running the server
 
-* Install/switch to Ruby 2.2.3 (i recommend [rbenv][01])
+* Install/switch to Ruby 2.2.2 (i recommend [rbenv][01])
 * `gem install bundler` if it’s not already installed
 * `npm install` to install packages,
 * `npm start` to run grunt (compiles assets, then watches for changes and
