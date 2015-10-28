@@ -181,7 +181,7 @@ var Politician = Composer.Model.extend({
             score += inc;
         }
         else if (this.get('first_usaf_cloture_vote') == 'OK') {
-            var inc = 1;
+            var inc = -1;
             score_criteria.push({
                 score:  inc,
                 info:   'Voted NO on reauthorizing the PATRIOT Act *and* YES on cloture for the first Senate USA Freedom Act',
@@ -289,7 +289,7 @@ var Politician = Composer.Model.extend({
             score += inc;
         }
         else if (this.get('final_passage_usaf') == 'OK') {
-            var inc = 1;
+            var inc = -1;
             score_criteria.push({
                 score:  inc,
                 info:   'Voted YES on reforming bulk collection via USAF',
