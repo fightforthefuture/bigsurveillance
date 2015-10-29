@@ -71,7 +71,17 @@ var Politician = Composer.Model.extend({
             massie_lofgren_amendment_to_hr2685_defund_702:          e('massielofgrenamendmenttohr2685defund702'),
             massie_lofgren_amendment_to_hr4870_no_backdoors:        e('massielofgrenamendmenttohr4870nobackdoors'),
             ECPA_reform_cosponsor:e('ecpareformcosponsor'),
-            CISA_cloture_vote:e('cisacloture')
+            house_PCNA:e('housepcna'),
+            house_NCPA:e('housencpaa'),
+            ECPA_reform_cosponsor:e('ecpareformcosponsor'),
+            CISA_cloture_vote:e('cisacloture'),
+            leahy_cisa_amendment:e('leahycisaamendment'),
+            franken_cisa_amendment:e('frankencisaamendment'),
+            wyden_cisa_amendment:e('wydencisaamendment'),
+            heller_cisa_amendment:e('hellercisaamendment'),
+            coons_cisa_amendment:e('coonscisaamendment'),
+            coons_cisa_amendment:e('cottoncisaamendment'),
+            cisa_final:e('cisafinal')
         }, {silent: true});
         this.doScore();
     },
@@ -181,7 +191,7 @@ var Politician = Composer.Model.extend({
             score += inc;
         }
         else if (this.get('first_usaf_cloture_vote') == 'OK') {
-            var inc = 1;
+            var inc = -1;
             score_criteria.push({
                 score:  inc,
                 info:   'Voted NO on reauthorizing the PATRIOT Act *and* YES on cloture for the first Senate USA Freedom Act',
@@ -289,7 +299,7 @@ var Politician = Composer.Model.extend({
             score += inc;
         }
         else if (this.get('final_passage_usaf') == 'OK') {
-            var inc = 1;
+            var inc = -1;
             score_criteria.push({
                 score:  inc,
                 info:   'Voted YES on reforming bulk collection via USAF',
@@ -377,6 +387,177 @@ var Politician = Composer.Model.extend({
                 score: inc,
                 info:   'Voted against CISA Cloture Vote',
                 url: 'http://www.slate.com/articles/technology/future_tense/2015/10/stopcisa_the_cybersecurity_information_sharing_act_is_a_disasteecpareformcosponsorr.html'
+            });
+            score += inc;
+        }
+        if (this.get('house_NCPA') == 'BAD') {
+            var inc = -2;
+            score_criteria.push({
+                score:  inc,
+                info:   'Voted for National Cybersecurity Protection Advancement Act',
+                url: 'http://techcrunch.com/2015/04/23/house-passes-complementary-cyber-information-sharing-bill/'
+            });
+            score += inc;
+        }
+        else if (this.get('house_NCPA') == 'GOOD') {
+            var inc = 2;
+
+            score_criteria.push({
+                score: inc,
+                info:   'Voted against National Cybersecurity Protection Advancement Act',
+                url: 'http://techcrunch.com/2015/04/23/house-passes-complementary-cyber-information-sharing-bill/'
+            });
+            score += inc;
+        }
+        if (this.get('house_PCNA') == 'BAD') {
+            var inc = -3;
+            score_criteria.push({
+                score:  inc,
+                info:   'Voted for The Protecting Cyber Networks Act ',
+                url: 'https://www.eff.org/deeplinks/2015/04/eff-congress-stop-cybersurveillance-bills'
+            });
+            score += inc;
+        }
+        else if (this.get('house_PCNA') == 'GOOD') {
+            var inc = 3;
+
+            score_criteria.push({
+                score: inc,
+                info:   'Voted against The Protecting Cyber Networks Act ',
+                url: 'https://www.eff.org/deeplinks/2015/04/eff-congress-stop-cybersurveillance-bills'
+            });
+            score += inc;
+        }
+        if (this.get('leahy_cisa_amendment') == 'BAD') {
+            var inc = 0;
+            score_criteria.push({
+                score:  inc,
+                info:   'Voted against the Leahy CISA amendment',
+                url: 'https://www.districtsentinel.com/leahy-warns-of-foia-nightmare-if-cisa-amendment-fails/?print=pdf'
+            });
+            score += inc;
+        }
+        else if (this.get('leahy_cisa_amendment') == 'GOOD') {
+            var inc = 0;
+
+            score_criteria.push({
+                score: inc,
+                info:   'Voted for the Leahy CISA amendment ',
+                url: 'https://www.districtsentinel.com/leahy-warns-of-foia-nightmare-if-cisa-amendment-fails/?print=pdf'
+            });
+            score += inc;
+        }
+        if (this.get('franken_cisa_amendment') == 'BAD') {
+            var inc = -1;
+            score_criteria.push({
+                score:  inc,
+                info:   'Voted against the Franken CISA amendment',
+                url: 'http://www.newsweek.com/senate-passes-controversial-cisa-bill-companies-share-cyber-security-387785'
+            });
+            score += inc;
+        }
+        else if (this.get('franken_cisa_amendment') == 'GOOD') {
+            var inc = 2;
+
+            score_criteria.push({
+                score: inc,
+                info:   'Voted for the Franken CISA amendment ',
+                url: 'http://www.newsweek.com/senate-passes-controversial-cisa-bill-companies-share-cyber-security-387785'
+            });
+            score += inc;
+        }
+        if (this.get('wyden_cisa_amendment') == 'BAD') {
+            var inc = -1;
+            score_criteria.push({
+                score:  inc,
+                info:   'Voted against the Wyden CISA amendment',
+                url: 'http://www.freedomworks.org/content/key-vote-yes-wyden-amendment-strengthen-privacy-protections-cisa'
+            });
+            score += inc;
+        }
+        else if (this.get('wyden_cisa_amendment') == 'GOOD') {
+            var inc = 2;
+
+            score_criteria.push({
+                score: inc,
+                info:   'Voted for the Wyden CISA amendment ',
+                url: 'http://www.freedomworks.org/content/key-vote-yes-wyden-amendment-strengthen-privacy-protections-cisa'
+            });
+            score += inc;
+        }
+        if (this.get('heller_cisa_amendment') == 'BAD') {
+            var inc = -1;
+            score_criteria.push({
+                score:  inc,
+                info:   'Voted against the Heller CISA amendment',
+                url: 'https://cdt.org/blog/guide-to-cybersecurity-information-sharing-act-amendments/'
+            });
+            score += inc;
+        }
+        else if (this.get('heller_cisa_amendment') == 'GOOD') {
+            var inc = 1;
+
+            score_criteria.push({
+                score: inc,
+                info:   'Voted for the Heller CISA amendment ',
+                url: 'https://cdt.org/blog/guide-to-cybersecurity-information-sharing-act-amendments/'
+            });
+            score += inc;
+        }
+        if (this.get('coons_cisa_amendment') == 'BAD') {
+            var inc = -1;
+            score_criteria.push({
+                score:  inc,
+                info:   'Voted against the Coons CISA amendment',
+                url: 'https://cdt.org/blog/guide-to-cybersecurity-information-sharing-act-amendments/'
+            });
+            score += inc;
+        }
+        else if (this.get('coons_cisa_amendment') == 'GOOD') {
+            var inc = 1;
+
+            score_criteria.push({
+                score: inc,
+                info:   'Voted for the Coons CISA amendment ',
+                url: 'https://cdt.org/blog/guide-to-cybersecurity-information-sharing-act-amendments/'
+            });
+            score += inc;
+        }
+        if (this.get('cotton_cisa_amendment') == 'BAD') {
+            var inc = -2;
+            score_criteria.push({
+                score:  inc,
+                info:   'Voted for the Cotton CISA amendment',
+                url: 'https://cdt.org/blog/guide-to-cybersecurity-information-sharing-act-amendments/'
+            });
+            score += inc;
+        }
+        else if (this.get('cotton_cisa_amendment') == 'GOOD') {
+            var inc = 1;
+
+            score_criteria.push({
+                score: inc,
+                info:   'Voted against the Cotton CISA amendment ',
+                url: 'https://cdt.org/blog/guide-to-cybersecurity-information-sharing-act-amendments/'
+            });
+            score += inc;
+        }
+        if (this.get('cisa_final') == 'BAD') {
+            var inc = -4;
+            score_criteria.push({
+                score:  inc,
+                info:   'Voted for CISA in the final vote',
+                url: 'http://www.vox.com/platform/amp/2015/10/21/9587190/cisa-senate-privacy-nsa'
+            });
+            score += inc;
+        }
+        else if (this.get('cisa_final') == 'GOOD') {
+            var inc = 4;
+
+            score_criteria.push({
+                score: inc,
+                info:   'Voted against CISA in the final vote ',
+                url: 'http://www.vox.com/platform/amp/2015/10/21/9587190/cisa-senate-privacy-nsa'
             });
             score += inc;
         }
