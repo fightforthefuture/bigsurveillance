@@ -6,6 +6,7 @@ published: true
 ---
 
 
+
 ### Project History and Cosponsors
 
 This scorecard is a joint project of [Restore The
@@ -92,20 +93,8 @@ Two notable difficulties that arose when formulating the scorecard
 were how to interpret votes on the USA FREEDOM Act, and how to score
 amendments.
 
-Votes on USA FREEDOM 2015 were not a clear signal of being for or
-against surveillance reform. For many organizations, including ours,
-and for many legislators as well, the USA FREEDOM Act was far too weak
-and limited to represent any kind of surveillance reform, and also
-modernized certain powers of the surveillance state. Its passage even
-posed a risk of derailing real surveillance reform by enabling
-legislators to make the political claim that it had dealt with the
-problem of mass surveillance. For those reasons, we choose to score a
-Yes vote at -1. However, a No vote could mean that the legislator
-thought the USA FREEDOM Act didn't go nearly far enough; but it could
-also mean that the legislator could not accept even its very weak
-reforms, and felt that Congress should not restrict surveillance
-authorities at all. We therefore tied No votes in the Senate to the
-legislator’s vote on whether to do "straight reauthorization" of
+USA FREEDOM 2015 votes were not a clear signal of being for or
+against surveillance reform. The USA FREEDOM Act changed the process of surveillance by separating surveillance procedures but many organizations and legislators warned that it preserves and modernizes the same surveillance authorities, while enabling Congress to say it tackled surveillance reform. Therefore, Yes votes are graded at -1. However, because of the nature of the bill, a No vote could mean 1. that the legislator thought the USA FREEDOM Act didn't go nearly far enough or 2. that even very weak reforms are unacceptable there shouldn't be any restrictions of surveillance authorities. Therefore No votes in the Senate were tied to the legislator’s vote on whether to do "straight reauthorization" of
 Section 215 of the PATRIOT Act. A Yes on straight reauthorization
 indicated clearly that they wanted no surveillance reform whatsoever,
 and therefore that if they then voted No on the USA FREEDOM Act, it
@@ -117,15 +106,10 @@ latter group, we coded the same vote as +4 points. In the House, we
 went back to EFF's "Stand Against Spying" scorecard and analyzed the
 grades of the 88 House members voting against the USA FREEDOM Act, and
 found that in almost all cases their grades on that prior scorecard
-were very high. Consequently, we felt comfortable coding all House No
-votes on USA FREEDOM as +4. For prior votes on the 2014 version of USA
-FREEDOM, we adopted EFF's approach, and scored the version before it
-was gutted at +2 and the version after it was gutted at -2.
+were very high. Consequently, all House No votes on USA FREEDOM were coded as +4. For prior votes on the 2014 version of USA FREEDOM, we adopted EFF's approach, and scored the version before it was gutted at +2 and the version after it was gutted at -2.
 
-Scoring amendments to CISA posed complexities. We strongly oppose CISA
-as a surveillance bill. Many amendments were offered, and that raised
-the problem that legislators might vote for CISA on cloture (-4) and
-on final passage (-4), but might vote in favor of all
+Scoring amendments to CISA posed complexities. CISA
+went beyond cybersecurity policies and is a surveillance bill. Many amendments were offered, and that raised the problem that legislators might vote for CISA on cloture (-4) and on final passage (-4), but might vote in favor of all
 anti-surveillance amendments, and thereby come out ahead on net. We
 dealt with this by not scoring the Leahy amendment (relating to FOIA
 exemptions) and by allocating points such that a legislator like this
