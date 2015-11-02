@@ -34,16 +34,16 @@ As further relevant votes come up, they will be added to the points system.
 
 ##### 113th Congress (2013-14):
 
-Sponsored or cosponsored S. 1551, IOSRA (Yes = +4)
-Sponsored or cosponsored FISA Improvements Act (Yes = -4)
-Sponsored or cosponsored FISA Transparency & Modernization Act (Yes = -4)
+Sponsored or cosponsored S. 1551, IOSRA (Yes=+4)
+Sponsored or cosponsored FISA Improvements Act (Yes=-4)
+Sponsored or cosponsored FISA Transparency & Modernization Act (Yes=-4)
 Sponsored or cosponsored Surveillance State Repeal Act (2014 or
-2015) (Yes = +4)
-Sponsored or cosponsored USA FREEDOM 2014 prior to 2014-05-18 (Yes =
-+2) - Before this date, USA FREEDOM was a substantially stronger piece
+2015) (Yes=+4)
+Sponsored or cosponsored USA FREEDOM 2014 prior to 2014-05-18 (Yes=+2)
+Before this date, USA FREEDOM was a substantially stronger piece
 of legislation, meriting +2 rather than +1.
-Voted for Conyers/Amash amendment (Yes = +4)
-Voted for House version of USA FREEDOM 2014 (Yes = -2) This gutted
+Voted for Conyers/Amash amendment (Yes=+4)
+Voted for House version of USA FREEDOM 2014 (Yes=-2) This gutted
 version of USA FREEDOM was weaker than what eventually passed in the
 114th Congress, meriting -2 points.
 Voted for Massie-Lofgren amendment 2014 (Yes = +3)
@@ -51,36 +51,34 @@ Voted for Massie-Lofgren amendment 2014 (Yes = +3)
 ##### 114th Congress (2015-16):
 
 Sponsored or cosponsored whistleblower protection for IC
-employees/contractors (Yes = +4)
-1st USA FREEDOM 2015 cloture vote (Yes = +1, No = +4 or = -4
+employees/contractors (Yes=+4)
+1st USA FREEDOM 2015 cloture vote (Yes=+1, No=+4 or =-4
 conditional on straight reauth vote)
-Straight reauth (Yes = -3)
-Sponsored or cosponsored FISA Reform Act (Yes = -3)
-Amendment 1449 to USA FREEDOM 2015: Data retention (No = +1, Yes = -3)
-Amendment 1450 to USA FREEDOM 2015: Extend implementation to 1yr (No
-= +1, Yes = -2)
-Amendment 1451 to USA FREEDOM 2015: Gut amicus (No = +1, Yes = -3)
-Final passage USA FREEDOM 2015 (Yes = +1, No = +4 or = -4
+Straight reauth (Yes=-3)
+Sponsored or cosponsored FISA Reform Act (Yes=-3)
+Amendment 1449 to USA FREEDOM 2015: Data retention (No=+1, Yes=-3)
+Amendment 1450 to USA FREEDOM 2015: Extend implementation to 1yr (No=+1, Yes=-2)
+Amendment 1451 to USA FREEDOM 2015: Gut amicus (No=+1, Yes=-3)
+Final passage USA FREEDOM 2015 (Yes=+1, No=+4 or =-4
 conditional on straight reauth vote)
-House vote on PCNA (Yes = -3, No = +3)
-House vote on NCPAA (Yes = -2, No = +2)
-Massie-Lofgren amendment to HR2685: Defund 702 (Yes = +3/No = -3)
-Massie-Lofgren amendment on HR4870: No Encryption Backdoors (Yes = +3/No = -3)
-Senate vote for cloture on CISA (Yes = -4, No = +4)
+House vote on PCNA (Yes=-3, No=+3)
+House vote on NCPAA (Yes=-2, No=+2)
+Massie-Lofgren amendment to HR2685: Defund 702 (Yes=+3/No=-3)
+Massie-Lofgren amendment on HR4870: No Encryption Backdoors (Yes=+3/No=-3)
+Senate vote for cloture on CISA (Yes=-4, No=+4)
 Senate vote on Franken amendment to CISA (narrowing definition of
-cybersecurity threat) (Yes = +2/No = -1)
+cybersecurity threat) (Yes=+2/No=-1)
 Senate vote on Wyden amendment to CISA (companies must scrub
-personal data) (Yes = +2/No = -1)
+personal data) (Yes=+2/No=-1)
 Senate vote on Heller amendment to CISA (DHS must scrub personal
-data) (Yes = +1/No = -1)
+data) (Yes=+1/No=-1)
 Senate vote on Coons amendment to CISA (limit information sharing to
-that necessary to describe or identify a cybersecurity threat) (Yes =
-+1/No = -1)
+that necessary to describe or identify a cybersecurity threat) (Yes=+1/No=-1)
 Senate vote on Cotton amendment (removes liability for bypassing DHS
-to share data with FBI and Secret Service) (Yes = -2/No = +1)
-Cosponsored ECPA reform bill in 114th Congress (Yes = +2)
+to share data with FBI and Secret Service) (Yes=-2/No=+1)
+Cosponsored ECPA reform bill in 114th Congress (Yes=+2)
 Sponsored or cosponsored bill proposing Section 702 reforms in 114th
-Congress (Yes = +4)
+Congress (Yes=+4)
 
 We set the grade boundaries unevenly, because the legislators are
 themselves distributed unevenly. The buckets are generally narrower in
@@ -94,10 +92,7 @@ were how to interpret votes on the USA FREEDOM Act, and how to score
 amendments.
 
 USA FREEDOM 2015 votes were not a clear signal of being for or
-against surveillance reform. The USA FREEDOM Act changed the process of surveillance by separating surveillance procedures but many organizations and legislators warned that it preserves and modernizes the same surveillance authorities, while enabling Congress to say it tackled surveillance reform. Therefore, Yes votes are graded at -1. However, because of the nature of the bill, a No vote could mean 1. that the legislator thought the USA FREEDOM Act didn't go nearly far enough or 2. that even very weak reforms are unacceptable there shouldn't be any restrictions of surveillance authorities. Therefore No votes in the Senate were tied to the legislator’s vote on whether to do "straight reauthorization" of
-Section 215 of the PATRIOT Act. A Yes on straight reauthorization
-indicated clearly that they wanted no surveillance reform whatsoever,
-and therefore that if they then voted No on the USA FREEDOM Act, it
+against surveillance reform. The USA FREEDOM Act changed the process of surveillance by separating surveillance procedures but many organizations and legislators warned that it preserves and modernizes the same surveillance authorities, while enabling Congress to say it tackled surveillance reform. Therefore, Yes votes are graded at -1. However, because of the nature of the bill, a No vote could mean 1. that the legislator thought the USA FREEDOM Act didn't go nearly far enough or 2. that even very weak reforms are unacceptable there shouldn't be any restrictions of surveillance authorities. Therefore No votes in the Senate were tied to the legislator’s vote on whether to do "straight reauthorization" of Section 215 of the PATRIOT Act. A Yes on straight reauthorization indicated clearly that they wanted no surveillance reform whatsoever, and therefore that if they then voted No on the USA FREEDOM Act, it
 was because they believed it went too far. Conversely, a Senator
 voting No on straight reauthorization and then No on the USA FREEDOM
 Act likely felt that the USA FREEDOM Act was far too weak. For the
