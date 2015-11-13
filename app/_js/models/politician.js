@@ -75,7 +75,6 @@ var Politician = Composer.Model.extend({
             house_NCPA:e('housencpaa'),
             ECPA_reform_cosponsor:e('ecpareformcosponsor'),
             CISA_cloture_vote:e('cisacloture'),
-            leahy_cisa_amendment:e('leahycisaamendment'),
             franken_cisa_amendment:e('frankencisaamendment'),
             wyden_cisa_amendment:e('wydencisaamendment'),
             heller_cisa_amendment:e('hellercisaamendment'),
@@ -425,25 +424,6 @@ var Politician = Composer.Model.extend({
                 score: inc,
                 info:   'Voted against The Protecting Cyber Networks Act ',
                 url: 'https://www.eff.org/deeplinks/2015/04/eff-congress-stop-cybersurveillance-bills'
-            });
-            score += inc;
-        }
-        if (this.get('leahy_cisa_amendment') == 'BAD') {
-            var inc = 0;
-            score_criteria.push({
-                score:  inc,
-                info:   'Voted against the Leahy CISA amendment',
-                url: 'https://www.districtsentinel.com/leahy-warns-of-foia-nightmare-if-cisa-amendment-fails/?print=pdf'
-            });
-            score += inc;
-        }
-        else if (this.get('leahy_cisa_amendment') == 'GOOD') {
-            var inc = 0;
-
-            score_criteria.push({
-                score: inc,
-                info:   'Voted for the Leahy CISA amendment ',
-                url: 'https://www.districtsentinel.com/leahy-warns-of-foia-nightmare-if-cisa-amendment-fails/?print=pdf'
             });
             score += inc;
         }
