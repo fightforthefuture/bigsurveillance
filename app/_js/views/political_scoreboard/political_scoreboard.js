@@ -76,7 +76,7 @@ var PoliticalScoreboardView = function (data) {
 
     bad.className = 'team surveillance';
 
-    badHeadline.textContent = 'Team Surveillance';
+    badHeadline.textContent = 'Team NSA';
     bad.appendChild(badHeadline);
 
     badSubHead.textContent = 'These politicians are working with monopolies to control the Internet for power and profit.';

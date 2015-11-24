@@ -3,6 +3,7 @@ title: Big surveillance makes us more vulnerable than ever.
 layout: default
 slug: "big-surveillance-makes-more-vulnerable"
 published: true
+expanded: true
 ---
 
 
