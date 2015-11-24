@@ -47,6 +47,23 @@ compiles those too.)
 `0.0.0.0 bigsurveillance.dev` to the file at `/etc/hosts`, and navigate to
 <http://bigsurveillance.dev:9050> when the server starts
 
+### Deploying
+
+This site is automatically deployed using [a shell script][10] and
+[travis-ci][11]. To set up a fork, follow these steps:
+
+* Edit `CNAME` to reflect your domain and TLD.
+* Enable Travis-CI for your github repo
+* In Travis settings, create an env var called `GH_REF` with a value of
+github.com/USERNAME/REPO.git
+* Create a Personal Access Token at <https://github.com/settings/tokens>
+* In Travis settings, create an env var called `GH_TOKEN` and paste in your
+token, taking care that "Display value in build log" is set to off.
+
+_(note: if you do not yet have a CNAME, remove `cp ../CNAME ./CNAME` from
+deploy-ghpages.sh)_
+
+
 ### Code structure
 
 #### JavaScript:
@@ -65,9 +82,6 @@ compiles those too.)
 array around L169 of `Gruntfile.js`
 
 #### CSS / Less:
-
-* The directory structure of the Less files is vaguely (and I do mean vaguely)
-inspired by [SMACSS][06]
 
 ```
 app/_less
@@ -104,3 +118,5 @@ real performance hit as a result of good organization
 [07]: http://daringfireball.net/projects/markdown/syntax
 [08]: https://help.github.com/articles/markdown-basics/
 [09]: http://www.pell.portland.or.us/~orc/Code/discount/#Language.extensions
+[10]: https://github.com/fightforthefuture/bigsurveillance/blob/master/deploy-ghpages.sh
+[11]: https://travis-ci.org/fightforthefuture/bigsurveillance
