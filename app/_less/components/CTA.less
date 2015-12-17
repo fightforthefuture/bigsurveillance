@@ -299,6 +299,12 @@ p.cta {
         padding: 1.5rem;
         width: 50rem;
 
+        &.wide {
+            border-radius: 3px;
+            box-shadow: inset 0 7px 4px -7px rgba(0,0,0,0.9);
+            width: 100%;
+        }
+
         @media screen and (min-width: @small-tablet) {
             border-radius: 0;
             border-right: @action-box-borders solid 0.1rem;
@@ -306,6 +312,10 @@ p.cta {
             margin: 0;
             padding: 1.5rem 1rem;
             width: 28%;
+
+            &.wide {
+                width: 100%;
+            }
         }
 
         &[name="first_name"] {

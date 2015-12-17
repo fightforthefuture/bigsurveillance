@@ -1,0 +1,34 @@
+---
+layout: default
+---
+<nav>
+    <ul>
+        <li><a href="/">&#8249; Back Home</a></li>
+    </ul>
+</nav>
+
+<h1 id="top">The final version of CISA <em>is even worse than expected</em></h1>
+
+<section class="copy">
+
+    {% for post in site.posts %}
+    <hr>
+    {% if forloop.first or post.expanded %}
+    <article id="{{ post.slug }}" class="expanded">
+    {% else %}
+    <article id="{{ post.slug }}">
+    {% endif %}
+        <h1>
+            <a href="#{{ post.slug }}" class="expand-me">
+                {{ post.title }}
+            </a>
+        </h1>
+        <time datetime="{{ post.date | date_to_rfc822 }}"></time>
+        {{ post.content }}
+        {% if forloop.first == false and post.expanded != true %}
+        <a href="#{{ post.slug }}" class="expand-me more">Learn more&hellip;</a>
+        {% endif %}
+    </article>
+    {% endfor %}
+</section>
+{% include action-bar.html %}
