@@ -19,13 +19,9 @@ than the quality or trustworthiness of legislators' public action or
 statements on mass
 surveillance.
 
-v. 1.0 of this Scorecard was EFF’s [Stand Against
-Spying](https://standagainstspying.org)
-v. 2.0 launched September 29, 2015, and scored Congressional votes
-on the USA FREEDOM Act of 2015 and FISA reform bills not included in
-v. 1.0.
-v. 2.1 launched October 29, 2015, and added Congressional votes on
-cybersecurity bills (CISA, PCNA and NCPAA) and ECPA reform.
+- Version 1.0 of this Scorecard was EFF’s [Stand Against Spying](https://standagainstspying.org)
+- Version 2.0 launched September 29, 2015, and scored Congressional votes on the USA FREEDOM Act of 2015 and FISA reform bills not included in v. 1.0.
+- Version 2.1 launched October 29, 2015, and added Congressional votes on cybersecurity bills (CISA, PCNA and NCPAA) and ECPA reform.
 
 
 #### **Summary of Points Allocations and Grade Boundaries**
