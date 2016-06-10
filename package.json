@@ -4,6 +4,7 @@
   "description": "Decide the future of the internet.",
   "scripts": {
     "postinstall": "bundle",
+    "prestart": "grunt concurrent:external_scripts",
     "start": "grunt",
     "verbose": "grunt dev -vvv",
     "build": "grunt build",
@@ -25,7 +26,8 @@
   },
   "license": "GPL-2.0",
   "dependencies": {
-    "d3": "^3.5.6"
+    "d3": "^3.5.6",
+    "request": "^2.72.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.0",
@@ -40,6 +42,7 @@
     "grunt-contrib-less": "^1.0.1",
     "grunt-contrib-uglify": "^0.11.0",
     "grunt-contrib-watch": "~0.6.1",
+    "grunt-execute": "^0.2.2",
     "grunt-jekyll": "^0.4.2",
     "grunt-postcss": "^0.7.0",
     "jit-grunt": "^0.9.1",

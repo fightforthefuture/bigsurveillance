@@ -429,6 +429,9 @@ var onDomContentLoaded = function() {
         while (links--) {
             viewMoreLinks[links].addEventListener('click', expandArticle);
         }
+
+        win.components.petitions(doc, win);
+
     })(document, window);
 };
 
@@ -438,3 +441,40 @@ if (document.readyState == "complete" || document.readyState == "loaded" || docu
 } else if (document.addEventListener) {
     document.addEventListener('DOMContentLoaded', onDomContentLoaded, false);
 }
+
+(function (doc, win) {
+  "use strict";
+
+  win.callbacks = win.callbacks || {};
+  win.callbacks.petitions = {
+    preSubmit: function() {
+      document.body.querySelector('[type="submit"]').disabled = true;
+    },
+
+    loadSignatureResponse: function(e) {
+      var xhr = e.target;
+      if (xhr.status >= 200 && xhr.status < 400) {
+
+        popCallModal();
+        var
+          form = document.getElementById('petition-form').getElementsByTagName('form')[0],
+          thanks = document.getElementById('thanks');
+        document.getElementById('form-headline').classList.add('hidden');
+        thanks.classList.remove('hidden');
+        form.removeAttribute('style');
+        form.innerHTML = '';
+        form.appendChild(thanks);
+
+      } else {
+         handleSigningError(xhr);
+      }
+    },
+
+    handleSigningError: function(e) {
+      document.body.querySelector('[type="submit"]').disabled = false;
+      console.log('AN ERROR OCCURRED WHILE SENDING YOUR PETITION: ', e);
+      alert('AN ERROR OCCURRED WHILE SENDING YOUR PETITION');
+    }
+  }
+
+})(document, window);

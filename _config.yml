@@ -6,10 +6,11 @@
 name: Decide the Future
 sharetitle: They’re deciding the future of the Internet right now
 url: http://www.decidethefuture.org
-description: We have 24 hours to change their minds.
-twittertext: 'Less than 24 hours to stop #CISA. Call 1-985-222-CISA now!'
+description: Take 1 minute to defund NSA mass surveillance.
+twittertext: 'Take 1 minute to defund NSA mass surveillance.'
 timezone: America/Los_Angeles
 googleanalytics: UA-26576645-28
+petitions_api: 'https://info.fightforthefuture.org'
 author:
   - googleid: 102356128596404327231
   - twitterid: 382376904

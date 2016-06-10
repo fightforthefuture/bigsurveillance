@@ -282,13 +282,21 @@ p.cta {
     }
 }
 
-.petition {
-    form {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+#petition-form {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    label {
+      display: none;
     }
-    input {
+
+    select {
+      display: none;
+    }
+
+    input[type="text"], input[type="email"] {
         border: 0 none transparent;
         border-radius: 0.7rem;
         display: block;
@@ -298,6 +306,7 @@ p.cta {
         max-width: 100%;
         padding: 1.5rem;
         width: 50rem;
+        color: black;
 
         &.wide {
             border-radius: 3px;
@@ -318,19 +327,19 @@ p.cta {
             }
         }
 
-        &[name="first_name"] {
+        &[id="form-first_name"] {
             @media screen and (min-width: @small-tablet) {
                 border-top-left-radius: 0.7rem;
                 border-bottom-left-radius: 0.7rem;
             }
         }
 
-        &[name="address1"] {
+        &[id="form-street_address"] {
             @media screen and (min-width: @small-tablet) {
                 width: 30%;
             }
         }
-        &[name="zip"] {
+        &[id="form-zip_code"] {
             @media screen and (min-width: @large-phone) {
                 margin: 0 0.5rem 0 auto;
                 width: 24.5rem;
@@ -348,7 +357,7 @@ p.cta {
             background: #fdd;
         }
     }
-    button {
+    input[type="submit"] {
         background-color: #ff4d4d;
         border: none;
         font-size: 2.24rem;
@@ -377,6 +386,11 @@ p.cta {
 
         &:hover {
             background-color: #ee3d3d;
+        }
+
+        &:disabled {
+            background: #aaa;
+            cursor: default;
         }
     }
 

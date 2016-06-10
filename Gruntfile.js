@@ -5,7 +5,8 @@ module.exports = function (grunt) {
     grunt.initConfig({
         site: {
             app: 'app',
-            dist: 'dist'
+            dist: 'dist',
+            scripts: 'scripts',
         },
 
         clean: {
@@ -16,6 +17,12 @@ module.exports = function (grunt) {
                         src: '<%= site.dist %>/*'
                     }
                 ]
+            }
+        },
+
+        execute: {
+            sync_petition_code: {
+                src: ['<%= site.scripts %>/sync_petition_code.js']
             }
         },
 
@@ -116,7 +123,7 @@ module.exports = function (grunt) {
             livereload: {
                 options: {
                     base: '<%= site.dist %>',
-                    open: true
+                    // open: true
                 }
             }
         },
@@ -167,6 +174,7 @@ module.exports = function (grunt) {
                 files: [
                     {
                         src: [
+                            '<%= site.app %>/_js/components/**/*.js',
                             '<%= site.app %>/_js/controllers/**/*.js',
                             '<%= site.app %>/_js/models/*.js',
                             '<%= site.app %>/_js/views/**/*.js',
@@ -194,6 +202,9 @@ module.exports = function (grunt) {
         },
 
         concurrent: {
+            external_scripts: [
+                'execute:sync_petition_code'
+            ],
             server: [
                 'copy:server',
                 'less:server',
@@ -203,6 +214,7 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('dev', [
+        'concurrent:external_scripts',
         'clean:server',
         'jekyll:server',
         'concurrent:server',
