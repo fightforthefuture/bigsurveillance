@@ -358,7 +358,7 @@ var onDomContentLoaded = function() {
             }
 
             var data = new FormData();
-            data.append('campaignId', 'nn-cisa-2');
+            data.append('campaignId', 'mccain-amendment');
 
             data.append('userPhone', util.validatePhone($el('dumbphonenumber').value));
 
@@ -376,7 +376,7 @@ var onDomContentLoaded = function() {
             new CallScriptModalController({
                 callHeadline: 'Awesome! We\'re calling your phone!',
                 callInstruction: 'Please be polite and tell your lawmaker:',
-                callScript: 'Please don\'t vote for the Omnibus budget bill if it contains legislation like CISA. The version of CISA in the budget has all its privacy protections stripped out and would allow for wholesale mass surveillance and incarceration. Tacking this onto the budget without debate is undemocratic, and Congress should not approve this bill.',
+                callScript: 'Please vote NO on the McCain Amendment 4787 to the CJS Appropriations Bill. The McCain Amendment would expand warantless mass surveillance under the PATRIOT Act and destroy the reforms made in the USA Freedom Act.',
             });
 
             return false;
