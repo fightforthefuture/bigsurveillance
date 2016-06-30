@@ -65,7 +65,7 @@ var PoliticianController = Composer.Controller.extend({
         var url = window.location.protocol + '//' + window.location.host + '?politician='+ this.model.get('bioguide');
 
         // var txt = encodeURIComponent('Here\'s why '+name+' got '+article+' '+this.model.get('grade')+' on surveillance: '+url+' #StopCISA');
-        var txt = encodeURIComponent(name+' please vote no on McCain Amendment 4787! Don\'t give the FBI warrantless access to our private data. '+url);
+        var txt = encodeURIComponent(name+' please VOTE NO on McCain Amendment 4787! Don\'t give FBI warrantless access to our browsing history. '+url);
         window.open('https://twitter.com/intent/tweet?text=' + txt);
     },
 
