@@ -359,7 +359,7 @@ var onDomContentLoaded = function() {
 
             var data = new FormData();
             data.append('campaignId', 'mccain-amendment');
-
+            data.append('org', window.org || 'fftf')
             data.append('userPhone', util.validatePhone($el('dumbphonenumber').value));
 
             var url = 'https://call-congress.fightforthefuture.org/create';
@@ -430,7 +430,11 @@ var onDomContentLoaded = function() {
             viewMoreLinks[links].addEventListener('click', expandArticle);
         }
 
-        win.components.petitions(doc, win);
+        if (document.getElementById('petition-form'))
+          win.components.petitions(doc, win);
+
+        if (document.getElementById('whiplist'))
+          win.components.whiplist(doc, win);
 
     })(document, window);
 };
