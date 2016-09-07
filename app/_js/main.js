@@ -116,6 +116,8 @@ var checkIfFinishedWithXHRs = function () {
 };
 
 var renderTopStateSelector = function() {
+    if (!document.getElementById('placeholder_state_name'))
+      return;
     document.getElementById('placeholder_state_name').style.display = 'none';
     var select = $c('select');
     for (var state in STATES) {
@@ -192,6 +194,9 @@ var loadTopPoliticiansByState = function() {
 }
 
 var handleTweetSelectorLabels = function() {
+    if (!document.getElementById('EVERYONE'))
+      return;
+
     if (document.getElementById('EVERYONE').checked) {
         document.getElementById('EVERYONE_label').className = 'sel';
         document.getElementById('just_state_label').className = '';
@@ -206,6 +211,8 @@ var handleTweetSelectorLabels = function() {
 }
 
 var handleRemainingTweetText = function() {
+    if (!document.getElementById('tweet_text'))
+      return;
     var remaining = 105 - document.getElementById('tweet_text').value.length;
     document.getElementById('remaining').textContent = remaining;
     if (remaining <= 10)
@@ -300,59 +307,66 @@ var onDomContentLoaded = function() {
 
     if (politicians.models().length == 0) {
         var spinner = util.generateSpinner();
-        document.getElementById('scoreboard_data').appendChild(spinner);
+        if (document.getElementById('scoreboard_data'))
+          document.getElementById('scoreboard_data').appendChild(spinner);
     }
 
-    document.querySelector('.action a.tweet').addEventListener('click', function(e){
-        e.preventDefault();
-        if (!topPoliticians[0])
-            return alert('Hold on, still loading your senators :)');
+    if (document.querySelector('.action a.tweet'))
+      document.querySelector('.action a.tweet').addEventListener('click', function(e){
+          e.preventDefault();
+          if (!topPoliticians[0])
+              return alert('Hold on, still loading your senators :)');
 
-        var tweetText = generateTweetTextFromTopPoliticians();
-        var win = window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(tweetText), 'zetsubou_billy', 'width=500, height=300, toolbar=no, status=no, menubar=no');
+          var tweetText = generateTweetTextFromTopPoliticians();
+          var win = window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(tweetText), 'zetsubou_billy', 'width=500, height=300, toolbar=no, status=no, menubar=no');
 
-        var pollTimer = window.setInterval(function() {
-            if (win.closed !== false) { // !== is required for compatibility with Opera
-                window.clearInterval(pollTimer);
-                if (hasTweeted == false)
-                    popCallModal(true);
-                hasTweeted = true;
-            }
-        }, 200);
-    });
+          var pollTimer = window.setInterval(function() {
+              if (win.closed !== false) { // !== is required for compatibility with Opera
+                  window.clearInterval(pollTimer);
+                  if (hasTweeted == false)
+                      popCallModal(true);
+                  hasTweeted = true;
+              }
+          }, 200);
+      });
 
 
     handleTweetSelectorLabels();
-    document.getElementById('EVERYONE').addEventListener('change', function() {
-        handleTweetSelectorLabels();
-    });
-    document.getElementById('just_state').addEventListener('change', function() {
-        handleTweetSelectorLabels();
-    });
-
-    document.getElementById('tweet_text').addEventListener('change', function() {
-        handleRemainingTweetText();
-    });
-    document.getElementById('tweet_text').addEventListener('keyup', function() {
-        handleRemainingTweetText();
-    });
-    document.getElementById('call_congress').addEventListener('click', function(e) {
-        e.preventDefault();
-        popCallModal();
-    });
+    if (document.getElementById('EVERYONE'))
+      document.getElementById('EVERYONE').addEventListener('change', function() {
+          handleTweetSelectorLabels();
+      });
+    if (document.getElementById('just_state'))
+      document.getElementById('just_state').addEventListener('change', function() {
+          handleTweetSelectorLabels();
+      });
+    if (document.getElementById('tweet_text')) {
+      document.getElementById('tweet_text').addEventListener('change', function() {
+          handleRemainingTweetText();
+      });
+      document.getElementById('tweet_text').addEventListener('keyup', function() {
+          handleRemainingTweetText();
+      });
+    }
+    if (document.getElementById('call_congress'))
+      document.getElementById('call_congress').addEventListener('click', function(e) {
+          e.preventDefault();
+          popCallModal();
+      });
     if (util.getParameterByName('call')) {
         popCallModal();
     }
     var random_tweet = DEFAULT_TWEETS[Math.floor(Math.random()*DEFAULT_TWEETS.length)];
-    document.getElementById('tweet_text').value = random_tweet;
+    if (document.getElementById('tweet_text'))
+      document.getElementById('tweet_text').value = random_tweet;
 
     handleRemainingTweetText();
 
-    if ($el('dumbcalltool')) {
-        $el('dumbcalltool').addEventListener('submit', function(e) {
+    if (document.getElementById('dumbcalltool')) {
+        document.getElementById('dumbcalltool').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            if (!util.validatePhone($el('dumbphonenumber').value)) {
+            if (!util.validatePhone(document.getElementById('dumbphonenumber').value)) {
                 alert('Please enter a valid phone number!');
                 return false;
             }
@@ -360,7 +374,7 @@ var onDomContentLoaded = function() {
             var data = new FormData();
             data.append('campaignId', 'ectr');
             data.append('org', window.org || 'fftf')
-            data.append('userPhone', util.validatePhone($el('dumbphonenumber').value));
+            data.append('userPhone', util.validatePhone(document.getElementById('dumbphonenumber').value));
 
             var url = 'https://call-congress.fightforthefuture.org/create';
 
@@ -395,6 +409,7 @@ var onDomContentLoaded = function() {
 // -------------------------------------------------------------------------
 // This is here until the links that make up each company on the Corporate
 // scoreboard are ready to turn into tweets.
+if (doc.getElementById('scoreboard_corporate')) {
 
         var
             i, j,
@@ -413,6 +428,7 @@ var onDomContentLoaded = function() {
                 });
             }
         }
+}
 
 // -------------------------------------------------------------------------
 
@@ -459,9 +475,9 @@ if (document.readyState == "complete" || document.readyState == "loaded" || docu
       var xhr = e.target;
       if (xhr.status >= 200 && xhr.status < 400) {
 
-        popCallModal();
+        // popCallModal();
         var
-          form = document.getElementById('petition-form').getElementsByTagName('form')[0],
+          form = document.getElementById('petition-form'),
           thanks = document.getElementById('thanks');
         document.getElementById('form-headline').classList.add('hidden');
         thanks.classList.remove('hidden');

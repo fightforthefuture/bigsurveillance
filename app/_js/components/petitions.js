@@ -207,8 +207,8 @@ window.components.petitions = function (doc, win) {
       return formData;
     }
 
-    signatureSubmission.open('POST', 'https://queue.fightforthefuture.org/action', true);
-    // signatureSubmission.open('POST', 'http://localhost:9001/action', true); // JL DEBUG ~
+    // signatureSubmission.open('POST', 'https://queue.fightforthefuture.org/action', true);
+    signatureSubmission.open('POST', 'http://ubuntu:9001/action', true); // JL DEBUG ~
     signatureSubmission.addEventListener('error', win.callbacks.petitions.handleSigningError);
     signatureSubmission.addEventListener('load',  win.callbacks.petitions.loadSignatureResponse);
     signatureSubmission.send(compilePayload());
