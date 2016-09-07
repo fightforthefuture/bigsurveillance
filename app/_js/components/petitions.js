@@ -92,6 +92,12 @@ window.components.petitions = function (doc, win) {
           apiData = JSON.parse(anRequest.responseText);
 
         progressBar(apiData.signatures, apiData.goal);
+
+        // remove this after save-chelsea has > 1000 signatures
+        if (win.location.hostname === 'www.freechelsea.com' && apiData.signatures < 1000) {
+          doc.querySelector('.signatures').style.display = 'none';
+        }
+
       } else {
         handleProgressBarError();
       }
@@ -173,6 +179,10 @@ window.components.petitions = function (doc, win) {
         formData.append('member[street_address]', doc.getElementById('form-street_address').value);
       }
 
+      if (doc.getElementById('form-phone_number')) {
+        formData.append('member[phone_number]', doc.getElementById('form-phone_number').value);
+      }
+
       if (doc.getElementById('form-comments')) {
         formData.append('action_comment', doc.getElementById('form-comments').value);
       }
@@ -181,8 +191,12 @@ window.components.petitions = function (doc, win) {
         formData.append('subscription[source]', queryString.source);
       }
 
-      var autoresponderHours = document.querySelector('meta[name="autoresponder_hours"]');
+      var autoresponderHours = doc.querySelector('meta[name="autoresponder_hours"]'),
+          autoresponderActive = doc.querySelector('meta[name="autoresponder_active"]');
       formData.append('autoresponder_hours', autoresponderHours ? autoresponderHours.content : 72);
+
+      if (autoresponderActive)
+        formData.append('autoresponder_active', 1);
 
       var mothershipTag = document.querySelector('input[name="_mothership_tag"]');
       if (mothershipTag && mothershipTag.value)
@@ -198,6 +212,9 @@ window.components.petitions = function (doc, win) {
     signatureSubmission.addEventListener('error', win.callbacks.petitions.handleSigningError);
     signatureSubmission.addEventListener('load',  win.callbacks.petitions.loadSignatureResponse);
     signatureSubmission.send(compilePayload());
+
+    if (typeof FreeProgress !== "undefined")
+      FreeProgress.convert();
   }
 
   function addEventListeners() {

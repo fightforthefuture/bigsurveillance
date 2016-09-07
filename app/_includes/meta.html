@@ -1,4 +1,4 @@
-{% capture title %}{% if page.title %}{{ page.title }} |{% endif %}{{ site.name }}{% endcapture %}
+{% capture title %}{% if page.title %}{{ page.title }} | {% endif %}{{ site.name }}{% endcapture %}
 {% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
 {% capture sharetitle %}{% if site.sharetitle %}{{ site.sharetitle }}{% else %}{{ title }}{% endif %}{% endcapture %}
 <meta charset="utf-8">
