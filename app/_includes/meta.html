@@ -1,6 +1,8 @@
 {% capture title %}{% if page.title %}{{ page.title }} - {% endif %}{{ site.name }}{% endcapture %}
 {% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
-{% capture sharetitle %}{% if site.sharetitle %}{{ site.sharetitle }}{% else %}{{ title }}{% endif %}{% endcapture %}
+{% capture sharetitle %}{% if page.sharetitle %}{{ page.sharetitle }}{% else %}{% if site.sharetitle %}{{ site.sharetitle }}{% else %}{{ title }}{% endif %}{% endif %}{% endcapture %}
+{% capture shareimg %}{% if page.shareimg %}{{ site.url }}{{ page.shareimg }}{% else %}{{ site.url }}/images/share/shame.jpg{% endif %}{% endcapture %}
+{% capture twittertext %}{% if page.twittertext %}{{ page.twittertext }}{% else %}{{ site.twittertext }}{% endif %}{% endcapture %}
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,7 +15,7 @@
 <!-- facebook -->
 <meta property="og:url" content="{{ site.url }}{{ page.url | replace 'index.html', '' }}" />
 <meta property="og:type" content="website" />
-<meta property="og:image" content="{{ site.url }}/images/share/shame.jpg" />
+<meta property="og:image" content="{{ shareimg }}" />
 <meta property="og:image:width" content="1024" />
 <meta property="og:image:height" content="512" />
 <meta property="og:site_name" content="{{ site.name }}" />
@@ -27,10 +29,10 @@
 <meta name="twitter:site" content="{{ site.author.twitter }}">
 <meta name="twitter:title" content="{{ sharetitle }}">
 <meta name="twitter:description" content="{{ description }}"/>
-<meta name="twitter:image:src" content="{{ site.url }}/images/share/shame.jpg">
+<meta name="twitter:image:src" content="{{ shareimg }}">
 <meta name="twitter:domain" content="{{ site.url | remove:'http://' | remove:'https://' }}">
 <meta name="twitter:account_id" content="{{ site.author.twitterid }}" />
-<meta name="twittertext" content="{{ site.twittertext }}" />
+<meta name="twittertext" content="{{ twittertext }}" />
 
 <!-- google+ -->
 <meta itemprop="name" content="{{ title }}">
