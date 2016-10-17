@@ -353,11 +353,12 @@ var filterByPartialName = function(){
             div.classList.add('bad');
         }
         button.appendChild(text);
-        var m = results[i];
-        button.addEventListener("click", function(){
-            console.log(m);
-            new PoliticianModalController({model: m });
-        });
+
+        var cb = (function(model){
+            return function (){new PoliticianModalController({model: model });}
+        })(results[i]);
+
+        button.addEventListener("click", cb);
 
         var br = document.createElement("br");
         div.appendChild(button)
