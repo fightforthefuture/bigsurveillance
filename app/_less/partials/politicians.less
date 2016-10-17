@@ -271,3 +271,31 @@
     }
 }
 
+.names{
+
+    button {
+        border-radius: 100px;
+        border-style: solid;
+        border-width: 3px;
+        color: @white;
+        cursor: pointer;
+        font-family: @quote-font;
+        font-size: 2.5rem;
+        font-weight: 600;
+        height: 4.5rem;
+        transition: background-color 200ms linear, border-color 200ms linear;
+        vertical-align: top;
+
+        &.tweet_link {
+            .renderTwitter(4.5rem; auto; 32px);
+            //background-size: auto 3.2rem;
+            background-position: 0.5rem center;
+            //background-repeat: no-repeat;
+
+            img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+}

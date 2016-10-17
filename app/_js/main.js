@@ -262,8 +262,112 @@ var initializeScoreboard = function () {
             new PoliticianModalController({model: model});
         window.location.replace('#scoreboard');
     }
+    var searchInput = document.getElementById("nameSearch");
+    searchInput.addEventListener("keyup",filterByPartialName)
+
+
 
 };
+
+
+
+var filterByPartialName = function(){
+
+    var name = document.getElementById("nameSearch").value;
+
+    var names = name.toLowerCase().split(" ")
+
+    var distanceThreshold = 3;
+
+    function levenshteinDistance (str1, str2) {
+        if (typeof(str1) !== 'string' || typeof(str2) !== 'string') throw new Error('Pass two strings!')
+        
+        var distances = []
+        
+        for (var i = 0; i <= str1.length; ++i) distances[i]    = [ i ]
+        for (var i = 0; i <= str2.length; ++i) distances[0][i] =   i
+        
+        for (var j = 1; j <= str2.length; ++j)
+            for (var i = 1; i <= str1.length; ++i)
+
+            distances[i][j] =
+
+                str1[i - 1] === str2[j - 1] ? // if the characters are equal
+                distances[i - 1][j - 1] :     // no operation needed
+                                            // else
+                Math.min.apply(Math, [        // take the minimum between
+                distances[i - 1][  j  ] + 1 // a  deletion
+                , distances[  i  ][j - 1] + 1 // an insertion
+                , distances[i - 1][j - 1] + 1 // a  substitution
+            ])
+
+        return distances[str1.length][str2.length]
+    }
+    var results =[]
+
+    for (var i =0;i < names.length;i++){
+        var n = names[i];
+        if (n.length < 3){
+            continue;
+        }
+
+        var filtered = unfilteredPoliticians.filter(function(m){
+        var fname = m.get("first_name").toLowerCase();
+        if (levenshteinDistance(n,fname) < distanceThreshold){
+            return true;
+        }
+        if (fname.match(n)){
+            return true;
+        }
+        var lname = m.get("last_name").toLowerCase();
+        if (levenshteinDistance(n,lname) < distanceThreshold){
+            return true;
+        }
+        if(lname.match(n)){
+            return true;
+        }
+        return false;
+    })
+        results = results.concat(filtered);    
+
+    }
+    console.log(results);
+
+    var results_elem = document.getElementById('nameResults');
+    while (results_elem.firstChild) {
+        results_elem.removeChild(results_elem.firstChild);  
+    }
+    var frag = document.createDocumentFragment()
+    for(var i =0; i < results.length;i++){
+        var div = document.createElement("div");
+        var button = document.createElement("button");
+        var text = document.createTextNode(results[i].get("first_name") + " " +results[i].get("last_name") + ": " + results[i].get("grade"));
+        var score = results[i].get("score");
+
+
+        if (score >= 6) {
+            div.classList.add('good');
+        } else if (score >= 0) {
+            div.classList.add('neutral');
+        } else {
+            div.classList.add('bad');
+        }
+        button.appendChild(text);
+        var m = results[i];
+        button.addEventListener("click", function(){
+            console.log(m);
+            new PoliticianModalController({model: m });
+        });
+
+        var br = document.createElement("br");
+        div.appendChild(button)
+        frag.appendChild(div);
+        frag.appendChild(br);
+        frag.appendChild(br);
+    }
+    results_elem.appendChild(frag);
+}
+
 
 var alreadyBlasted = false;
 
