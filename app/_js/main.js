@@ -281,12 +281,12 @@ var filterByPartialName = function(){
 
     function levenshteinDistance (str1, str2) {
         if (typeof(str1) !== 'string' || typeof(str2) !== 'string') throw new Error('Pass two strings!')
-        
+
         var distances = []
-        
+
         for (var i = 0; i <= str1.length; ++i) distances[i]    = [ i ]
         for (var i = 0; i <= str2.length; ++i) distances[0][i] =   i
-        
+
         for (var j = 1; j <= str2.length; ++j)
             for (var i = 1; i <= str1.length; ++i)
 
@@ -328,14 +328,14 @@ var filterByPartialName = function(){
         }
         return false;
     })
-        results = results.concat(filtered);    
+        results = results.concat(filtered);
 
     }
     console.log(results);
 
     var results_elem = document.getElementById('nameResults');
     while (results_elem.firstChild) {
-        results_elem.removeChild(results_elem.firstChild);  
+        results_elem.removeChild(results_elem.firstChild);
     }
     var frag = document.createDocumentFragment()
     for(var i =0; i < results.length;i++){
@@ -477,7 +477,7 @@ var onDomContentLoaded = function() {
             }
 
             var data = new FormData();
-            data.append('campaignId', 'ectr');
+            data.append('campaignId', 'smh');
             data.append('org', window.org || 'fftf')
             data.append('userPhone', util.validatePhone(document.getElementById('dumbphonenumber').value));
 
@@ -495,7 +495,7 @@ var onDomContentLoaded = function() {
             new CallScriptModalController({
                 callHeadline: 'Awesome! We\'re calling your phone!',
                 callInstruction: 'Please be polite and tell your lawmaker:',
-                callScript: 'Please pass the Stop Mass Hacking Act to stop the dangerous Rule 41 change and refuse to expand surveillance powers.',
+                callScript: 'Please stop the dangerous Rule 41 change and refuse to expand surveillance powers. Vote to pass the Stop Mass Hacking Act.',
             });
 
             return false;

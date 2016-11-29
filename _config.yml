@@ -4,10 +4,10 @@
 # (production settings go in _config.build.yml)
 
 name: Decide the Future
-sharetitle: Congress wants to let the FBI spy on your browser history
+sharetitle: Congress is on the verge of allowing the FBI to hack your devices
 url: http://www.decidethefuture.org
 description: 'Less than 24 hours to stop Congress from expanding the PATRIOT Act. Call 1-919-FREEDOM!'
-twittertext: 'Congress votes soon on giving the FBI warrantless access to browsing history. Tell your senators: NO #BrowserSpying'
+twittertext: 'Tell Congress: vote YES on the #StopMassHacking Act to keep the FBI out of our phones. Dial 1-919-FREEDOM or visit'
 timezone: America/Los_Angeles
 googleanalytics: UA-26576645-28
 petitions_api: 'https://info.fightforthefuture.org'
