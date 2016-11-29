@@ -390,7 +390,7 @@ var onDomContentLoaded = function() {
             new CallScriptModalController({
                 callHeadline: 'Awesome! We\'re calling your phone!',
                 callInstruction: 'Please be polite and tell your lawmaker:',
-                callScript: 'Please reject any legislation that expands the PATRIOT Act or allows the FBI to obtain electronic communication records without a warrant.',
+                callScript: 'Please pass the Stop Mass Hacking Act to stop the dangerous Rule 41 change and refuse to expand surveillance powers.',
             });
 
             return false;
