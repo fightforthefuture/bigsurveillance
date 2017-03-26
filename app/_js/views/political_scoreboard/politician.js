@@ -22,7 +22,9 @@ var PoliticianView = function(data) {
     }
 
     // JL NOTE ~ added this to fix chrome bug, bah -----------------------------
+    if (data.politician.image != ""){
     img.classList.add('congressional-head', data.politician.image.replace('.jpg', ''));
+    }
     headshot.appendChild(img);
     // -------------------------------------------------------------------------
 
