@@ -3,16 +3,7 @@ var TWEET_BLASTER_URL = 'https://tweet-congress.herokuapp.com';
 var SPREADSHEET_URL = 'https://spreadsheets.google.com/feeds/list/1rTzEY0sEEHvHjZebIogoKO1qfTez2T6xNj0AScO6t24/default/public/values?alt=json';
 
 var DEFAULT_TWEETS = [
-    '#StopCISA—the largest mass surveillance bill since the PATRIOT Act www.decidethefuture.org',
-    'please vote to #StopCISA—this bill is bad for cybersecurity and human rights. www.decidethefuture.org',
-    '#StopCISA! Keep our private data out of the hands of insecure government agencies www.decidethefuture.org',
-    '#StopCISA! Don\'t give companies immunity for violating their privacy policies. www.decidethefuture.org',
-    '#StopCISA—Don\'t trade our privacy for a law that won\'t even fix our cybersecurity www.decidethefuture.org',
-    '#CISA erodes user privacy and consumer trust in American tech businesses. Vote NO www.decidethefuture.org',
-    'People hate #CISA. Tech companies hate #CISA. Privacy matters. Respect it! www.decidethefuture.org',
-    'Supporting #CISA is a good way to show you have no idea how to protect us—vote NO www.decidethefuture.org',
-    'Don\'t give companies immunity for getting hacked and leaking my data. #StopCISA! www.decidethefuture.org',
-    '#CISA allows government to secretly investigate people for minor crimes. Vote NO! www.decidethefuture.org',
+    "Let S. 702 of F.A.A. lapse 12/2017 - NSA & FBI killing our privacy.",
 ]
 
 var STATES = {
