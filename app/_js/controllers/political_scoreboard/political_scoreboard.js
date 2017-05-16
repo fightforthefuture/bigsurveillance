@@ -21,21 +21,21 @@ var PoliticalScoreboardController = Composer.Controller.extend({
 
         this.good = new Composer.FilterCollection(this.collection, {
             filter: function(model) {
-                return model.get('score') >= 6;
+                return model.get('score') >= 6 && model.get('active') !== 'No';
             }
         });
         this.init_list(this.good, this.good_list);
 
         this.bad = new Composer.FilterCollection(this.collection, {
             filter: function(model) {
-                return model.get('score') < 0;
+                return model.get('score') < 0 && model.get('active') !== 'No';
             }
         });
         this.init_list(this.bad, this.bad_list);
 
         this.meh = new Composer.FilterCollection(this.collection, {
             filter: function(model) {
-                return model.get('score') >= 0 && model.get('score') <= 5;
+                return model.get('score') >= 0 && model.get('score') <= 5 && model.get('active') !== 'No';
             }
         });
         this.init_list(this.meh, this.meh_list);
