@@ -71,9 +71,15 @@ xhr.onreadystatechange = function () {
         for (var i = 0; i < res.feed.entry.length; i++) {
             var entry = res.feed.entry[i];
             var politician = new Politician();
+            // console.log(entry)
             politician.populateFromGoogle(entry);
-            politicians.add(politician);
-            unfilteredPoliticians.add(politician);
+            // console.log(politician)
+            if (politician.get("active") !== "No"){ 
+                politicians.add(politician);
+                unfilteredPoliticians.add(politician);
+            }else{
+               // console.log("Inactive");
+            }
         }
 
         // convert to a filter collection (which allows us to filter on state)

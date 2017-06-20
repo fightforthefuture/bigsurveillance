@@ -44,6 +44,7 @@ var Politician = Composer.Model.extend({
             office8:         e('office8'),
             office8phone:    e('office8phone'),
             office8geo:      e('office8geo'),
+            active:          e('active'),
 
             // meta field
             score: 0,

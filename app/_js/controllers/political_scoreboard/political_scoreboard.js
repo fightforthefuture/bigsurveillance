@@ -35,7 +35,7 @@ var PoliticalScoreboardController = Composer.Controller.extend({
 
         this.meh = new Composer.FilterCollection(this.collection, {
             filter: function(model) {
-                return model.get('score') >= 0 && model.get('score') <= 5 && model.get('active') !== 'No';
+                return model.get('score') >= 0 && model.get('score') <= 5 && model.get('active') !==     'No';
             }
         });
         this.init_list(this.meh, this.meh_list);
